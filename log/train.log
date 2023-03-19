@@ -1,0 +1,3417 @@
+2023-03-19 09:54:17,227 - INFO: Logger created at ./log/cifar100_cut_aug-snn_t2_resnet18_act_mns_sig_width_5.0-opt_sgdm_tdbn_wd_0.0005_p_0.2__gamma_1.0__cas_4/train.log
+2023-03-19 09:54:17,227 - INFO: The hyperparameter list:
+2023-03-19 09:54:17,227 - INFO:   --seed 60
+2023-03-19 09:54:17,227 - INFO:   --arch resnet18
+2023-03-19 09:54:17,227 - INFO:   --dataset CIFAR100
+2023-03-19 09:54:17,227 - INFO:   --data_path /data2/cifar100
+2023-03-19 09:54:17,227 - INFO:   --ckpt_path ./checkpoint
+2023-03-19 09:54:17,227 - INFO:   --log_path ./log/cifar100_cut_aug-snn_t2_resnet18_act_mns_sig_width_5.0-opt_sgdm_tdbn_wd_0.0005_p_0.2__gamma_1.0__cas_4
+2023-03-19 09:54:17,227 - INFO:   --auto_aug True
+2023-03-19 09:54:17,227 - INFO:   --cutout True
+2023-03-19 09:54:17,227 - INFO:   --resume None
+2023-03-19 09:54:17,227 - INFO:   --train_batch_size 128
+2023-03-19 09:54:17,227 - INFO:   --val_batch_size 128
+2023-03-19 09:54:17,227 - INFO:   --lr 0.1
+2023-03-19 09:54:17,227 - INFO:   --width_lr 0.0003
+2023-03-19 09:54:17,227 - INFO:   --save_last False
+2023-03-19 09:54:17,227 - INFO:   --bn_type tdbn
+2023-03-19 09:54:17,227 - INFO:   --bias False
+2023-03-19 09:54:17,227 - INFO:   --wd 0.0005
+2023-03-19 09:54:17,227 - INFO:   --num_epoch 300
+2023-03-19 09:54:17,227 - INFO:   --num_workers 16
+2023-03-19 09:54:17,228 - INFO:   --optim SGDM
+2023-03-19 09:54:17,228 - INFO:   --grid_search ./summary.csv
+2023-03-19 09:54:17,228 - INFO:   --act mns_sig
+2023-03-19 09:54:17,228 - INFO:   --alpha 5.0
+2023-03-19 09:54:17,228 - INFO:   --use_gate False
+2023-03-19 09:54:17,228 - INFO:   --granularity layer
+2023-03-19 09:54:17,228 - INFO:   --decay 0.5
+2023-03-19 09:54:17,228 - INFO:   --thresh 1.0
+2023-03-19 09:54:17,228 - INFO:   --p 0.2
+2023-03-19 09:54:17,228 - INFO:   --gamma 1.0
+2023-03-19 09:54:17,228 - INFO:   --train_decay False
+2023-03-19 09:54:17,228 - INFO:   --train_thresh False
+2023-03-19 09:54:17,228 - INFO:   --device cuda:1
+2023-03-19 09:54:17,228 - INFO:   --T 2
+2023-03-19 09:54:17,228 - INFO:   --scheduler COSINE
+2023-03-19 09:54:17,228 - INFO:   --lr_milestone (90, 210, 270, 285)
+2023-03-19 09:54:17,228 - INFO:   --ns_milestone (0, 0.2, 0.4, 0.6, 0.8, 0.95)
+2023-03-19 09:54:17,228 - INFO:   --log_interval 100
+2023-03-19 09:54:23,148 - INFO: ResNet(
+  (conv0): Sequential(
+    (0): tdLayer(
+      (layer): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (1): tdLayer(
+      (layer): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): LIFLayer(
+      (cell): LIFCell(
+        (spike_fn): EfficientNoisySpikeII(
+          (inv_sg): InvSigmoid()
+        )
+      )
+    )
+  )
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential(
+        (0): tdLayer(
+          (layer): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        )
+        (1): tdLayer(
+          (layer): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential(
+        (0): tdLayer(
+          (layer): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        )
+        (1): tdLayer(
+          (layer): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential(
+        (0): tdLayer(
+          (layer): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        )
+        (1): tdLayer(
+          (layer): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): tdLayer(
+        (layer): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn1): tdLayer(
+        (layer): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (spike1): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+      (conv2): tdLayer(
+        (layer): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bn2): tdLayer(
+        (layer): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+      (spike2): LIFLayer(
+        (cell): LIFCell(
+          (spike_fn): EfficientNoisySpikeII(
+            (inv_sg): InvSigmoid()
+          )
+        )
+      )
+    )
+  )
+  (avg_pool): tdLayer(
+    (layer): AdaptiveAvgPool2d(output_size=(1, 1))
+  )
+  (classifier): Sequential(
+    (0): tdLayer(
+      (layer): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Readout()
+  )
+)
+2023-03-19 09:54:38,969 - INFO: 
+Epoch [0/300], Step [100/390], Loss: 0.03681
+2023-03-19 09:54:38,969 - INFO: Time elasped: 15.817720174789429
+2023-03-19 09:54:53,420 - INFO: 
+Epoch [0/300], Step [200/390], Loss: 0.03659
+2023-03-19 09:54:53,420 - INFO: Time elasped: 30.268627643585205
+2023-03-19 09:55:07,967 - INFO: 
+Epoch [0/300], Step [300/390], Loss: 0.03660
+2023-03-19 09:55:07,967 - INFO: Time elasped: 44.815388679504395
+2023-03-19 09:55:26,479 - INFO: Epoch 0: train loss 0.03664, train acc 0.00996, test acc 0.01030 
+2023-03-19 09:55:26,480 - INFO: Saving custom_model..  with acc 0.010300000198185444 in the epoch 0
+2023-03-19 09:55:42,434 - INFO: 
+Epoch [1/300], Step [100/390], Loss: 0.03684
+2023-03-19 09:55:42,434 - INFO: Time elasped: 15.84328818321228
+2023-03-19 09:55:57,115 - INFO: 
+Epoch [1/300], Step [200/390], Loss: 0.03683
+2023-03-19 09:55:57,116 - INFO: Time elasped: 30.52443528175354
+2023-03-19 09:56:11,845 - INFO: 
+Epoch [1/300], Step [300/390], Loss: 0.03677
+2023-03-19 09:56:11,845 - INFO: Time elasped: 45.253827810287476
+2023-03-19 09:56:30,237 - INFO: Epoch 1: train loss 0.03660, train acc 0.01004, test acc 0.01260 
+2023-03-19 09:56:30,238 - INFO: Saving custom_model..  with acc 0.012600000016391277 in the epoch 1
+2023-03-19 09:56:46,045 - INFO: 
+Epoch [2/300], Step [100/390], Loss: 0.03657
+2023-03-19 09:56:46,046 - INFO: Time elasped: 15.661983728408813
+2023-03-19 09:57:00,548 - INFO: 
+Epoch [2/300], Step [200/390], Loss: 0.03656
+2023-03-19 09:57:00,548 - INFO: Time elasped: 30.1643705368042
+2023-03-19 09:57:15,197 - INFO: 
+Epoch [2/300], Step [300/390], Loss: 0.03629
+2023-03-19 09:57:15,197 - INFO: Time elasped: 44.813164472579956
+2023-03-19 09:57:33,808 - INFO: Epoch 2: train loss 0.03655, train acc 0.01028, test acc 0.01230 
+2023-03-19 09:57:49,567 - INFO: 
+Epoch [3/300], Step [100/390], Loss: 0.03640
+2023-03-19 09:57:49,568 - INFO: Time elasped: 15.756383419036865
+2023-03-19 09:58:04,089 - INFO: 
+Epoch [3/300], Step [200/390], Loss: 0.03645
+2023-03-19 09:58:04,090 - INFO: Time elasped: 30.278186798095703
+2023-03-19 09:58:18,558 - INFO: 
+Epoch [3/300], Step [300/390], Loss: 0.03680
+2023-03-19 09:58:18,558 - INFO: Time elasped: 44.74648427963257
+2023-03-19 09:58:37,107 - INFO: Epoch 3: train loss 0.03638, train acc 0.01160, test acc 0.01450 
+2023-03-19 09:58:37,107 - INFO: Saving custom_model..  with acc 0.014499999582767487 in the epoch 3
+2023-03-19 09:58:53,010 - INFO: 
+Epoch [4/300], Step [100/390], Loss: 0.03619
+2023-03-19 09:58:53,010 - INFO: Time elasped: 15.722585678100586
+2023-03-19 09:59:07,694 - INFO: 
+Epoch [4/300], Step [200/390], Loss: 0.03608
+2023-03-19 09:59:07,694 - INFO: Time elasped: 30.406906366348267
+2023-03-19 09:59:22,221 - INFO: 
+Epoch [4/300], Step [300/390], Loss: 0.03529
+2023-03-19 09:59:22,228 - INFO: Time elasped: 44.940231800079346
+2023-03-19 09:59:40,705 - INFO: Epoch 4: train loss 0.03567, train acc 0.01900, test acc 0.03040 
+2023-03-19 09:59:40,705 - INFO: Saving custom_model..  with acc 0.030399998649954796 in the epoch 4
+2023-03-19 09:59:56,667 - INFO: 
+Epoch [5/300], Step [100/390], Loss: 0.03416
+2023-03-19 09:59:56,667 - INFO: Time elasped: 15.775060653686523
+2023-03-19 10:00:11,208 - INFO: 
+Epoch [5/300], Step [200/390], Loss: 0.03448
+2023-03-19 10:00:11,209 - INFO: Time elasped: 30.316343784332275
+2023-03-19 10:00:25,837 - INFO: 
+Epoch [5/300], Step [300/390], Loss: 0.03395
+2023-03-19 10:00:25,837 - INFO: Time elasped: 44.944417238235474
+2023-03-19 10:00:44,398 - INFO: Epoch 5: train loss 0.03449, train acc 0.03238, test acc 0.04800 
+2023-03-19 10:00:44,399 - INFO: Saving custom_model..  with acc 0.04800000041723251 in the epoch 5
+2023-03-19 10:01:00,568 - INFO: 
+Epoch [6/300], Step [100/390], Loss: 0.03353
+2023-03-19 10:01:00,568 - INFO: Time elasped: 15.97086763381958
+2023-03-19 10:01:15,288 - INFO: 
+Epoch [6/300], Step [200/390], Loss: 0.03439
+2023-03-19 10:01:15,295 - INFO: Time elasped: 30.697659969329834
+2023-03-19 10:01:30,060 - INFO: 
+Epoch [6/300], Step [300/390], Loss: 0.03324
+2023-03-19 10:01:30,061 - INFO: Time elasped: 45.46340870857239
+2023-03-19 10:01:48,506 - INFO: Epoch 6: train loss 0.03383, train acc 0.04168, test acc 0.05700 
+2023-03-19 10:01:48,508 - INFO: Saving custom_model..  with acc 0.05700000002980232 in the epoch 6
+2023-03-19 10:02:04,279 - INFO: 
+Epoch [7/300], Step [100/390], Loss: 0.03348
+2023-03-19 10:02:04,279 - INFO: Time elasped: 15.591422080993652
+2023-03-19 10:02:18,788 - INFO: 
+Epoch [7/300], Step [200/390], Loss: 0.03442
+2023-03-19 10:02:18,788 - INFO: Time elasped: 30.100584268569946
+2023-03-19 10:02:33,208 - INFO: 
+Epoch [7/300], Step [300/390], Loss: 0.03367
+2023-03-19 10:02:33,208 - INFO: Time elasped: 44.52019190788269
+2023-03-19 10:02:51,695 - INFO: Epoch 7: train loss 0.03313, train acc 0.05324, test acc 0.08200 
+2023-03-19 10:02:51,695 - INFO: Saving custom_model..  with acc 0.0819999948143959 in the epoch 7
+2023-03-19 10:03:07,595 - INFO: 
+Epoch [8/300], Step [100/390], Loss: 0.03332
+2023-03-19 10:03:07,596 - INFO: Time elasped: 15.731516122817993
+2023-03-19 10:03:22,059 - INFO: 
+Epoch [8/300], Step [200/390], Loss: 0.03256
+2023-03-19 10:03:22,059 - INFO: Time elasped: 30.19482445716858
+2023-03-19 10:03:36,529 - INFO: 
+Epoch [8/300], Step [300/390], Loss: 0.03288
+2023-03-19 10:03:36,529 - INFO: Time elasped: 44.66465735435486
+2023-03-19 10:03:55,078 - INFO: Epoch 8: train loss 0.03271, train acc 0.06056, test acc 0.05680 
+2023-03-19 10:04:10,623 - INFO: 
+Epoch [9/300], Step [100/390], Loss: 0.03216
+2023-03-19 10:04:10,623 - INFO: Time elasped: 15.542152643203735
+2023-03-19 10:04:25,266 - INFO: 
+Epoch [9/300], Step [200/390], Loss: 0.03384
+2023-03-19 10:04:25,266 - INFO: Time elasped: 30.185059785842896
+2023-03-19 10:04:40,000 - INFO: 
+Epoch [9/300], Step [300/390], Loss: 0.03376
+2023-03-19 10:04:40,001 - INFO: Time elasped: 44.91965389251709
+2023-03-19 10:04:58,530 - INFO: Epoch 9: train loss 0.03229, train acc 0.06764, test acc 0.06670 
+2023-03-19 10:05:14,213 - INFO: 
+Epoch [10/300], Step [100/390], Loss: 0.03259
+2023-03-19 10:05:14,213 - INFO: Time elasped: 15.67983102798462
+2023-03-19 10:05:28,689 - INFO: 
+Epoch [10/300], Step [200/390], Loss: 0.03165
+2023-03-19 10:05:28,690 - INFO: Time elasped: 30.15634322166443
+2023-03-19 10:05:43,353 - INFO: 
+Epoch [10/300], Step [300/390], Loss: 0.03134
+2023-03-19 10:05:43,353 - INFO: Time elasped: 44.81995749473572
+2023-03-19 10:06:00,442 - INFO: Epoch 10: train loss 0.03181, train acc 0.07702, test acc 0.09080 
+2023-03-19 10:06:00,443 - INFO: Saving custom_model..  with acc 0.09079999476671219 in the epoch 10
+2023-03-19 10:06:13,903 - INFO: 
+Epoch [11/300], Step [100/390], Loss: 0.03187
+2023-03-19 10:06:13,903 - INFO: Time elasped: 13.271167039871216
+2023-03-19 10:06:25,996 - INFO: 
+Epoch [11/300], Step [200/390], Loss: 0.03194
+2023-03-19 10:06:26,004 - INFO: Time elasped: 25.37137794494629
+2023-03-19 10:06:38,278 - INFO: 
+Epoch [11/300], Step [300/390], Loss: 0.03076
+2023-03-19 10:06:38,279 - INFO: Time elasped: 37.64635944366455
+2023-03-19 10:06:54,984 - INFO: Epoch 11: train loss 0.03141, train acc 0.08560, test acc 0.07840 
+2023-03-19 10:07:09,016 - INFO: 
+Epoch [12/300], Step [100/390], Loss: 0.03100
+2023-03-19 10:07:09,016 - INFO: Time elasped: 14.029272317886353
+2023-03-19 10:07:21,882 - INFO: 
+Epoch [12/300], Step [200/390], Loss: 0.03180
+2023-03-19 10:07:21,882 - INFO: Time elasped: 26.894854307174683
+2023-03-19 10:07:34,665 - INFO: 
+Epoch [12/300], Step [300/390], Loss: 0.03105
+2023-03-19 10:07:34,666 - INFO: Time elasped: 39.6784405708313
+2023-03-19 10:07:51,340 - INFO: Epoch 12: train loss 0.03114, train acc 0.09110, test acc 0.10150 
+2023-03-19 10:07:51,340 - INFO: Saving custom_model..  with acc 0.1014999970793724 in the epoch 12
+2023-03-19 10:08:05,503 - INFO: 
+Epoch [13/300], Step [100/390], Loss: 0.02959
+2023-03-19 10:08:05,503 - INFO: Time elasped: 13.962548732757568
+2023-03-19 10:08:20,333 - INFO: 
+Epoch [13/300], Step [200/390], Loss: 0.02977
+2023-03-19 10:08:20,333 - INFO: Time elasped: 28.792612314224243
+2023-03-19 10:08:36,160 - INFO: 
+Epoch [13/300], Step [300/390], Loss: 0.02894
+2023-03-19 10:08:36,160 - INFO: Time elasped: 44.61963486671448
+2023-03-19 10:08:56,458 - INFO: Epoch 13: train loss 0.03065, train acc 0.09922, test acc 0.07430 
+2023-03-19 10:09:13,431 - INFO: 
+Epoch [14/300], Step [100/390], Loss: 0.03102
+2023-03-19 10:09:13,431 - INFO: Time elasped: 16.970911741256714
+2023-03-19 10:09:28,968 - INFO: 
+Epoch [14/300], Step [200/390], Loss: 0.03040
+2023-03-19 10:09:28,968 - INFO: Time elasped: 32.50760865211487
+2023-03-19 10:09:44,702 - INFO: 
+Epoch [14/300], Step [300/390], Loss: 0.02885
+2023-03-19 10:09:44,702 - INFO: Time elasped: 48.24157500267029
+2023-03-19 10:10:05,129 - INFO: Epoch 14: train loss 0.03046, train acc 0.10294, test acc 0.11820 
+2023-03-19 10:10:05,130 - INFO: Saving custom_model..  with acc 0.11819999665021896 in the epoch 14
+2023-03-19 10:10:21,880 - INFO: 
+Epoch [15/300], Step [100/390], Loss: 0.03115
+2023-03-19 10:10:21,880 - INFO: Time elasped: 16.575918674468994
+2023-03-19 10:10:37,651 - INFO: 
+Epoch [15/300], Step [200/390], Loss: 0.02811
+2023-03-19 10:10:37,651 - INFO: Time elasped: 32.34744215011597
+2023-03-19 10:10:53,485 - INFO: 
+Epoch [15/300], Step [300/390], Loss: 0.02941
+2023-03-19 10:10:53,486 - INFO: Time elasped: 48.18200397491455
+2023-03-19 10:11:13,623 - INFO: Epoch 15: train loss 0.03019, train acc 0.10734, test acc 0.10640 
+2023-03-19 10:11:30,531 - INFO: 
+Epoch [16/300], Step [100/390], Loss: 0.03117
+2023-03-19 10:11:30,531 - INFO: Time elasped: 16.90515446662903
+2023-03-19 10:11:46,170 - INFO: 
+Epoch [16/300], Step [200/390], Loss: 0.02984
+2023-03-19 10:11:46,170 - INFO: Time elasped: 32.544405698776245
+2023-03-19 10:12:01,595 - INFO: 
+Epoch [16/300], Step [300/390], Loss: 0.02973
+2023-03-19 10:12:01,595 - INFO: Time elasped: 47.9692542552948
+2023-03-19 10:12:22,003 - INFO: Epoch 16: train loss 0.03000, train acc 0.11238, test acc 0.07890 
+2023-03-19 10:12:38,915 - INFO: 
+Epoch [17/300], Step [100/390], Loss: 0.02984
+2023-03-19 10:12:38,915 - INFO: Time elasped: 16.909292697906494
+2023-03-19 10:12:54,614 - INFO: 
+Epoch [17/300], Step [200/390], Loss: 0.02820
+2023-03-19 10:12:54,614 - INFO: Time elasped: 32.60842561721802
+2023-03-19 10:13:10,467 - INFO: 
+Epoch [17/300], Step [300/390], Loss: 0.02976
+2023-03-19 10:13:10,467 - INFO: Time elasped: 48.461440563201904
+2023-03-19 10:13:30,920 - INFO: Epoch 17: train loss 0.02958, train acc 0.12132, test acc 0.09600 
+2023-03-19 10:13:47,583 - INFO: 
+Epoch [18/300], Step [100/390], Loss: 0.02960
+2023-03-19 10:13:47,584 - INFO: Time elasped: 16.66071915626526
+2023-03-19 10:14:03,182 - INFO: 
+Epoch [18/300], Step [200/390], Loss: 0.03070
+2023-03-19 10:14:03,182 - INFO: Time elasped: 32.25887179374695
+2023-03-19 10:14:18,794 - INFO: 
+Epoch [18/300], Step [300/390], Loss: 0.02913
+2023-03-19 10:14:18,795 - INFO: Time elasped: 47.871623516082764
+2023-03-19 10:14:39,027 - INFO: Epoch 18: train loss 0.02947, train acc 0.12600, test acc 0.13990 
+2023-03-19 10:14:39,027 - INFO: Saving custom_model..  with acc 0.13989999890327454 in the epoch 18
+2023-03-19 10:14:56,060 - INFO: 
+Epoch [19/300], Step [100/390], Loss: 0.02907
+2023-03-19 10:14:56,061 - INFO: Time elasped: 16.85387086868286
+2023-03-19 10:15:11,728 - INFO: 
+Epoch [19/300], Step [200/390], Loss: 0.02829
+2023-03-19 10:15:11,736 - INFO: Time elasped: 32.52890872955322
+2023-03-19 10:15:27,259 - INFO: 
+Epoch [19/300], Step [300/390], Loss: 0.03174
+2023-03-19 10:15:27,260 - INFO: Time elasped: 48.053133964538574
+2023-03-19 10:15:47,472 - INFO: Epoch 19: train loss 0.02920, train acc 0.12832, test acc 0.15300 
+2023-03-19 10:15:47,473 - INFO: Saving custom_model..  with acc 0.15299999713897705 in the epoch 19
+2023-03-19 10:16:04,514 - INFO: 
+Epoch [20/300], Step [100/390], Loss: 0.03020
+2023-03-19 10:16:04,515 - INFO: Time elasped: 16.835314512252808
+2023-03-19 10:16:20,370 - INFO: 
+Epoch [20/300], Step [200/390], Loss: 0.02988
+2023-03-19 10:16:20,371 - INFO: Time elasped: 32.69158911705017
+2023-03-19 10:16:36,246 - INFO: 
+Epoch [20/300], Step [300/390], Loss: 0.02854
+2023-03-19 10:16:36,247 - INFO: Time elasped: 48.567384243011475
+2023-03-19 10:16:56,419 - INFO: Epoch 20: train loss 0.02886, train acc 0.13472, test acc 0.17410 
+2023-03-19 10:16:56,421 - INFO: Saving custom_model..  with acc 0.17409999668598175 in the epoch 20
+2023-03-19 10:17:12,904 - INFO: 
+Epoch [21/300], Step [100/390], Loss: 0.02851
+2023-03-19 10:17:12,904 - INFO: Time elasped: 16.296565055847168
+2023-03-19 10:17:27,430 - INFO: 
+Epoch [21/300], Step [200/390], Loss: 0.02860
+2023-03-19 10:17:27,430 - INFO: Time elasped: 30.822439193725586
+2023-03-19 10:17:41,844 - INFO: 
+Epoch [21/300], Step [300/390], Loss: 0.02882
+2023-03-19 10:17:41,851 - INFO: Time elasped: 45.24353837966919
+2023-03-19 10:18:00,291 - INFO: Epoch 21: train loss 0.02867, train acc 0.13956, test acc 0.15670 
+2023-03-19 10:18:16,072 - INFO: 
+Epoch [22/300], Step [100/390], Loss: 0.02820
+2023-03-19 10:18:16,072 - INFO: Time elasped: 15.777718305587769
+2023-03-19 10:18:30,710 - INFO: 
+Epoch [22/300], Step [200/390], Loss: 0.03029
+2023-03-19 10:18:30,710 - INFO: Time elasped: 30.416215896606445
+2023-03-19 10:18:45,284 - INFO: 
+Epoch [22/300], Step [300/390], Loss: 0.02923
+2023-03-19 10:18:45,284 - INFO: Time elasped: 44.990100622177124
+2023-03-19 10:19:03,782 - INFO: Epoch 22: train loss 0.02826, train acc 0.14922, test acc 0.17270 
+2023-03-19 10:19:19,531 - INFO: 
+Epoch [23/300], Step [100/390], Loss: 0.02771
+2023-03-19 10:19:19,532 - INFO: Time elasped: 15.746679306030273
+2023-03-19 10:19:34,171 - INFO: 
+Epoch [23/300], Step [200/390], Loss: 0.02745
+2023-03-19 10:19:34,171 - INFO: Time elasped: 30.38597869873047
+2023-03-19 10:19:47,831 - INFO: 
+Epoch [23/300], Step [300/390], Loss: 0.02931
+2023-03-19 10:19:47,832 - INFO: Time elasped: 44.04654622077942
+2023-03-19 10:20:03,189 - INFO: Epoch 23: train loss 0.02809, train acc 0.15032, test acc 0.19780 
+2023-03-19 10:20:03,189 - INFO: Saving custom_model..  with acc 0.19779999554157257 in the epoch 23
+2023-03-19 10:20:16,434 - INFO: 
+Epoch [24/300], Step [100/390], Loss: 0.02920
+2023-03-19 10:20:16,434 - INFO: Time elasped: 13.072551965713501
+2023-03-19 10:20:28,377 - INFO: 
+Epoch [24/300], Step [200/390], Loss: 0.02646
+2023-03-19 10:20:28,378 - INFO: Time elasped: 25.015955924987793
+2023-03-19 10:20:40,371 - INFO: 
+Epoch [24/300], Step [300/390], Loss: 0.02996
+2023-03-19 10:20:40,379 - INFO: Time elasped: 37.01684498786926
+2023-03-19 10:20:55,769 - INFO: Epoch 24: train loss 0.02789, train acc 0.15492, test acc 0.15870 
+2023-03-19 10:21:08,856 - INFO: 
+Epoch [25/300], Step [100/390], Loss: 0.02926
+2023-03-19 10:21:08,857 - INFO: Time elasped: 13.084852933883667
+2023-03-19 10:21:20,887 - INFO: 
+Epoch [25/300], Step [200/390], Loss: 0.02741
+2023-03-19 10:21:20,887 - INFO: Time elasped: 25.115286827087402
+2023-03-19 10:21:32,912 - INFO: 
+Epoch [25/300], Step [300/390], Loss: 0.02509
+2023-03-19 10:21:32,913 - INFO: Time elasped: 37.140626430511475
+2023-03-19 10:21:48,446 - INFO: Epoch 25: train loss 0.02753, train acc 0.16652, test acc 0.14170 
+2023-03-19 10:22:01,732 - INFO: 
+Epoch [26/300], Step [100/390], Loss: 0.02780
+2023-03-19 10:22:01,732 - INFO: Time elasped: 13.282243013381958
+2023-03-19 10:22:13,770 - INFO: 
+Epoch [26/300], Step [200/390], Loss: 0.02748
+2023-03-19 10:22:13,771 - INFO: Time elasped: 25.320892095565796
+2023-03-19 10:22:25,707 - INFO: 
+Epoch [26/300], Step [300/390], Loss: 0.02715
+2023-03-19 10:22:25,707 - INFO: Time elasped: 37.25728940963745
+2023-03-19 10:22:42,158 - INFO: Epoch 26: train loss 0.02723, train acc 0.17020, test acc 0.19780 
+2023-03-19 10:22:57,877 - INFO: 
+Epoch [27/300], Step [100/390], Loss: 0.02729
+2023-03-19 10:22:57,877 - INFO: Time elasped: 15.712554454803467
+2023-03-19 10:23:12,576 - INFO: 
+Epoch [27/300], Step [200/390], Loss: 0.02665
+2023-03-19 10:23:12,576 - INFO: Time elasped: 30.411851406097412
+2023-03-19 10:23:27,158 - INFO: 
+Epoch [27/300], Step [300/390], Loss: 0.02514
+2023-03-19 10:23:27,158 - INFO: Time elasped: 44.9941508769989
+2023-03-19 10:23:45,697 - INFO: Epoch 27: train loss 0.02699, train acc 0.17260, test acc 0.14500 
+2023-03-19 10:24:01,394 - INFO: 
+Epoch [28/300], Step [100/390], Loss: 0.02723
+2023-03-19 10:24:01,394 - INFO: Time elasped: 15.694072008132935
+2023-03-19 10:24:15,984 - INFO: 
+Epoch [28/300], Step [200/390], Loss: 0.02575
+2023-03-19 10:24:15,984 - INFO: Time elasped: 30.28385066986084
+2023-03-19 10:24:30,722 - INFO: 
+Epoch [28/300], Step [300/390], Loss: 0.02604
+2023-03-19 10:24:30,723 - INFO: Time elasped: 45.02233576774597
+2023-03-19 10:24:49,309 - INFO: Epoch 28: train loss 0.02656, train acc 0.18462, test acc 0.13970 
+2023-03-19 10:25:05,131 - INFO: 
+Epoch [29/300], Step [100/390], Loss: 0.02807
+2023-03-19 10:25:05,131 - INFO: Time elasped: 15.817519426345825
+2023-03-19 10:25:19,735 - INFO: 
+Epoch [29/300], Step [200/390], Loss: 0.02499
+2023-03-19 10:25:19,735 - INFO: Time elasped: 30.42131018638611
+2023-03-19 10:25:34,320 - INFO: 
+Epoch [29/300], Step [300/390], Loss: 0.02573
+2023-03-19 10:25:34,320 - INFO: Time elasped: 45.0062689781189
+2023-03-19 10:25:52,934 - INFO: Epoch 29: train loss 0.02631, train acc 0.19194, test acc 0.21430 
+2023-03-19 10:25:52,936 - INFO: Saving custom_model..  with acc 0.2142999917268753 in the epoch 29
+2023-03-19 10:26:08,750 - INFO: 
+Epoch [30/300], Step [100/390], Loss: 0.02633
+2023-03-19 10:26:08,750 - INFO: Time elasped: 15.654694318771362
+2023-03-19 10:26:23,346 - INFO: 
+Epoch [30/300], Step [200/390], Loss: 0.02651
+2023-03-19 10:26:23,346 - INFO: Time elasped: 30.250682830810547
+2023-03-19 10:26:38,126 - INFO: 
+Epoch [30/300], Step [300/390], Loss: 0.02519
+2023-03-19 10:26:38,126 - INFO: Time elasped: 45.03097748756409
+2023-03-19 10:26:56,936 - INFO: Epoch 30: train loss 0.02597, train acc 0.20064, test acc 0.19430 
+2023-03-19 10:27:13,088 - INFO: 
+Epoch [31/300], Step [100/390], Loss: 0.02654
+2023-03-19 10:27:13,088 - INFO: Time elasped: 16.14968967437744
+2023-03-19 10:27:27,614 - INFO: 
+Epoch [31/300], Step [200/390], Loss: 0.02556
+2023-03-19 10:27:27,615 - INFO: Time elasped: 30.67614459991455
+2023-03-19 10:27:42,253 - INFO: 
+Epoch [31/300], Step [300/390], Loss: 0.02622
+2023-03-19 10:27:42,253 - INFO: Time elasped: 45.31449246406555
+2023-03-19 10:28:00,741 - INFO: Epoch 31: train loss 0.02567, train acc 0.20410, test acc 0.20790 
+2023-03-19 10:28:16,566 - INFO: 
+Epoch [32/300], Step [100/390], Loss: 0.02577
+2023-03-19 10:28:16,566 - INFO: Time elasped: 15.819279670715332
+2023-03-19 10:28:31,327 - INFO: 
+Epoch [32/300], Step [200/390], Loss: 0.02534
+2023-03-19 10:28:31,327 - INFO: Time elasped: 30.58026432991028
+2023-03-19 10:28:45,861 - INFO: 
+Epoch [32/300], Step [300/390], Loss: 0.02767
+2023-03-19 10:28:45,861 - INFO: Time elasped: 45.11403131484985
+2023-03-19 10:29:04,291 - INFO: Epoch 32: train loss 0.02540, train acc 0.21130, test acc 0.22370 
+2023-03-19 10:29:04,293 - INFO: Saving custom_model..  with acc 0.22369998693466187 in the epoch 32
+2023-03-19 10:29:20,275 - INFO: 
+Epoch [33/300], Step [100/390], Loss: 0.02542
+2023-03-19 10:29:20,275 - INFO: Time elasped: 15.824819087982178
+2023-03-19 10:29:34,867 - INFO: 
+Epoch [33/300], Step [200/390], Loss: 0.02509
+2023-03-19 10:29:34,874 - INFO: Time elasped: 30.424189567565918
+2023-03-19 10:29:49,527 - INFO: 
+Epoch [33/300], Step [300/390], Loss: 0.02577
+2023-03-19 10:29:49,528 - INFO: Time elasped: 45.07761859893799
+2023-03-19 10:30:08,177 - INFO: Epoch 33: train loss 0.02503, train acc 0.22094, test acc 0.26110 
+2023-03-19 10:30:08,177 - INFO: Saving custom_model..  with acc 0.26109999418258667 in the epoch 33
+2023-03-19 10:30:24,106 - INFO: 
+Epoch [34/300], Step [100/390], Loss: 0.02481
+2023-03-19 10:30:24,107 - INFO: Time elasped: 15.77997875213623
+2023-03-19 10:30:38,856 - INFO: 
+Epoch [34/300], Step [200/390], Loss: 0.02460
+2023-03-19 10:30:38,863 - INFO: Time elasped: 30.53644847869873
+2023-03-19 10:30:53,460 - INFO: 
+Epoch [34/300], Step [300/390], Loss: 0.02560
+2023-03-19 10:30:53,460 - INFO: Time elasped: 45.13357949256897
+2023-03-19 10:31:12,244 - INFO: Epoch 34: train loss 0.02480, train acc 0.22548, test acc 0.19390 
+2023-03-19 10:31:28,022 - INFO: 
+Epoch [35/300], Step [100/390], Loss: 0.02486
+2023-03-19 10:31:28,022 - INFO: Time elasped: 15.771406888961792
+2023-03-19 10:31:42,568 - INFO: 
+Epoch [35/300], Step [200/390], Loss: 0.02375
+2023-03-19 10:31:42,568 - INFO: Time elasped: 30.31706666946411
+2023-03-19 10:31:57,246 - INFO: 
+Epoch [35/300], Step [300/390], Loss: 0.02267
+2023-03-19 10:31:57,246 - INFO: Time elasped: 44.995402097702026
+2023-03-19 10:32:16,100 - INFO: Epoch 35: train loss 0.02436, train acc 0.23464, test acc 0.19180 
+2023-03-19 10:32:32,117 - INFO: 
+Epoch [36/300], Step [100/390], Loss: 0.02409
+2023-03-19 10:32:32,117 - INFO: Time elasped: 16.011629343032837
+2023-03-19 10:32:46,825 - INFO: 
+Epoch [36/300], Step [200/390], Loss: 0.02415
+2023-03-19 10:32:46,825 - INFO: Time elasped: 30.719266176223755
+2023-03-19 10:33:01,373 - INFO: 
+Epoch [36/300], Step [300/390], Loss: 0.02484
+2023-03-19 10:33:01,373 - INFO: Time elasped: 45.26746082305908
+2023-03-19 10:33:19,880 - INFO: Epoch 36: train loss 0.02404, train acc 0.24354, test acc 0.26070 
+2023-03-19 10:33:35,689 - INFO: 
+Epoch [37/300], Step [100/390], Loss: 0.02633
+2023-03-19 10:33:35,689 - INFO: Time elasped: 15.802963256835938
+2023-03-19 10:33:50,219 - INFO: 
+Epoch [37/300], Step [200/390], Loss: 0.02432
+2023-03-19 10:33:50,226 - INFO: Time elasped: 30.339560747146606
+2023-03-19 10:34:05,026 - INFO: 
+Epoch [37/300], Step [300/390], Loss: 0.02282
+2023-03-19 10:34:05,027 - INFO: Time elasped: 45.140342235565186
+2023-03-19 10:34:24,040 - INFO: Epoch 37: train loss 0.02371, train acc 0.25054, test acc 0.29290 
+2023-03-19 10:34:24,040 - INFO: Saving custom_model..  with acc 0.2928999960422516 in the epoch 37
+2023-03-19 10:34:40,166 - INFO: 
+Epoch [38/300], Step [100/390], Loss: 0.02511
+2023-03-19 10:34:40,167 - INFO: Time elasped: 15.972934484481812
+2023-03-19 10:34:54,986 - INFO: 
+Epoch [38/300], Step [200/390], Loss: 0.02439
+2023-03-19 10:34:54,986 - INFO: Time elasped: 30.792718648910522
+2023-03-19 10:35:09,699 - INFO: 
+Epoch [38/300], Step [300/390], Loss: 0.02108
+2023-03-19 10:35:09,699 - INFO: Time elasped: 45.505085468292236
+2023-03-19 10:35:28,647 - INFO: Epoch 38: train loss 0.02350, train acc 0.25556, test acc 0.30790 
+2023-03-19 10:35:28,648 - INFO: Saving custom_model..  with acc 0.30789998173713684 in the epoch 38
+2023-03-19 10:35:44,921 - INFO: 
+Epoch [39/300], Step [100/390], Loss: 0.02345
+2023-03-19 10:35:44,922 - INFO: Time elasped: 16.082648038864136
+2023-03-19 10:35:59,658 - INFO: 
+Epoch [39/300], Step [200/390], Loss: 0.02240
+2023-03-19 10:35:59,659 - INFO: Time elasped: 30.81962561607361
+2023-03-19 10:36:14,498 - INFO: 
+Epoch [39/300], Step [300/390], Loss: 0.02336
+2023-03-19 10:36:14,499 - INFO: Time elasped: 45.65970993041992
+2023-03-19 10:36:33,520 - INFO: Epoch 39: train loss 0.02321, train acc 0.26050, test acc 0.31950 
+2023-03-19 10:36:33,521 - INFO: Saving custom_model..  with acc 0.31949999928474426 in the epoch 39
+2023-03-19 10:36:47,063 - INFO: 
+Epoch [40/300], Step [100/390], Loss: 0.02413
+2023-03-19 10:36:47,063 - INFO: Time elasped: 13.351955652236938
+2023-03-19 10:36:59,124 - INFO: 
+Epoch [40/300], Step [200/390], Loss: 0.02274
+2023-03-19 10:36:59,131 - INFO: Time elasped: 25.420233964920044
+2023-03-19 10:37:11,297 - INFO: 
+Epoch [40/300], Step [300/390], Loss: 0.02145
+2023-03-19 10:37:11,298 - INFO: Time elasped: 37.58655858039856
+2023-03-19 10:37:27,007 - INFO: Epoch 40: train loss 0.02297, train acc 0.26826, test acc 0.32240 
+2023-03-19 10:37:27,007 - INFO: Saving custom_model..  with acc 0.3224000036716461 in the epoch 40
+2023-03-19 10:37:40,657 - INFO: 
+Epoch [41/300], Step [100/390], Loss: 0.02295
+2023-03-19 10:37:40,657 - INFO: Time elasped: 13.450085401535034
+2023-03-19 10:37:52,699 - INFO: 
+Epoch [41/300], Step [200/390], Loss: 0.02089
+2023-03-19 10:37:52,699 - INFO: Time elasped: 25.49185848236084
+2023-03-19 10:38:04,757 - INFO: 
+Epoch [41/300], Step [300/390], Loss: 0.02200
+2023-03-19 10:38:04,757 - INFO: Time elasped: 37.55000901222229
+2023-03-19 10:38:20,226 - INFO: Epoch 41: train loss 0.02270, train acc 0.27276, test acc 0.30020 
+2023-03-19 10:38:33,405 - INFO: 
+Epoch [42/300], Step [100/390], Loss: 0.02146
+2023-03-19 10:38:33,406 - INFO: Time elasped: 13.177205085754395
+2023-03-19 10:38:45,396 - INFO: 
+Epoch [42/300], Step [200/390], Loss: 0.02092
+2023-03-19 10:38:45,404 - INFO: Time elasped: 25.175134658813477
+2023-03-19 10:38:57,433 - INFO: 
+Epoch [42/300], Step [300/390], Loss: 0.02282
+2023-03-19 10:38:57,434 - INFO: Time elasped: 37.20543098449707
+2023-03-19 10:39:12,992 - INFO: Epoch 42: train loss 0.02241, train acc 0.28236, test acc 0.22800 
+2023-03-19 10:39:26,107 - INFO: 
+Epoch [43/300], Step [100/390], Loss: 0.02283
+2023-03-19 10:39:26,107 - INFO: Time elasped: 13.112840414047241
+2023-03-19 10:39:39,900 - INFO: 
+Epoch [43/300], Step [200/390], Loss: 0.02272
+2023-03-19 10:39:39,900 - INFO: Time elasped: 26.906311988830566
+2023-03-19 10:39:54,693 - INFO: 
+Epoch [43/300], Step [300/390], Loss: 0.02302
+2023-03-19 10:39:54,693 - INFO: Time elasped: 41.69886493682861
+2023-03-19 10:40:13,807 - INFO: Epoch 43: train loss 0.02228, train acc 0.28806, test acc 0.35640 
+2023-03-19 10:40:13,809 - INFO: Saving custom_model..  with acc 0.3563999831676483 in the epoch 43
+2023-03-19 10:40:30,026 - INFO: 
+Epoch [44/300], Step [100/390], Loss: 0.02040
+2023-03-19 10:40:30,026 - INFO: Time elasped: 16.064696311950684
+2023-03-19 10:40:44,834 - INFO: 
+Epoch [44/300], Step [200/390], Loss: 0.02201
+2023-03-19 10:40:44,835 - INFO: Time elasped: 30.87369966506958
+2023-03-19 10:40:59,656 - INFO: 
+Epoch [44/300], Step [300/390], Loss: 0.02234
+2023-03-19 10:40:59,656 - INFO: Time elasped: 45.69482088088989
+2023-03-19 10:41:18,676 - INFO: Epoch 44: train loss 0.02198, train acc 0.29494, test acc 0.30430 
+2023-03-19 10:41:34,748 - INFO: 
+Epoch [45/300], Step [100/390], Loss: 0.02083
+2023-03-19 10:41:34,748 - INFO: Time elasped: 16.069288730621338
+2023-03-19 10:41:49,604 - INFO: 
+Epoch [45/300], Step [200/390], Loss: 0.02251
+2023-03-19 10:41:49,604 - INFO: Time elasped: 30.92587423324585
+2023-03-19 10:42:04,544 - INFO: 
+Epoch [45/300], Step [300/390], Loss: 0.02229
+2023-03-19 10:42:04,544 - INFO: Time elasped: 45.86550712585449
+2023-03-19 10:42:23,817 - INFO: Epoch 45: train loss 0.02189, train acc 0.29650, test acc 0.25660 
+2023-03-19 10:42:41,208 - INFO: 
+Epoch [46/300], Step [100/390], Loss: 0.02209
+2023-03-19 10:42:41,208 - INFO: Time elasped: 17.385026216506958
+2023-03-19 10:42:57,413 - INFO: 
+Epoch [46/300], Step [200/390], Loss: 0.02146
+2023-03-19 10:42:57,413 - INFO: Time elasped: 33.58999061584473
+2023-03-19 10:43:13,582 - INFO: 
+Epoch [46/300], Step [300/390], Loss: 0.02322
+2023-03-19 10:43:13,583 - INFO: Time elasped: 49.759228467941284
+2023-03-19 10:43:34,778 - INFO: Epoch 46: train loss 0.02166, train acc 0.29948, test acc 0.34470 
+2023-03-19 10:43:52,286 - INFO: 
+Epoch [47/300], Step [100/390], Loss: 0.02044
+2023-03-19 10:43:52,286 - INFO: Time elasped: 17.502342224121094
+2023-03-19 10:44:08,589 - INFO: 
+Epoch [47/300], Step [200/390], Loss: 0.02208
+2023-03-19 10:44:08,589 - INFO: Time elasped: 33.8053560256958
+2023-03-19 10:44:24,786 - INFO: 
+Epoch [47/300], Step [300/390], Loss: 0.02169
+2023-03-19 10:44:24,786 - INFO: Time elasped: 50.0024049282074
+2023-03-19 10:44:45,804 - INFO: Epoch 47: train loss 0.02150, train acc 0.30696, test acc 0.30050 
+2023-03-19 10:45:03,086 - INFO: 
+Epoch [48/300], Step [100/390], Loss: 0.02152
+2023-03-19 10:45:03,086 - INFO: Time elasped: 17.279624223709106
+2023-03-19 10:45:19,285 - INFO: 
+Epoch [48/300], Step [200/390], Loss: 0.02162
+2023-03-19 10:45:19,286 - INFO: Time elasped: 33.478967905044556
+2023-03-19 10:45:35,060 - INFO: 
+Epoch [48/300], Step [300/390], Loss: 0.01983
+2023-03-19 10:45:35,060 - INFO: Time elasped: 49.25359869003296
+2023-03-19 10:45:56,211 - INFO: Epoch 48: train loss 0.02123, train acc 0.31686, test acc 0.31580 
+2023-03-19 10:46:13,694 - INFO: 
+Epoch [49/300], Step [100/390], Loss: 0.02109
+2023-03-19 10:46:13,695 - INFO: Time elasped: 17.47099733352661
+2023-03-19 10:46:30,022 - INFO: 
+Epoch [49/300], Step [200/390], Loss: 0.02060
+2023-03-19 10:46:30,023 - INFO: Time elasped: 33.79889369010925
+2023-03-19 10:46:46,253 - INFO: 
+Epoch [49/300], Step [300/390], Loss: 0.02073
+2023-03-19 10:46:46,254 - INFO: Time elasped: 50.0296516418457
+2023-03-19 10:47:07,365 - INFO: Epoch 49: train loss 0.02108, train acc 0.31554, test acc 0.34810 
+2023-03-19 10:47:24,898 - INFO: 
+Epoch [50/300], Step [100/390], Loss: 0.02159
+2023-03-19 10:47:24,899 - INFO: Time elasped: 17.526723861694336
+2023-03-19 10:47:41,178 - INFO: 
+Epoch [50/300], Step [200/390], Loss: 0.02063
+2023-03-19 10:47:41,178 - INFO: Time elasped: 33.80597519874573
+2023-03-19 10:47:57,175 - INFO: 
+Epoch [50/300], Step [300/390], Loss: 0.02352
+2023-03-19 10:47:57,175 - INFO: Time elasped: 49.80349826812744
+2023-03-19 10:48:18,365 - INFO: Epoch 50: train loss 0.02091, train acc 0.32510, test acc 0.36190 
+2023-03-19 10:48:18,367 - INFO: Saving custom_model..  with acc 0.3619000017642975 in the epoch 50
+2023-03-19 10:48:35,430 - INFO: 
+Epoch [51/300], Step [100/390], Loss: 0.02321
+2023-03-19 10:48:35,431 - INFO: Time elasped: 16.864058256149292
+2023-03-19 10:48:51,698 - INFO: 
+Epoch [51/300], Step [200/390], Loss: 0.02103
+2023-03-19 10:48:51,699 - INFO: Time elasped: 33.13205575942993
+2023-03-19 10:49:07,127 - INFO: 
+Epoch [51/300], Step [300/390], Loss: 0.02191
+2023-03-19 10:49:07,128 - INFO: Time elasped: 48.56110405921936
+2023-03-19 10:49:28,413 - INFO: Epoch 51: train loss 0.02080, train acc 0.32480, test acc 0.41430 
+2023-03-19 10:49:28,420 - INFO: Saving custom_model..  with acc 0.41429999470710754 in the epoch 51
+2023-03-19 10:49:46,163 - INFO: 
+Epoch [52/300], Step [100/390], Loss: 0.01914
+2023-03-19 10:49:46,163 - INFO: Time elasped: 17.534095764160156
+2023-03-19 10:50:02,004 - INFO: 
+Epoch [52/300], Step [200/390], Loss: 0.01899
+2023-03-19 10:50:02,005 - INFO: Time elasped: 33.375555753707886
+2023-03-19 10:50:17,905 - INFO: 
+Epoch [52/300], Step [300/390], Loss: 0.01968
+2023-03-19 10:50:17,905 - INFO: Time elasped: 49.27558493614197
+2023-03-19 10:50:38,779 - INFO: Epoch 52: train loss 0.02071, train acc 0.32860, test acc 0.37470 
+2023-03-19 10:50:56,077 - INFO: 
+Epoch [53/300], Step [100/390], Loss: 0.02082
+2023-03-19 10:50:56,077 - INFO: Time elasped: 17.29538083076477
+2023-03-19 10:51:12,123 - INFO: 
+Epoch [53/300], Step [200/390], Loss: 0.01891
+2023-03-19 10:51:12,123 - INFO: Time elasped: 33.34143018722534
+2023-03-19 10:51:27,836 - INFO: 
+Epoch [53/300], Step [300/390], Loss: 0.01947
+2023-03-19 10:51:27,837 - INFO: Time elasped: 49.05462288856506
+2023-03-19 10:51:49,021 - INFO: Epoch 53: train loss 0.02047, train acc 0.33610, test acc 0.37220 
+2023-03-19 10:52:06,110 - INFO: 
+Epoch [54/300], Step [100/390], Loss: 0.02075
+2023-03-19 10:52:06,117 - INFO: Time elasped: 17.09210753440857
+2023-03-19 10:52:18,763 - INFO: 
+Epoch [54/300], Step [200/390], Loss: 0.01946
+2023-03-19 10:52:18,763 - INFO: Time elasped: 29.737820625305176
+2023-03-19 10:52:31,558 - INFO: 
+Epoch [54/300], Step [300/390], Loss: 0.02211
+2023-03-19 10:52:31,559 - INFO: Time elasped: 42.533392667770386
+2023-03-19 10:52:48,406 - INFO: Epoch 54: train loss 0.02036, train acc 0.33782, test acc 0.34280 
+2023-03-19 10:53:02,602 - INFO: 
+Epoch [55/300], Step [100/390], Loss: 0.01947
+2023-03-19 10:53:02,602 - INFO: Time elasped: 14.193026065826416
+2023-03-19 10:53:15,538 - INFO: 
+Epoch [55/300], Step [200/390], Loss: 0.01818
+2023-03-19 10:53:15,538 - INFO: Time elasped: 27.128886938095093
+2023-03-19 10:53:28,346 - INFO: 
+Epoch [55/300], Step [300/390], Loss: 0.01859
+2023-03-19 10:53:28,347 - INFO: Time elasped: 39.93736004829407
+2023-03-19 10:53:45,263 - INFO: Epoch 55: train loss 0.02020, train acc 0.34072, test acc 0.39840 
+2023-03-19 10:53:58,996 - INFO: 
+Epoch [56/300], Step [100/390], Loss: 0.01965
+2023-03-19 10:53:58,997 - INFO: Time elasped: 13.730484008789062
+2023-03-19 10:54:11,233 - INFO: 
+Epoch [56/300], Step [200/390], Loss: 0.01978
+2023-03-19 10:54:11,233 - INFO: Time elasped: 25.96690607070923
+2023-03-19 10:54:23,318 - INFO: 
+Epoch [56/300], Step [300/390], Loss: 0.02181
+2023-03-19 10:54:23,318 - INFO: Time elasped: 38.051997661590576
+2023-03-19 10:54:39,028 - INFO: Epoch 56: train loss 0.02009, train acc 0.34506, test acc 0.42190 
+2023-03-19 10:54:39,029 - INFO: Saving custom_model..  with acc 0.4219000041484833 in the epoch 56
+2023-03-19 10:54:52,180 - INFO: 
+Epoch [57/300], Step [100/390], Loss: 0.02014
+2023-03-19 10:54:52,181 - INFO: Time elasped: 12.979529619216919
+2023-03-19 10:55:04,083 - INFO: 
+Epoch [57/300], Step [200/390], Loss: 0.01968
+2023-03-19 10:55:04,090 - INFO: Time elasped: 24.888964891433716
+2023-03-19 10:55:15,892 - INFO: 
+Epoch [57/300], Step [300/390], Loss: 0.01917
+2023-03-19 10:55:15,893 - INFO: Time elasped: 36.691258907318115
+2023-03-19 10:55:31,465 - INFO: Epoch 57: train loss 0.01998, train acc 0.34752, test acc 0.37340 
+2023-03-19 10:55:44,513 - INFO: 
+Epoch [58/300], Step [100/390], Loss: 0.02000
+2023-03-19 10:55:44,514 - INFO: Time elasped: 13.04572057723999
+2023-03-19 10:55:56,268 - INFO: 
+Epoch [58/300], Step [200/390], Loss: 0.01871
+2023-03-19 10:55:56,268 - INFO: Time elasped: 24.799931287765503
+2023-03-19 10:56:08,150 - INFO: 
+Epoch [58/300], Step [300/390], Loss: 0.02080
+2023-03-19 10:56:08,150 - INFO: Time elasped: 36.68244957923889
+2023-03-19 10:56:23,902 - INFO: Epoch 58: train loss 0.01978, train acc 0.35410, test acc 0.40670 
+2023-03-19 10:56:36,996 - INFO: 
+Epoch [59/300], Step [100/390], Loss: 0.01936
+2023-03-19 10:56:36,996 - INFO: Time elasped: 13.090998888015747
+2023-03-19 10:56:48,780 - INFO: 
+Epoch [59/300], Step [200/390], Loss: 0.01886
+2023-03-19 10:56:48,781 - INFO: Time elasped: 24.875452041625977
+2023-03-19 10:57:00,567 - INFO: 
+Epoch [59/300], Step [300/390], Loss: 0.01932
+2023-03-19 10:57:00,567 - INFO: Time elasped: 36.6623158454895
+2023-03-19 10:57:16,347 - INFO: Epoch 59: train loss 0.01960, train acc 0.35698, test acc 0.44640 
+2023-03-19 10:57:16,347 - INFO: Saving custom_model..  with acc 0.446399986743927 in the epoch 59
+2023-03-19 10:57:29,632 - INFO: 
+Epoch [60/300], Step [100/390], Loss: 0.01990
+2023-03-19 10:57:29,633 - INFO: Time elasped: 13.093555688858032
+2023-03-19 10:57:41,436 - INFO: 
+Epoch [60/300], Step [200/390], Loss: 0.01866
+2023-03-19 10:57:41,437 - INFO: Time elasped: 24.897504329681396
+2023-03-19 10:57:53,286 - INFO: 
+Epoch [60/300], Step [300/390], Loss: 0.01949
+2023-03-19 10:57:53,286 - INFO: Time elasped: 36.74639844894409
+2023-03-19 10:58:09,045 - INFO: Epoch 60: train loss 0.01941, train acc 0.36246, test acc 0.45290 
+2023-03-19 10:58:09,045 - INFO: Saving custom_model..  with acc 0.4528999924659729 in the epoch 60
+2023-03-19 10:58:22,226 - INFO: 
+Epoch [61/300], Step [100/390], Loss: 0.01930
+2023-03-19 10:58:22,226 - INFO: Time elasped: 12.991074800491333
+2023-03-19 10:58:33,963 - INFO: 
+Epoch [61/300], Step [200/390], Loss: 0.02113
+2023-03-19 10:58:33,964 - INFO: Time elasped: 24.728492975234985
+2023-03-19 10:58:45,890 - INFO: 
+Epoch [61/300], Step [300/390], Loss: 0.01708
+2023-03-19 10:58:45,890 - INFO: Time elasped: 36.65484952926636
+2023-03-19 10:59:01,703 - INFO: Epoch 61: train loss 0.01934, train acc 0.36466, test acc 0.45180 
+2023-03-19 10:59:14,803 - INFO: 
+Epoch [62/300], Step [100/390], Loss: 0.02092
+2023-03-19 10:59:14,803 - INFO: Time elasped: 13.096909761428833
+2023-03-19 10:59:26,622 - INFO: 
+Epoch [62/300], Step [200/390], Loss: 0.02020
+2023-03-19 10:59:26,623 - INFO: Time elasped: 24.9164080619812
+2023-03-19 10:59:38,486 - INFO: 
+Epoch [62/300], Step [300/390], Loss: 0.01800
+2023-03-19 10:59:38,488 - INFO: Time elasped: 36.78144073486328
+2023-03-19 10:59:54,079 - INFO: Epoch 62: train loss 0.01912, train acc 0.37104, test acc 0.43880 
+2023-03-19 11:00:07,025 - INFO: 
+Epoch [63/300], Step [100/390], Loss: 0.01990
+2023-03-19 11:00:07,026 - INFO: Time elasped: 12.94382095336914
+2023-03-19 11:00:18,855 - INFO: 
+Epoch [63/300], Step [200/390], Loss: 0.01985
+2023-03-19 11:00:18,855 - INFO: Time elasped: 24.773223638534546
+2023-03-19 11:00:30,718 - INFO: 
+Epoch [63/300], Step [300/390], Loss: 0.02184
+2023-03-19 11:00:30,718 - INFO: Time elasped: 36.63609480857849
+2023-03-19 11:00:46,436 - INFO: Epoch 63: train loss 0.01896, train acc 0.37474, test acc 0.42930 
+2023-03-19 11:00:59,476 - INFO: 
+Epoch [64/300], Step [100/390], Loss: 0.01697
+2023-03-19 11:00:59,476 - INFO: Time elasped: 13.038037776947021
+2023-03-19 11:01:11,256 - INFO: 
+Epoch [64/300], Step [200/390], Loss: 0.01868
+2023-03-19 11:01:11,257 - INFO: Time elasped: 24.818400621414185
+2023-03-19 11:01:23,033 - INFO: 
+Epoch [64/300], Step [300/390], Loss: 0.01964
+2023-03-19 11:01:23,034 - INFO: Time elasped: 36.59549307823181
+2023-03-19 11:01:38,765 - INFO: Epoch 64: train loss 0.01882, train acc 0.37756, test acc 0.47130 
+2023-03-19 11:01:38,765 - INFO: Saving custom_model..  with acc 0.4712999761104584 in the epoch 64
+2023-03-19 11:01:51,965 - INFO: 
+Epoch [65/300], Step [100/390], Loss: 0.02057
+2023-03-19 11:01:51,965 - INFO: Time elasped: 12.995836019515991
+2023-03-19 11:02:03,721 - INFO: 
+Epoch [65/300], Step [200/390], Loss: 0.01696
+2023-03-19 11:02:03,728 - INFO: Time elasped: 24.75865077972412
+2023-03-19 11:02:15,568 - INFO: 
+Epoch [65/300], Step [300/390], Loss: 0.01883
+2023-03-19 11:02:15,569 - INFO: Time elasped: 36.599244356155396
+2023-03-19 11:02:31,355 - INFO: Epoch 65: train loss 0.01867, train acc 0.38454, test acc 0.45900 
+2023-03-19 11:02:44,324 - INFO: 
+Epoch [66/300], Step [100/390], Loss: 0.01803
+2023-03-19 11:02:44,325 - INFO: Time elasped: 12.966735363006592
+2023-03-19 11:02:56,115 - INFO: 
+Epoch [66/300], Step [200/390], Loss: 0.01646
+2023-03-19 11:02:56,115 - INFO: Time elasped: 24.757019519805908
+2023-03-19 11:03:07,880 - INFO: 
+Epoch [66/300], Step [300/390], Loss: 0.01819
+2023-03-19 11:03:07,881 - INFO: Time elasped: 36.52251410484314
+2023-03-19 11:03:23,508 - INFO: Epoch 66: train loss 0.01866, train acc 0.38376, test acc 0.46870 
+2023-03-19 11:03:36,472 - INFO: 
+Epoch [67/300], Step [100/390], Loss: 0.01984
+2023-03-19 11:03:36,473 - INFO: Time elasped: 12.962469816207886
+2023-03-19 11:03:48,292 - INFO: 
+Epoch [67/300], Step [200/390], Loss: 0.01816
+2023-03-19 11:03:48,293 - INFO: Time elasped: 24.782103061676025
+2023-03-19 11:04:00,231 - INFO: 
+Epoch [67/300], Step [300/390], Loss: 0.02031
+2023-03-19 11:04:00,232 - INFO: Time elasped: 36.72135376930237
+2023-03-19 11:04:16,218 - INFO: Epoch 67: train loss 0.01848, train acc 0.39142, test acc 0.42320 
+2023-03-19 11:04:29,227 - INFO: 
+Epoch [68/300], Step [100/390], Loss: 0.01963
+2023-03-19 11:04:29,228 - INFO: Time elasped: 13.00729489326477
+2023-03-19 11:04:40,993 - INFO: 
+Epoch [68/300], Step [200/390], Loss: 0.01672
+2023-03-19 11:04:40,994 - INFO: Time elasped: 24.773200750350952
+2023-03-19 11:04:52,751 - INFO: 
+Epoch [68/300], Step [300/390], Loss: 0.01950
+2023-03-19 11:04:52,751 - INFO: Time elasped: 36.53073287010193
+2023-03-19 11:05:08,437 - INFO: Epoch 68: train loss 0.01838, train acc 0.39304, test acc 0.43120 
+2023-03-19 11:05:21,628 - INFO: 
+Epoch [69/300], Step [100/390], Loss: 0.01735
+2023-03-19 11:05:21,629 - INFO: Time elasped: 13.181854963302612
+2023-03-19 11:05:33,418 - INFO: 
+Epoch [69/300], Step [200/390], Loss: 0.01606
+2023-03-19 11:05:33,418 - INFO: Time elasped: 24.971162796020508
+2023-03-19 11:05:45,117 - INFO: 
+Epoch [69/300], Step [300/390], Loss: 0.01857
+2023-03-19 11:05:45,118 - INFO: Time elasped: 36.67098021507263
+2023-03-19 11:06:00,916 - INFO: Epoch 69: train loss 0.01818, train acc 0.39752, test acc 0.47470 
+2023-03-19 11:06:00,916 - INFO: Saving custom_model..  with acc 0.4746999740600586 in the epoch 69
+2023-03-19 11:06:14,193 - INFO: 
+Epoch [70/300], Step [100/390], Loss: 0.01758
+2023-03-19 11:06:14,194 - INFO: Time elasped: 13.114583492279053
+2023-03-19 11:06:26,168 - INFO: 
+Epoch [70/300], Step [200/390], Loss: 0.01913
+2023-03-19 11:06:26,168 - INFO: Time elasped: 25.089200735092163
+2023-03-19 11:06:37,994 - INFO: 
+Epoch [70/300], Step [300/390], Loss: 0.01664
+2023-03-19 11:06:37,994 - INFO: Time elasped: 36.91492295265198
+2023-03-19 11:06:53,665 - INFO: Epoch 70: train loss 0.01818, train acc 0.39796, test acc 0.49520 
+2023-03-19 11:06:53,667 - INFO: Saving custom_model..  with acc 0.495199978351593 in the epoch 70
+2023-03-19 11:07:06,886 - INFO: 
+Epoch [71/300], Step [100/390], Loss: 0.01828
+2023-03-19 11:07:06,886 - INFO: Time elasped: 13.023492813110352
+2023-03-19 11:07:18,736 - INFO: 
+Epoch [71/300], Step [200/390], Loss: 0.01581
+2023-03-19 11:07:18,736 - INFO: Time elasped: 24.873224020004272
+2023-03-19 11:07:30,607 - INFO: 
+Epoch [71/300], Step [300/390], Loss: 0.01962
+2023-03-19 11:07:30,608 - INFO: Time elasped: 36.745256423950195
+2023-03-19 11:07:46,307 - INFO: Epoch 71: train loss 0.01802, train acc 0.40198, test acc 0.46580 
+2023-03-19 11:07:59,378 - INFO: 
+Epoch [72/300], Step [100/390], Loss: 0.01817
+2023-03-19 11:07:59,378 - INFO: Time elasped: 13.06836986541748
+2023-03-19 11:08:11,225 - INFO: 
+Epoch [72/300], Step [200/390], Loss: 0.01905
+2023-03-19 11:08:11,225 - INFO: Time elasped: 24.91517424583435
+2023-03-19 11:08:23,000 - INFO: 
+Epoch [72/300], Step [300/390], Loss: 0.01870
+2023-03-19 11:08:23,000 - INFO: Time elasped: 36.68997597694397
+2023-03-19 11:08:38,797 - INFO: Epoch 72: train loss 0.01787, train acc 0.40876, test acc 0.50520 
+2023-03-19 11:08:38,797 - INFO: Saving custom_model..  with acc 0.5051999688148499 in the epoch 72
+2023-03-19 11:08:52,087 - INFO: 
+Epoch [73/300], Step [100/390], Loss: 0.01953
+2023-03-19 11:08:52,088 - INFO: Time elasped: 13.087068319320679
+2023-03-19 11:09:03,921 - INFO: 
+Epoch [73/300], Step [200/390], Loss: 0.01762
+2023-03-19 11:09:03,921 - INFO: Time elasped: 24.92056941986084
+2023-03-19 11:09:15,772 - INFO: 
+Epoch [73/300], Step [300/390], Loss: 0.01659
+2023-03-19 11:09:15,773 - INFO: Time elasped: 36.77186179161072
+2023-03-19 11:09:31,356 - INFO: Epoch 73: train loss 0.01793, train acc 0.40632, test acc 0.48240 
+2023-03-19 11:09:44,336 - INFO: 
+Epoch [74/300], Step [100/390], Loss: 0.01507
+2023-03-19 11:09:44,337 - INFO: Time elasped: 12.978221654891968
+2023-03-19 11:09:56,124 - INFO: 
+Epoch [74/300], Step [200/390], Loss: 0.01607
+2023-03-19 11:09:56,125 - INFO: Time elasped: 24.766127109527588
+2023-03-19 11:10:07,894 - INFO: 
+Epoch [74/300], Step [300/390], Loss: 0.01796
+2023-03-19 11:10:07,894 - INFO: Time elasped: 36.53545093536377
+2023-03-19 11:10:23,591 - INFO: Epoch 74: train loss 0.01772, train acc 0.41170, test acc 0.46340 
+2023-03-19 11:10:36,638 - INFO: 
+Epoch [75/300], Step [100/390], Loss: 0.01768
+2023-03-19 11:10:36,639 - INFO: Time elasped: 13.044998407363892
+2023-03-19 11:10:48,501 - INFO: 
+Epoch [75/300], Step [200/390], Loss: 0.01899
+2023-03-19 11:10:48,501 - INFO: Time elasped: 24.907514810562134
+2023-03-19 11:11:00,272 - INFO: 
+Epoch [75/300], Step [300/390], Loss: 0.01810
+2023-03-19 11:11:00,272 - INFO: Time elasped: 36.678678035736084
+2023-03-19 11:11:15,910 - INFO: Epoch 75: train loss 0.01761, train acc 0.41490, test acc 0.50600 
+2023-03-19 11:11:15,910 - INFO: Saving custom_model..  with acc 0.5059999823570251 in the epoch 75
+2023-03-19 11:11:29,113 - INFO: 
+Epoch [76/300], Step [100/390], Loss: 0.01881
+2023-03-19 11:11:29,113 - INFO: Time elasped: 13.044121742248535
+2023-03-19 11:11:40,924 - INFO: 
+Epoch [76/300], Step [200/390], Loss: 0.01806
+2023-03-19 11:11:40,931 - INFO: Time elasped: 24.86182713508606
+2023-03-19 11:11:52,777 - INFO: 
+Epoch [76/300], Step [300/390], Loss: 0.01745
+2023-03-19 11:11:52,777 - INFO: Time elasped: 36.70822048187256
+2023-03-19 11:12:08,500 - INFO: Epoch 76: train loss 0.01755, train acc 0.41686, test acc 0.51510 
+2023-03-19 11:12:08,500 - INFO: Saving custom_model..  with acc 0.5151000022888184 in the epoch 76
+2023-03-19 11:12:21,756 - INFO: 
+Epoch [77/300], Step [100/390], Loss: 0.01549
+2023-03-19 11:12:21,757 - INFO: Time elasped: 13.043642044067383
+2023-03-19 11:12:33,553 - INFO: 
+Epoch [77/300], Step [200/390], Loss: 0.01589
+2023-03-19 11:12:33,553 - INFO: Time elasped: 24.839755296707153
+2023-03-19 11:12:45,407 - INFO: 
+Epoch [77/300], Step [300/390], Loss: 0.01804
+2023-03-19 11:12:45,408 - INFO: Time elasped: 36.694557189941406
+2023-03-19 11:13:01,157 - INFO: Epoch 77: train loss 0.01748, train acc 0.41964, test acc 0.44930 
+2023-03-19 11:13:14,243 - INFO: 
+Epoch [78/300], Step [100/390], Loss: 0.01635
+2023-03-19 11:13:14,244 - INFO: Time elasped: 13.077635526657104
+2023-03-19 11:13:26,187 - INFO: 
+Epoch [78/300], Step [200/390], Loss: 0.01764
+2023-03-19 11:13:26,188 - INFO: Time elasped: 25.021587133407593
+2023-03-19 11:13:37,319 - INFO: 
+Epoch [78/300], Step [300/390], Loss: 0.01633
+2023-03-19 11:13:37,320 - INFO: Time elasped: 36.15346002578735
+2023-03-19 11:13:51,925 - INFO: Epoch 78: train loss 0.01734, train acc 0.42380, test acc 0.47110 
+2023-03-19 11:14:07,323 - INFO: 
+Epoch [79/300], Step [100/390], Loss: 0.01647
+2023-03-19 11:14:07,323 - INFO: Time elasped: 15.395661354064941
+2023-03-19 11:14:22,060 - INFO: 
+Epoch [79/300], Step [200/390], Loss: 0.01747
+2023-03-19 11:14:22,060 - INFO: Time elasped: 30.1328604221344
+2023-03-19 11:14:36,935 - INFO: 
+Epoch [79/300], Step [300/390], Loss: 0.01737
+2023-03-19 11:14:36,935 - INFO: Time elasped: 45.007603883743286
+2023-03-19 11:14:56,014 - INFO: Epoch 79: train loss 0.01735, train acc 0.42592, test acc 0.50560 
+2023-03-19 11:15:12,060 - INFO: 
+Epoch [80/300], Step [100/390], Loss: 0.01621
+2023-03-19 11:15:12,060 - INFO: Time elasped: 16.03944683074951
+2023-03-19 11:15:26,768 - INFO: 
+Epoch [80/300], Step [200/390], Loss: 0.01796
+2023-03-19 11:15:26,768 - INFO: Time elasped: 30.74728536605835
+2023-03-19 11:15:41,615 - INFO: 
+Epoch [80/300], Step [300/390], Loss: 0.01661
+2023-03-19 11:15:41,615 - INFO: Time elasped: 45.59456014633179
+2023-03-19 11:16:00,715 - INFO: Epoch 80: train loss 0.01729, train acc 0.42010, test acc 0.47620 
+2023-03-19 11:16:16,779 - INFO: 
+Epoch [81/300], Step [100/390], Loss: 0.01483
+2023-03-19 11:16:16,779 - INFO: Time elasped: 16.06157875061035
+2023-03-19 11:16:31,513 - INFO: 
+Epoch [81/300], Step [200/390], Loss: 0.01887
+2023-03-19 11:16:31,514 - INFO: Time elasped: 30.79612684249878
+2023-03-19 11:16:46,332 - INFO: 
+Epoch [81/300], Step [300/390], Loss: 0.01742
+2023-03-19 11:16:46,332 - INFO: Time elasped: 45.6145179271698
+2023-03-19 11:17:05,273 - INFO: Epoch 81: train loss 0.01720, train acc 0.42890, test acc 0.49840 
+2023-03-19 11:17:21,305 - INFO: 
+Epoch [82/300], Step [100/390], Loss: 0.01688
+2023-03-19 11:17:21,306 - INFO: Time elasped: 16.029937267303467
+2023-03-19 11:17:35,985 - INFO: 
+Epoch [82/300], Step [200/390], Loss: 0.02002
+2023-03-19 11:17:35,985 - INFO: Time elasped: 30.709721088409424
+2023-03-19 11:17:50,809 - INFO: 
+Epoch [82/300], Step [300/390], Loss: 0.01908
+2023-03-19 11:17:50,809 - INFO: Time elasped: 45.53329825401306
+2023-03-19 11:18:09,894 - INFO: Epoch 82: train loss 0.01722, train acc 0.42684, test acc 0.49950 
+2023-03-19 11:18:25,935 - INFO: 
+Epoch [83/300], Step [100/390], Loss: 0.01806
+2023-03-19 11:18:25,935 - INFO: Time elasped: 16.038809061050415
+2023-03-19 11:18:40,729 - INFO: 
+Epoch [83/300], Step [200/390], Loss: 0.01464
+2023-03-19 11:18:40,729 - INFO: Time elasped: 30.83301854133606
+2023-03-19 11:18:55,813 - INFO: 
+Epoch [83/300], Step [300/390], Loss: 0.01942
+2023-03-19 11:18:55,813 - INFO: Time elasped: 45.917237281799316
+2023-03-19 11:19:15,296 - INFO: Epoch 83: train loss 0.01700, train acc 0.43144, test acc 0.46960 
+2023-03-19 11:19:32,617 - INFO: 
+Epoch [84/300], Step [100/390], Loss: 0.01402
+2023-03-19 11:19:32,618 - INFO: Time elasped: 17.315260410308838
+2023-03-19 11:19:48,791 - INFO: 
+Epoch [84/300], Step [200/390], Loss: 0.01607
+2023-03-19 11:19:48,792 - INFO: Time elasped: 33.48888039588928
+2023-03-19 11:20:05,197 - INFO: 
+Epoch [84/300], Step [300/390], Loss: 0.01452
+2023-03-19 11:20:05,198 - INFO: Time elasped: 49.89490842819214
+2023-03-19 11:20:26,422 - INFO: Epoch 84: train loss 0.01699, train acc 0.43436, test acc 0.53270 
+2023-03-19 11:20:26,425 - INFO: Saving custom_model..  with acc 0.5327000021934509 in the epoch 84
+2023-03-19 11:20:44,072 - INFO: 
+Epoch [85/300], Step [100/390], Loss: 0.01604
+2023-03-19 11:20:44,073 - INFO: Time elasped: 17.47920060157776
+2023-03-19 11:21:00,209 - INFO: 
+Epoch [85/300], Step [200/390], Loss: 0.01570
+2023-03-19 11:21:00,210 - INFO: Time elasped: 33.616271018981934
+2023-03-19 11:21:16,415 - INFO: 
+Epoch [85/300], Step [300/390], Loss: 0.01756
+2023-03-19 11:21:16,415 - INFO: Time elasped: 49.822012186050415
+2023-03-19 11:21:37,665 - INFO: Epoch 85: train loss 0.01692, train acc 0.43306, test acc 0.52440 
+2023-03-19 11:21:55,240 - INFO: 
+Epoch [86/300], Step [100/390], Loss: 0.01551
+2023-03-19 11:21:55,240 - INFO: Time elasped: 17.56492018699646
+2023-03-19 11:22:11,405 - INFO: 
+Epoch [86/300], Step [200/390], Loss: 0.01842
+2023-03-19 11:22:11,405 - INFO: Time elasped: 33.72976779937744
+2023-03-19 11:22:27,596 - INFO: 
+Epoch [86/300], Step [300/390], Loss: 0.01404
+2023-03-19 11:22:27,596 - INFO: Time elasped: 49.920963764190674
+2023-03-19 11:22:48,884 - INFO: Epoch 86: train loss 0.01681, train acc 0.43802, test acc 0.53250 
+2023-03-19 11:23:05,346 - INFO: 
+Epoch [87/300], Step [100/390], Loss: 0.01770
+2023-03-19 11:23:05,347 - INFO: Time elasped: 16.46023392677307
+2023-03-19 11:23:21,566 - INFO: 
+Epoch [87/300], Step [200/390], Loss: 0.01788
+2023-03-19 11:23:21,566 - INFO: Time elasped: 32.679293632507324
+2023-03-19 11:23:37,699 - INFO: 
+Epoch [87/300], Step [300/390], Loss: 0.01472
+2023-03-19 11:23:37,699 - INFO: Time elasped: 48.8127007484436
+2023-03-19 11:23:58,877 - INFO: Epoch 87: train loss 0.01670, train acc 0.44252, test acc 0.46650 
+2023-03-19 11:24:16,100 - INFO: 
+Epoch [88/300], Step [100/390], Loss: 0.01612
+2023-03-19 11:24:16,101 - INFO: Time elasped: 17.21761965751648
+2023-03-19 11:24:32,244 - INFO: 
+Epoch [88/300], Step [200/390], Loss: 0.01567
+2023-03-19 11:24:32,244 - INFO: Time elasped: 33.36098027229309
+2023-03-19 11:24:48,454 - INFO: 
+Epoch [88/300], Step [300/390], Loss: 0.01690
+2023-03-19 11:24:48,454 - INFO: Time elasped: 49.57077217102051
+2023-03-19 11:25:09,704 - INFO: Epoch 88: train loss 0.01684, train acc 0.43714, test acc 0.51890 
+2023-03-19 11:25:27,201 - INFO: 
+Epoch [89/300], Step [100/390], Loss: 0.01466
+2023-03-19 11:25:27,202 - INFO: Time elasped: 17.495001792907715
+2023-03-19 11:25:43,110 - INFO: 
+Epoch [89/300], Step [200/390], Loss: 0.01597
+2023-03-19 11:25:43,110 - INFO: Time elasped: 33.403218030929565
+2023-03-19 11:25:59,193 - INFO: 
+Epoch [89/300], Step [300/390], Loss: 0.01542
+2023-03-19 11:25:59,193 - INFO: Time elasped: 49.486419916152954
+2023-03-19 11:26:19,949 - INFO: Epoch 89: train loss 0.01657, train acc 0.44686, test acc 0.50860 
+2023-03-19 11:26:37,330 - INFO: 
+Epoch [90/300], Step [100/390], Loss: 0.01750
+2023-03-19 11:26:37,331 - INFO: Time elasped: 17.375184059143066
+2023-03-19 11:26:53,255 - INFO: 
+Epoch [90/300], Step [200/390], Loss: 0.01670
+2023-03-19 11:26:53,256 - INFO: Time elasped: 33.300501346588135
+2023-03-19 11:27:06,198 - INFO: 
+Epoch [90/300], Step [300/390], Loss: 0.01763
+2023-03-19 11:27:06,198 - INFO: Time elasped: 46.24286723136902
+2023-03-19 11:27:22,774 - INFO: Epoch 90: train loss 0.01668, train acc 0.44294, test acc 0.51110 
+2023-03-19 11:27:36,677 - INFO: 
+Epoch [91/300], Step [100/390], Loss: 0.01546
+2023-03-19 11:27:36,678 - INFO: Time elasped: 13.900026559829712
+2023-03-19 11:27:49,388 - INFO: 
+Epoch [91/300], Step [200/390], Loss: 0.01539
+2023-03-19 11:27:49,388 - INFO: Time elasped: 26.610106468200684
+2023-03-19 11:28:02,129 - INFO: 
+Epoch [91/300], Step [300/390], Loss: 0.01689
+2023-03-19 11:28:02,130 - INFO: Time elasped: 39.35193967819214
+2023-03-19 11:28:19,033 - INFO: Epoch 91: train loss 0.01652, train acc 0.44634, test acc 0.53410 
+2023-03-19 11:28:19,035 - INFO: Saving custom_model..  with acc 0.5340999960899353 in the epoch 91
+2023-03-19 11:28:33,371 - INFO: 
+Epoch [92/300], Step [100/390], Loss: 0.01528
+2023-03-19 11:28:33,371 - INFO: Time elasped: 14.137044668197632
+2023-03-19 11:28:46,150 - INFO: 
+Epoch [92/300], Step [200/390], Loss: 0.01705
+2023-03-19 11:28:46,150 - INFO: Time elasped: 26.916236400604248
+2023-03-19 11:28:59,056 - INFO: 
+Epoch [92/300], Step [300/390], Loss: 0.01603
+2023-03-19 11:28:59,056 - INFO: Time elasped: 39.82191324234009
+2023-03-19 11:29:16,022 - INFO: Epoch 92: train loss 0.01650, train acc 0.44708, test acc 0.54270 
+2023-03-19 11:29:16,029 - INFO: Saving custom_model..  with acc 0.5426999926567078 in the epoch 92
+2023-03-19 11:29:32,897 - INFO: 
+Epoch [93/300], Step [100/390], Loss: 0.01568
+2023-03-19 11:29:32,898 - INFO: Time elasped: 16.664136171340942
+2023-03-19 11:29:49,123 - INFO: 
+Epoch [93/300], Step [200/390], Loss: 0.01618
+2023-03-19 11:29:49,123 - INFO: Time elasped: 32.889294147491455
+2023-03-19 11:30:04,930 - INFO: 
+Epoch [93/300], Step [300/390], Loss: 0.01580
+2023-03-19 11:30:04,931 - INFO: Time elasped: 48.696805238723755
+2023-03-19 11:30:26,149 - INFO: Epoch 93: train loss 0.01637, train acc 0.45228, test acc 0.52650 
+2023-03-19 11:30:43,021 - INFO: 
+Epoch [94/300], Step [100/390], Loss: 0.01499
+2023-03-19 11:30:43,021 - INFO: Time elasped: 16.86897039413452
+2023-03-19 11:30:57,801 - INFO: 
+Epoch [94/300], Step [200/390], Loss: 0.01628
+2023-03-19 11:30:57,802 - INFO: Time elasped: 31.649478673934937
+2023-03-19 11:31:12,658 - INFO: 
+Epoch [94/300], Step [300/390], Loss: 0.01960
+2023-03-19 11:31:12,659 - INFO: Time elasped: 46.506603717803955
+2023-03-19 11:31:31,877 - INFO: Epoch 94: train loss 0.01648, train acc 0.44860, test acc 0.47830 
+2023-03-19 11:31:47,865 - INFO: 
+Epoch [95/300], Step [100/390], Loss: 0.01723
+2023-03-19 11:31:47,866 - INFO: Time elasped: 15.985502004623413
+2023-03-19 11:32:02,523 - INFO: 
+Epoch [95/300], Step [200/390], Loss: 0.01794
+2023-03-19 11:32:02,523 - INFO: Time elasped: 30.642698287963867
+2023-03-19 11:32:17,324 - INFO: 
+Epoch [95/300], Step [300/390], Loss: 0.01786
+2023-03-19 11:32:17,324 - INFO: Time elasped: 45.44384837150574
+2023-03-19 11:32:36,478 - INFO: Epoch 95: train loss 0.01628, train acc 0.45436, test acc 0.53320 
+2023-03-19 11:32:52,556 - INFO: 
+Epoch [96/300], Step [100/390], Loss: 0.01761
+2023-03-19 11:32:52,556 - INFO: Time elasped: 16.06843662261963
+2023-03-19 11:33:07,338 - INFO: 
+Epoch [96/300], Step [200/390], Loss: 0.01632
+2023-03-19 11:33:07,338 - INFO: Time elasped: 30.850258588790894
+2023-03-19 11:33:22,199 - INFO: 
+Epoch [96/300], Step [300/390], Loss: 0.01602
+2023-03-19 11:33:22,199 - INFO: Time elasped: 45.710965156555176
+2023-03-19 11:33:41,251 - INFO: Epoch 96: train loss 0.01627, train acc 0.45714, test acc 0.55700 
+2023-03-19 11:33:41,251 - INFO: Saving custom_model..  with acc 0.5569999814033508 in the epoch 96
+2023-03-19 11:33:57,394 - INFO: 
+Epoch [97/300], Step [100/390], Loss: 0.01434
+2023-03-19 11:33:57,394 - INFO: Time elasped: 15.943973064422607
+2023-03-19 11:34:12,079 - INFO: 
+Epoch [97/300], Step [200/390], Loss: 0.01539
+2023-03-19 11:34:12,086 - INFO: Time elasped: 30.63606286048889
+2023-03-19 11:34:26,894 - INFO: 
+Epoch [97/300], Step [300/390], Loss: 0.01674
+2023-03-19 11:34:26,895 - INFO: Time elasped: 45.444722414016724
+2023-03-19 11:34:46,016 - INFO: Epoch 97: train loss 0.01621, train acc 0.45596, test acc 0.51490 
+2023-03-19 11:35:02,174 - INFO: 
+Epoch [98/300], Step [100/390], Loss: 0.01496
+2023-03-19 11:35:02,174 - INFO: Time elasped: 16.154993057250977
+2023-03-19 11:35:16,791 - INFO: 
+Epoch [98/300], Step [200/390], Loss: 0.01576
+2023-03-19 11:35:16,791 - INFO: Time elasped: 30.772114992141724
+2023-03-19 11:35:31,845 - INFO: 
+Epoch [98/300], Step [300/390], Loss: 0.01941
+2023-03-19 11:35:31,845 - INFO: Time elasped: 45.825931549072266
+2023-03-19 11:35:51,257 - INFO: Epoch 98: train loss 0.01624, train acc 0.45642, test acc 0.54640 
+2023-03-19 11:36:07,611 - INFO: 
+Epoch [99/300], Step [100/390], Loss: 0.01311
+2023-03-19 11:36:07,611 - INFO: Time elasped: 16.35038113594055
+2023-03-19 11:36:22,316 - INFO: 
+Epoch [99/300], Step [200/390], Loss: 0.01731
+2023-03-19 11:36:22,316 - INFO: Time elasped: 31.05567193031311
+2023-03-19 11:36:37,172 - INFO: 
+Epoch [99/300], Step [300/390], Loss: 0.01614
+2023-03-19 11:36:37,172 - INFO: Time elasped: 45.91167593002319
+2023-03-19 11:36:56,274 - INFO: Epoch 99: train loss 0.01613, train acc 0.46070, test acc 0.54090 
+2023-03-19 11:37:12,321 - INFO: 
+Epoch [100/300], Step [100/390], Loss: 0.01851
+2023-03-19 11:37:12,321 - INFO: Time elasped: 16.04085111618042
+2023-03-19 11:37:27,045 - INFO: 
+Epoch [100/300], Step [200/390], Loss: 0.01647
+2023-03-19 11:37:27,045 - INFO: Time elasped: 30.76436686515808
+2023-03-19 11:37:41,833 - INFO: 
+Epoch [100/300], Step [300/390], Loss: 0.01611
+2023-03-19 11:37:41,834 - INFO: Time elasped: 45.55306434631348
+2023-03-19 11:38:00,874 - INFO: Epoch 100: train loss 0.01607, train acc 0.46086, test acc 0.55390 
+2023-03-19 11:38:16,905 - INFO: 
+Epoch [101/300], Step [100/390], Loss: 0.01494
+2023-03-19 11:38:16,905 - INFO: Time elasped: 16.027947664260864
+2023-03-19 11:38:31,632 - INFO: 
+Epoch [101/300], Step [200/390], Loss: 0.01854
+2023-03-19 11:38:31,632 - INFO: Time elasped: 30.7553231716156
+2023-03-19 11:38:46,535 - INFO: 
+Epoch [101/300], Step [300/390], Loss: 0.01510
+2023-03-19 11:38:46,535 - INFO: Time elasped: 45.65843677520752
+2023-03-19 11:39:05,508 - INFO: Epoch 101: train loss 0.01598, train acc 0.46162, test acc 0.53300 
+2023-03-19 11:39:21,663 - INFO: 
+Epoch [102/300], Step [100/390], Loss: 0.01667
+2023-03-19 11:39:21,664 - INFO: Time elasped: 16.143600940704346
+2023-03-19 11:39:36,329 - INFO: 
+Epoch [102/300], Step [200/390], Loss: 0.01381
+2023-03-19 11:39:36,329 - INFO: Time elasped: 30.809112071990967
+2023-03-19 11:39:51,066 - INFO: 
+Epoch [102/300], Step [300/390], Loss: 0.01583
+2023-03-19 11:39:51,066 - INFO: Time elasped: 45.54568839073181
+2023-03-19 11:40:10,152 - INFO: Epoch 102: train loss 0.01603, train acc 0.46202, test acc 0.53160 
+2023-03-19 11:40:26,064 - INFO: 
+Epoch [103/300], Step [100/390], Loss: 0.01694
+2023-03-19 11:40:26,065 - INFO: Time elasped: 15.899896144866943
+2023-03-19 11:40:41,051 - INFO: 
+Epoch [103/300], Step [200/390], Loss: 0.01543
+2023-03-19 11:40:41,051 - INFO: Time elasped: 30.88659644126892
+2023-03-19 11:40:56,010 - INFO: 
+Epoch [103/300], Step [300/390], Loss: 0.01603
+2023-03-19 11:40:56,010 - INFO: Time elasped: 45.845800161361694
+2023-03-19 11:41:15,330 - INFO: Epoch 103: train loss 0.01597, train acc 0.46236, test acc 0.53790 
+2023-03-19 11:41:31,456 - INFO: 
+Epoch [104/300], Step [100/390], Loss: 0.01558
+2023-03-19 11:41:31,456 - INFO: Time elasped: 16.119770526885986
+2023-03-19 11:41:46,248 - INFO: 
+Epoch [104/300], Step [200/390], Loss: 0.01584
+2023-03-19 11:41:46,248 - INFO: Time elasped: 30.91226053237915
+2023-03-19 11:42:01,158 - INFO: 
+Epoch [104/300], Step [300/390], Loss: 0.01660
+2023-03-19 11:42:01,158 - INFO: Time elasped: 45.82208490371704
+2023-03-19 11:42:20,196 - INFO: Epoch 104: train loss 0.01587, train acc 0.46608, test acc 0.52130 
+2023-03-19 11:42:36,241 - INFO: 
+Epoch [105/300], Step [100/390], Loss: 0.01694
+2023-03-19 11:42:36,241 - INFO: Time elasped: 16.042030096054077
+2023-03-19 11:42:50,992 - INFO: 
+Epoch [105/300], Step [200/390], Loss: 0.01828
+2023-03-19 11:42:50,993 - INFO: Time elasped: 30.793476819992065
+2023-03-19 11:43:05,873 - INFO: 
+Epoch [105/300], Step [300/390], Loss: 0.01548
+2023-03-19 11:43:05,873 - INFO: Time elasped: 45.67377519607544
+2023-03-19 11:43:23,989 - INFO: Epoch 105: train loss 0.01590, train acc 0.46468, test acc 0.53970 
+2023-03-19 11:43:37,182 - INFO: 
+Epoch [106/300], Step [100/390], Loss: 0.01606
+2023-03-19 11:43:37,183 - INFO: Time elasped: 13.191351413726807
+2023-03-19 11:43:49,228 - INFO: 
+Epoch [106/300], Step [200/390], Loss: 0.01631
+2023-03-19 11:43:49,228 - INFO: Time elasped: 25.23656988143921
+2023-03-19 11:44:01,264 - INFO: 
+Epoch [106/300], Step [300/390], Loss: 0.01408
+2023-03-19 11:44:01,265 - INFO: Time elasped: 37.27343678474426
+2023-03-19 11:44:16,826 - INFO: Epoch 106: train loss 0.01586, train acc 0.46758, test acc 0.56640 
+2023-03-19 11:44:16,827 - INFO: Saving custom_model..  with acc 0.5663999915122986 in the epoch 106
+2023-03-19 11:44:30,245 - INFO: 
+Epoch [107/300], Step [100/390], Loss: 0.01512
+2023-03-19 11:44:30,245 - INFO: Time elasped: 13.227792978286743
+2023-03-19 11:44:42,238 - INFO: 
+Epoch [107/300], Step [200/390], Loss: 0.01558
+2023-03-19 11:44:42,240 - INFO: Time elasped: 25.222534894943237
+2023-03-19 11:44:54,236 - INFO: 
+Epoch [107/300], Step [300/390], Loss: 0.01684
+2023-03-19 11:44:54,237 - INFO: Time elasped: 37.21978425979614
+2023-03-19 11:45:09,799 - INFO: Epoch 107: train loss 0.01576, train acc 0.47144, test acc 0.54880 
+2023-03-19 11:45:23,096 - INFO: 
+Epoch [108/300], Step [100/390], Loss: 0.01789
+2023-03-19 11:45:23,096 - INFO: Time elasped: 13.29346776008606
+2023-03-19 11:45:35,183 - INFO: 
+Epoch [108/300], Step [200/390], Loss: 0.01522
+2023-03-19 11:45:35,183 - INFO: Time elasped: 25.380990505218506
+2023-03-19 11:45:47,288 - INFO: 
+Epoch [108/300], Step [300/390], Loss: 0.01388
+2023-03-19 11:45:47,289 - INFO: Time elasped: 37.48638129234314
+2023-03-19 11:46:02,925 - INFO: Epoch 108: train loss 0.01577, train acc 0.46872, test acc 0.53360 
+2023-03-19 11:46:16,894 - INFO: 
+Epoch [109/300], Step [100/390], Loss: 0.01544
+2023-03-19 11:46:16,895 - INFO: Time elasped: 13.96718692779541
+2023-03-19 11:46:31,653 - INFO: 
+Epoch [109/300], Step [200/390], Loss: 0.01590
+2023-03-19 11:46:31,653 - INFO: Time elasped: 28.725780725479126
+2023-03-19 11:46:46,479 - INFO: 
+Epoch [109/300], Step [300/390], Loss: 0.01484
+2023-03-19 11:46:46,480 - INFO: Time elasped: 43.55225849151611
+2023-03-19 11:47:05,610 - INFO: Epoch 109: train loss 0.01572, train acc 0.47172, test acc 0.55070 
+2023-03-19 11:47:21,704 - INFO: 
+Epoch [110/300], Step [100/390], Loss: 0.01552
+2023-03-19 11:47:21,705 - INFO: Time elasped: 16.089425802230835
+2023-03-19 11:47:36,388 - INFO: 
+Epoch [110/300], Step [200/390], Loss: 0.01360
+2023-03-19 11:47:36,388 - INFO: Time elasped: 30.772719383239746
+2023-03-19 11:47:51,176 - INFO: 
+Epoch [110/300], Step [300/390], Loss: 0.01434
+2023-03-19 11:47:51,176 - INFO: Time elasped: 45.56109619140625
+2023-03-19 11:48:10,344 - INFO: Epoch 110: train loss 0.01569, train acc 0.47386, test acc 0.55860 
+2023-03-19 11:48:26,391 - INFO: 
+Epoch [111/300], Step [100/390], Loss: 0.01413
+2023-03-19 11:48:26,391 - INFO: Time elasped: 16.040903568267822
+2023-03-19 11:48:41,212 - INFO: 
+Epoch [111/300], Step [200/390], Loss: 0.01788
+2023-03-19 11:48:41,212 - INFO: Time elasped: 30.86207604408264
+2023-03-19 11:48:56,012 - INFO: 
+Epoch [111/300], Step [300/390], Loss: 0.01473
+2023-03-19 11:48:56,012 - INFO: Time elasped: 45.66202759742737
+2023-03-19 11:49:15,089 - INFO: Epoch 111: train loss 0.01549, train acc 0.47868, test acc 0.54180 
+2023-03-19 11:49:31,197 - INFO: 
+Epoch [112/300], Step [100/390], Loss: 0.01326
+2023-03-19 11:49:31,198 - INFO: Time elasped: 16.104705810546875
+2023-03-19 11:49:45,981 - INFO: 
+Epoch [112/300], Step [200/390], Loss: 0.01502
+2023-03-19 11:49:45,981 - INFO: Time elasped: 30.887967824935913
+2023-03-19 11:50:00,828 - INFO: 
+Epoch [112/300], Step [300/390], Loss: 0.01619
+2023-03-19 11:50:00,828 - INFO: Time elasped: 45.73546886444092
+2023-03-19 11:50:19,788 - INFO: Epoch 112: train loss 0.01561, train acc 0.47422, test acc 0.54080 
+2023-03-19 11:50:35,840 - INFO: 
+Epoch [113/300], Step [100/390], Loss: 0.01660
+2023-03-19 11:50:35,841 - INFO: Time elasped: 16.046437740325928
+2023-03-19 11:50:50,836 - INFO: 
+Epoch [113/300], Step [200/390], Loss: 0.01497
+2023-03-19 11:50:50,836 - INFO: Time elasped: 31.041692972183228
+2023-03-19 11:51:05,786 - INFO: 
+Epoch [113/300], Step [300/390], Loss: 0.01506
+2023-03-19 11:51:05,786 - INFO: Time elasped: 45.991868019104004
+2023-03-19 11:51:24,987 - INFO: Epoch 113: train loss 0.01548, train acc 0.47634, test acc 0.57280 
+2023-03-19 11:51:24,988 - INFO: Saving custom_model..  with acc 0.5727999806404114 in the epoch 113
+2023-03-19 11:51:41,252 - INFO: 
+Epoch [114/300], Step [100/390], Loss: 0.01696
+2023-03-19 11:51:41,253 - INFO: Time elasped: 16.061120986938477
+2023-03-19 11:51:55,977 - INFO: 
+Epoch [114/300], Step [200/390], Loss: 0.01583
+2023-03-19 11:51:55,977 - INFO: Time elasped: 30.78558111190796
+2023-03-19 11:52:10,736 - INFO: 
+Epoch [114/300], Step [300/390], Loss: 0.01813
+2023-03-19 11:52:10,737 - INFO: Time elasped: 45.54500865936279
+2023-03-19 11:52:29,752 - INFO: Epoch 114: train loss 0.01546, train acc 0.47912, test acc 0.53190 
+2023-03-19 11:52:45,860 - INFO: 
+Epoch [115/300], Step [100/390], Loss: 0.01531
+2023-03-19 11:52:45,861 - INFO: Time elasped: 16.10297989845276
+2023-03-19 11:53:00,603 - INFO: 
+Epoch [115/300], Step [200/390], Loss: 0.01382
+2023-03-19 11:53:00,603 - INFO: Time elasped: 30.845390796661377
+2023-03-19 11:53:15,428 - INFO: 
+Epoch [115/300], Step [300/390], Loss: 0.01428
+2023-03-19 11:53:15,428 - INFO: Time elasped: 45.670411825180054
+2023-03-19 11:53:34,547 - INFO: Epoch 115: train loss 0.01541, train acc 0.47934, test acc 0.55320 
+2023-03-19 11:53:50,744 - INFO: 
+Epoch [116/300], Step [100/390], Loss: 0.01702
+2023-03-19 11:53:50,745 - INFO: Time elasped: 16.191136121749878
+2023-03-19 11:54:05,475 - INFO: 
+Epoch [116/300], Step [200/390], Loss: 0.01447
+2023-03-19 11:54:05,475 - INFO: Time elasped: 30.92185354232788
+2023-03-19 11:54:20,229 - INFO: 
+Epoch [116/300], Step [300/390], Loss: 0.01588
+2023-03-19 11:54:20,229 - INFO: Time elasped: 45.67565941810608
+2023-03-19 11:54:39,186 - INFO: Epoch 116: train loss 0.01535, train acc 0.48344, test acc 0.56410 
+2023-03-19 11:54:55,457 - INFO: 
+Epoch [117/300], Step [100/390], Loss: 0.01406
+2023-03-19 11:54:55,457 - INFO: Time elasped: 16.26473593711853
+2023-03-19 11:55:10,286 - INFO: 
+Epoch [117/300], Step [200/390], Loss: 0.01388
+2023-03-19 11:55:10,287 - INFO: Time elasped: 31.09432029724121
+2023-03-19 11:55:24,956 - INFO: 
+Epoch [117/300], Step [300/390], Loss: 0.01537
+2023-03-19 11:55:24,957 - INFO: Time elasped: 45.764217376708984
+2023-03-19 11:55:43,983 - INFO: Epoch 117: train loss 0.01529, train acc 0.48408, test acc 0.54320 
+2023-03-19 11:56:00,209 - INFO: 
+Epoch [118/300], Step [100/390], Loss: 0.01663
+2023-03-19 11:56:00,209 - INFO: Time elasped: 16.222235441207886
+2023-03-19 11:56:15,320 - INFO: 
+Epoch [118/300], Step [200/390], Loss: 0.01437
+2023-03-19 11:56:15,321 - INFO: Time elasped: 31.33360004425049
+2023-03-19 11:56:30,418 - INFO: 
+Epoch [118/300], Step [300/390], Loss: 0.01583
+2023-03-19 11:56:30,418 - INFO: Time elasped: 46.431485176086426
+2023-03-19 11:56:51,386 - INFO: Epoch 118: train loss 0.01538, train acc 0.48102, test acc 0.55600 
+2023-03-19 11:57:08,841 - INFO: 
+Epoch [119/300], Step [100/390], Loss: 0.01262
+2023-03-19 11:57:08,842 - INFO: Time elasped: 17.45028567314148
+2023-03-19 11:57:24,692 - INFO: 
+Epoch [119/300], Step [200/390], Loss: 0.01432
+2023-03-19 11:57:24,693 - INFO: Time elasped: 33.301207542419434
+2023-03-19 11:57:40,831 - INFO: 
+Epoch [119/300], Step [300/390], Loss: 0.01471
+2023-03-19 11:57:40,831 - INFO: Time elasped: 49.43936538696289
+2023-03-19 11:58:01,880 - INFO: Epoch 119: train loss 0.01517, train acc 0.48530, test acc 0.53320 
+2023-03-19 11:58:19,325 - INFO: 
+Epoch [120/300], Step [100/390], Loss: 0.01579
+2023-03-19 11:58:19,325 - INFO: Time elasped: 17.441540956497192
+2023-03-19 11:58:35,333 - INFO: 
+Epoch [120/300], Step [200/390], Loss: 0.01560
+2023-03-19 11:58:35,333 - INFO: Time elasped: 33.449907541275024
+2023-03-19 11:58:51,215 - INFO: 
+Epoch [120/300], Step [300/390], Loss: 0.01331
+2023-03-19 11:58:51,216 - INFO: Time elasped: 49.33229088783264
+2023-03-19 11:59:12,269 - INFO: Epoch 120: train loss 0.01527, train acc 0.48674, test acc 0.58170 
+2023-03-19 11:59:12,269 - INFO: Saving custom_model..  with acc 0.5816999673843384 in the epoch 120
+2023-03-19 11:59:29,794 - INFO: 
+Epoch [121/300], Step [100/390], Loss: 0.01538
+2023-03-19 11:59:29,794 - INFO: Time elasped: 17.345009803771973
+2023-03-19 11:59:45,368 - INFO: 
+Epoch [121/300], Step [200/390], Loss: 0.01548
+2023-03-19 11:59:45,368 - INFO: Time elasped: 32.9189670085907
+2023-03-19 12:00:00,259 - INFO: 
+Epoch [121/300], Step [300/390], Loss: 0.01821
+2023-03-19 12:00:00,259 - INFO: Time elasped: 47.81033945083618
+2023-03-19 12:00:17,225 - INFO: Epoch 121: train loss 0.01520, train acc 0.48698, test acc 0.57410 
+2023-03-19 12:00:31,330 - INFO: 
+Epoch [122/300], Step [100/390], Loss: 0.01574
+2023-03-19 12:00:31,330 - INFO: Time elasped: 14.102864503860474
+2023-03-19 12:00:43,877 - INFO: 
+Epoch [122/300], Step [200/390], Loss: 0.01817
+2023-03-19 12:00:43,878 - INFO: Time elasped: 26.65061616897583
+2023-03-19 12:00:56,770 - INFO: 
+Epoch [122/300], Step [300/390], Loss: 0.01721
+2023-03-19 12:00:56,770 - INFO: Time elasped: 39.54277229309082
+2023-03-19 12:01:13,607 - INFO: Epoch 122: train loss 0.01525, train acc 0.48212, test acc 0.58030 
+2023-03-19 12:01:27,751 - INFO: 
+Epoch [123/300], Step [100/390], Loss: 0.01408
+2023-03-19 12:01:27,751 - INFO: Time elasped: 14.134831666946411
+2023-03-19 12:01:40,672 - INFO: 
+Epoch [123/300], Step [200/390], Loss: 0.01421
+2023-03-19 12:01:40,672 - INFO: Time elasped: 27.05591583251953
+2023-03-19 12:01:53,443 - INFO: 
+Epoch [123/300], Step [300/390], Loss: 0.01505
+2023-03-19 12:01:53,444 - INFO: Time elasped: 39.827369689941406
+2023-03-19 12:02:10,367 - INFO: Epoch 123: train loss 0.01522, train acc 0.48648, test acc 0.57750 
+2023-03-19 12:02:25,224 - INFO: 
+Epoch [124/300], Step [100/390], Loss: 0.01582
+2023-03-19 12:02:25,225 - INFO: Time elasped: 14.854061603546143
+2023-03-19 12:02:41,422 - INFO: 
+Epoch [124/300], Step [200/390], Loss: 0.01682
+2023-03-19 12:02:41,422 - INFO: Time elasped: 31.051670789718628
+2023-03-19 12:02:57,656 - INFO: 
+Epoch [124/300], Step [300/390], Loss: 0.01406
+2023-03-19 12:02:57,657 - INFO: Time elasped: 47.28614926338196
+2023-03-19 12:03:18,433 - INFO: Epoch 124: train loss 0.01509, train acc 0.48992, test acc 0.55430 
+2023-03-19 12:03:36,064 - INFO: 
+Epoch [125/300], Step [100/390], Loss: 0.01612
+2023-03-19 12:03:36,064 - INFO: Time elasped: 17.62838125228882
+2023-03-19 12:03:52,250 - INFO: 
+Epoch [125/300], Step [200/390], Loss: 0.01360
+2023-03-19 12:03:52,250 - INFO: Time elasped: 33.814231872558594
+2023-03-19 12:04:08,191 - INFO: 
+Epoch [125/300], Step [300/390], Loss: 0.01600
+2023-03-19 12:04:08,192 - INFO: Time elasped: 49.75594735145569
+2023-03-19 12:04:29,004 - INFO: Epoch 125: train loss 0.01495, train acc 0.49458, test acc 0.55530 
+2023-03-19 12:04:46,172 - INFO: 
+Epoch [126/300], Step [100/390], Loss: 0.01362
+2023-03-19 12:04:46,172 - INFO: Time elasped: 17.161815881729126
+2023-03-19 12:05:02,365 - INFO: 
+Epoch [126/300], Step [200/390], Loss: 0.01429
+2023-03-19 12:05:02,365 - INFO: Time elasped: 33.35487651824951
+2023-03-19 12:05:18,390 - INFO: 
+Epoch [126/300], Step [300/390], Loss: 0.01485
+2023-03-19 12:05:18,391 - INFO: Time elasped: 49.38017129898071
+2023-03-19 12:05:39,378 - INFO: Epoch 126: train loss 0.01501, train acc 0.49142, test acc 0.57060 
+2023-03-19 12:05:56,947 - INFO: 
+Epoch [127/300], Step [100/390], Loss: 0.01467
+2023-03-19 12:05:56,947 - INFO: Time elasped: 17.556782245635986
+2023-03-19 12:06:13,078 - INFO: 
+Epoch [127/300], Step [200/390], Loss: 0.01418
+2023-03-19 12:06:13,079 - INFO: Time elasped: 33.68818020820618
+2023-03-19 12:06:29,108 - INFO: 
+Epoch [127/300], Step [300/390], Loss: 0.01504
+2023-03-19 12:06:29,108 - INFO: Time elasped: 49.71760821342468
+2023-03-19 12:06:50,230 - INFO: Epoch 127: train loss 0.01487, train acc 0.49662, test acc 0.57190 
+2023-03-19 12:07:07,768 - INFO: 
+Epoch [128/300], Step [100/390], Loss: 0.01536
+2023-03-19 12:07:07,768 - INFO: Time elasped: 17.533814907073975
+2023-03-19 12:07:24,019 - INFO: 
+Epoch [128/300], Step [200/390], Loss: 0.01741
+2023-03-19 12:07:24,020 - INFO: Time elasped: 33.78530931472778
+2023-03-19 12:07:40,246 - INFO: 
+Epoch [128/300], Step [300/390], Loss: 0.01581
+2023-03-19 12:07:40,247 - INFO: Time elasped: 50.01213240623474
+2023-03-19 12:08:00,229 - INFO: Epoch 128: train loss 0.01483, train acc 0.49636, test acc 0.57490 
+2023-03-19 12:08:16,422 - INFO: 
+Epoch [129/300], Step [100/390], Loss: 0.01505
+2023-03-19 12:08:16,422 - INFO: Time elasped: 16.189366579055786
+2023-03-19 12:08:31,187 - INFO: 
+Epoch [129/300], Step [200/390], Loss: 0.01357
+2023-03-19 12:08:31,187 - INFO: Time elasped: 30.95429039001465
+2023-03-19 12:08:45,984 - INFO: 
+Epoch [129/300], Step [300/390], Loss: 0.01500
+2023-03-19 12:08:45,991 - INFO: Time elasped: 45.75828266143799
+2023-03-19 12:09:05,076 - INFO: Epoch 129: train loss 0.01484, train acc 0.49978, test acc 0.56360 
+2023-03-19 12:09:21,267 - INFO: 
+Epoch [130/300], Step [100/390], Loss: 0.01472
+2023-03-19 12:09:21,267 - INFO: Time elasped: 16.18744397163391
+2023-03-19 12:09:35,989 - INFO: 
+Epoch [130/300], Step [200/390], Loss: 0.01625
+2023-03-19 12:09:35,989 - INFO: Time elasped: 30.909716844558716
+2023-03-19 12:09:50,784 - INFO: 
+Epoch [130/300], Step [300/390], Loss: 0.01480
+2023-03-19 12:09:50,784 - INFO: Time elasped: 45.704590797424316
+2023-03-19 12:10:09,771 - INFO: Epoch 130: train loss 0.01483, train acc 0.49888, test acc 0.56760 
+2023-03-19 12:10:25,938 - INFO: 
+Epoch [131/300], Step [100/390], Loss: 0.01534
+2023-03-19 12:10:25,938 - INFO: Time elasped: 16.16389513015747
+2023-03-19 12:10:40,749 - INFO: 
+Epoch [131/300], Step [200/390], Loss: 0.01592
+2023-03-19 12:10:40,749 - INFO: Time elasped: 30.974822521209717
+2023-03-19 12:10:55,419 - INFO: 
+Epoch [131/300], Step [300/390], Loss: 0.01452
+2023-03-19 12:10:55,419 - INFO: Time elasped: 45.64528679847717
+2023-03-19 12:11:14,428 - INFO: Epoch 131: train loss 0.01475, train acc 0.49792, test acc 0.58040 
+2023-03-19 12:11:30,572 - INFO: 
+Epoch [132/300], Step [100/390], Loss: 0.01272
+2023-03-19 12:11:30,572 - INFO: Time elasped: 16.138046264648438
+2023-03-19 12:11:45,413 - INFO: 
+Epoch [132/300], Step [200/390], Loss: 0.01492
+2023-03-19 12:11:45,413 - INFO: Time elasped: 30.979196310043335
+2023-03-19 12:12:00,220 - INFO: 
+Epoch [132/300], Step [300/390], Loss: 0.01397
+2023-03-19 12:12:00,220 - INFO: Time elasped: 45.78595161437988
+2023-03-19 12:12:19,293 - INFO: Epoch 132: train loss 0.01464, train acc 0.50528, test acc 0.59470 
+2023-03-19 12:12:19,295 - INFO: Saving custom_model..  with acc 0.5946999788284302 in the epoch 132
+2023-03-19 12:12:35,592 - INFO: 
+Epoch [133/300], Step [100/390], Loss: 0.01449
+2023-03-19 12:12:35,592 - INFO: Time elasped: 16.117146730422974
+2023-03-19 12:12:50,754 - INFO: 
+Epoch [133/300], Step [200/390], Loss: 0.01355
+2023-03-19 12:12:50,761 - INFO: Time elasped: 31.285706281661987
+2023-03-19 12:13:05,890 - INFO: 
+Epoch [133/300], Step [300/390], Loss: 0.01294
+2023-03-19 12:13:05,890 - INFO: Time elasped: 46.41489553451538
+2023-03-19 12:13:25,258 - INFO: Epoch 133: train loss 0.01477, train acc 0.49840, test acc 0.57390 
+2023-03-19 12:13:41,286 - INFO: 
+Epoch [134/300], Step [100/390], Loss: 0.01554
+2023-03-19 12:13:41,286 - INFO: Time elasped: 16.022109031677246
+2023-03-19 12:13:56,157 - INFO: 
+Epoch [134/300], Step [200/390], Loss: 0.01442
+2023-03-19 12:13:56,157 - INFO: Time elasped: 30.89273953437805
+2023-03-19 12:14:11,002 - INFO: 
+Epoch [134/300], Step [300/390], Loss: 0.01399
+2023-03-19 12:14:11,002 - INFO: Time elasped: 45.73804068565369
+2023-03-19 12:14:30,031 - INFO: Epoch 134: train loss 0.01472, train acc 0.50262, test acc 0.57420 
+2023-03-19 12:14:46,074 - INFO: 
+Epoch [135/300], Step [100/390], Loss: 0.01406
+2023-03-19 12:14:46,075 - INFO: Time elasped: 16.040194511413574
+2023-03-19 12:15:00,838 - INFO: 
+Epoch [135/300], Step [200/390], Loss: 0.01489
+2023-03-19 12:15:00,838 - INFO: Time elasped: 30.803817749023438
+2023-03-19 12:15:15,612 - INFO: 
+Epoch [135/300], Step [300/390], Loss: 0.01463
+2023-03-19 12:15:15,612 - INFO: Time elasped: 45.57758021354675
+2023-03-19 12:15:34,728 - INFO: Epoch 135: train loss 0.01462, train acc 0.50498, test acc 0.58300 
+2023-03-19 12:15:47,997 - INFO: 
+Epoch [136/300], Step [100/390], Loss: 0.01229
+2023-03-19 12:15:47,997 - INFO: Time elasped: 13.267032384872437
+2023-03-19 12:16:00,053 - INFO: 
+Epoch [136/300], Step [200/390], Loss: 0.01347
+2023-03-19 12:16:00,053 - INFO: Time elasped: 25.322871446609497
+2023-03-19 12:16:12,082 - INFO: 
+Epoch [136/300], Step [300/390], Loss: 0.01570
+2023-03-19 12:16:12,082 - INFO: Time elasped: 37.35190749168396
+2023-03-19 12:16:27,463 - INFO: Epoch 136: train loss 0.01453, train acc 0.50686, test acc 0.60480 
+2023-03-19 12:16:27,464 - INFO: Saving custom_model..  with acc 0.6047999858856201 in the epoch 136
+2023-03-19 12:16:40,864 - INFO: 
+Epoch [137/300], Step [100/390], Loss: 0.01301
+2023-03-19 12:16:40,865 - INFO: Time elasped: 13.200735330581665
+2023-03-19 12:16:52,850 - INFO: 
+Epoch [137/300], Step [200/390], Loss: 0.01350
+2023-03-19 12:16:52,857 - INFO: Time elasped: 25.192888021469116
+2023-03-19 12:17:04,843 - INFO: 
+Epoch [137/300], Step [300/390], Loss: 0.01352
+2023-03-19 12:17:04,843 - INFO: Time elasped: 37.179155111312866
+2023-03-19 12:17:20,333 - INFO: Epoch 137: train loss 0.01452, train acc 0.50638, test acc 0.57060 
+2023-03-19 12:17:33,646 - INFO: 
+Epoch [138/300], Step [100/390], Loss: 0.01640
+2023-03-19 12:17:33,647 - INFO: Time elasped: 13.31101655960083
+2023-03-19 12:17:45,819 - INFO: 
+Epoch [138/300], Step [200/390], Loss: 0.01599
+2023-03-19 12:17:45,820 - INFO: Time elasped: 25.484252214431763
+2023-03-19 12:17:57,896 - INFO: 
+Epoch [138/300], Step [300/390], Loss: 0.01572
+2023-03-19 12:17:57,897 - INFO: Time elasped: 37.56137824058533
+2023-03-19 12:18:13,578 - INFO: Epoch 138: train loss 0.01440, train acc 0.51250, test acc 0.59050 
+2023-03-19 12:18:26,769 - INFO: 
+Epoch [139/300], Step [100/390], Loss: 0.01627
+2023-03-19 12:18:26,770 - INFO: Time elasped: 13.188148736953735
+2023-03-19 12:18:41,258 - INFO: 
+Epoch [139/300], Step [200/390], Loss: 0.01537
+2023-03-19 12:18:41,259 - INFO: Time elasped: 27.676836490631104
+2023-03-19 12:18:56,166 - INFO: 
+Epoch [139/300], Step [300/390], Loss: 0.01472
+2023-03-19 12:18:56,173 - INFO: Time elasped: 42.59135293960571
+2023-03-19 12:19:15,254 - INFO: Epoch 139: train loss 0.01440, train acc 0.51132, test acc 0.58890 
+2023-03-19 12:19:31,179 - INFO: 
+Epoch [140/300], Step [100/390], Loss: 0.01296
+2023-03-19 12:19:31,180 - INFO: Time elasped: 15.919686555862427
+2023-03-19 12:19:45,994 - INFO: 
+Epoch [140/300], Step [200/390], Loss: 0.01408
+2023-03-19 12:19:45,994 - INFO: Time elasped: 30.73401641845703
+2023-03-19 12:20:00,871 - INFO: 
+Epoch [140/300], Step [300/390], Loss: 0.01343
+2023-03-19 12:20:00,871 - INFO: Time elasped: 45.611194133758545
+2023-03-19 12:20:20,042 - INFO: Epoch 140: train loss 0.01449, train acc 0.50898, test acc 0.57580 
+2023-03-19 12:20:36,332 - INFO: 
+Epoch [141/300], Step [100/390], Loss: 0.01509
+2023-03-19 12:20:36,333 - INFO: Time elasped: 16.287827730178833
+2023-03-19 12:20:51,175 - INFO: 
+Epoch [141/300], Step [200/390], Loss: 0.01423
+2023-03-19 12:20:51,175 - INFO: Time elasped: 31.13012194633484
+2023-03-19 12:21:04,953 - INFO: 
+Epoch [141/300], Step [300/390], Loss: 0.01476
+2023-03-19 12:21:04,954 - INFO: Time elasped: 44.90870714187622
+2023-03-19 12:21:23,953 - INFO: Epoch 141: train loss 0.01440, train acc 0.51088, test acc 0.57750 
+2023-03-19 12:21:39,970 - INFO: 
+Epoch [142/300], Step [100/390], Loss: 0.01423
+2023-03-19 12:21:39,970 - INFO: Time elasped: 16.011126279830933
+2023-03-19 12:21:54,711 - INFO: 
+Epoch [142/300], Step [200/390], Loss: 0.01639
+2023-03-19 12:21:54,711 - INFO: Time elasped: 30.751765966415405
+2023-03-19 12:22:09,626 - INFO: 
+Epoch [142/300], Step [300/390], Loss: 0.01632
+2023-03-19 12:22:09,626 - INFO: Time elasped: 45.66705513000488
+2023-03-19 12:22:28,655 - INFO: Epoch 142: train loss 0.01416, train acc 0.51916, test acc 0.56450 
+2023-03-19 12:22:44,757 - INFO: 
+Epoch [143/300], Step [100/390], Loss: 0.01338
+2023-03-19 12:22:44,757 - INFO: Time elasped: 16.096156358718872
+2023-03-19 12:22:59,759 - INFO: 
+Epoch [143/300], Step [200/390], Loss: 0.01506
+2023-03-19 12:22:59,760 - INFO: Time elasped: 31.09887194633484
+2023-03-19 12:23:14,626 - INFO: 
+Epoch [143/300], Step [300/390], Loss: 0.01401
+2023-03-19 12:23:14,627 - INFO: Time elasped: 45.96553921699524
+2023-03-19 12:23:33,820 - INFO: Epoch 143: train loss 0.01417, train acc 0.51816, test acc 0.57750 
+2023-03-19 12:23:49,869 - INFO: 
+Epoch [144/300], Step [100/390], Loss: 0.01565
+2023-03-19 12:23:49,869 - INFO: Time elasped: 16.043051719665527
+2023-03-19 12:24:04,818 - INFO: 
+Epoch [144/300], Step [200/390], Loss: 0.01634
+2023-03-19 12:24:04,818 - INFO: Time elasped: 30.992462396621704
+2023-03-19 12:24:19,609 - INFO: 
+Epoch [144/300], Step [300/390], Loss: 0.01072
+2023-03-19 12:24:19,610 - INFO: Time elasped: 45.78397846221924
+2023-03-19 12:24:38,674 - INFO: Epoch 144: train loss 0.01413, train acc 0.51762, test acc 0.59270 
+2023-03-19 12:24:54,814 - INFO: 
+Epoch [145/300], Step [100/390], Loss: 0.01171
+2023-03-19 12:24:54,814 - INFO: Time elasped: 16.135425329208374
+2023-03-19 12:25:09,677 - INFO: 
+Epoch [145/300], Step [200/390], Loss: 0.01405
+2023-03-19 12:25:09,678 - INFO: Time elasped: 30.999017238616943
+2023-03-19 12:25:24,328 - INFO: 
+Epoch [145/300], Step [300/390], Loss: 0.01399
+2023-03-19 12:25:24,328 - INFO: Time elasped: 45.649606466293335
+2023-03-19 12:25:43,455 - INFO: Epoch 145: train loss 0.01417, train acc 0.51714, test acc 0.59670 
+2023-03-19 12:25:59,490 - INFO: 
+Epoch [146/300], Step [100/390], Loss: 0.01320
+2023-03-19 12:25:59,490 - INFO: Time elasped: 16.029548406600952
+2023-03-19 12:26:14,380 - INFO: 
+Epoch [146/300], Step [200/390], Loss: 0.01667
+2023-03-19 12:26:14,380 - INFO: Time elasped: 30.919586181640625
+2023-03-19 12:26:29,221 - INFO: 
+Epoch [146/300], Step [300/390], Loss: 0.01278
+2023-03-19 12:26:29,221 - INFO: Time elasped: 45.760205030441284
+2023-03-19 12:26:48,278 - INFO: Epoch 146: train loss 0.01414, train acc 0.52186, test acc 0.58690 
+2023-03-19 12:27:04,398 - INFO: 
+Epoch [147/300], Step [100/390], Loss: 0.01367
+2023-03-19 12:27:04,398 - INFO: Time elasped: 16.117281436920166
+2023-03-19 12:27:19,312 - INFO: 
+Epoch [147/300], Step [200/390], Loss: 0.01535
+2023-03-19 12:27:19,312 - INFO: Time elasped: 31.031100034713745
+2023-03-19 12:27:34,062 - INFO: 
+Epoch [147/300], Step [300/390], Loss: 0.01461
+2023-03-19 12:27:34,070 - INFO: Time elasped: 45.788734674453735
+2023-03-19 12:27:53,072 - INFO: Epoch 147: train loss 0.01403, train acc 0.52174, test acc 0.58610 
+2023-03-19 12:28:09,330 - INFO: 
+Epoch [148/300], Step [100/390], Loss: 0.01304
+2023-03-19 12:28:09,330 - INFO: Time elasped: 16.25600242614746
+2023-03-19 12:28:24,227 - INFO: 
+Epoch [148/300], Step [200/390], Loss: 0.01364
+2023-03-19 12:28:24,227 - INFO: Time elasped: 31.15280032157898
+2023-03-19 12:28:39,152 - INFO: 
+Epoch [148/300], Step [300/390], Loss: 0.01346
+2023-03-19 12:28:39,152 - INFO: Time elasped: 46.07794976234436
+2023-03-19 12:28:58,373 - INFO: Epoch 148: train loss 0.01398, train acc 0.52048, test acc 0.60700 
+2023-03-19 12:28:58,375 - INFO: Saving custom_model..  with acc 0.6069999933242798 in the epoch 148
+2023-03-19 12:29:14,608 - INFO: 
+Epoch [149/300], Step [100/390], Loss: 0.01351
+2023-03-19 12:29:14,609 - INFO: Time elasped: 16.0516357421875
+2023-03-19 12:29:29,595 - INFO: 
+Epoch [149/300], Step [200/390], Loss: 0.01357
+2023-03-19 12:29:29,595 - INFO: Time elasped: 31.038438320159912
+2023-03-19 12:29:44,292 - INFO: 
+Epoch [149/300], Step [300/390], Loss: 0.01581
+2023-03-19 12:29:44,292 - INFO: Time elasped: 45.735116720199585
+2023-03-19 12:30:03,385 - INFO: Epoch 149: train loss 0.01400, train acc 0.51912, test acc 0.60540 
+2023-03-19 12:30:19,192 - INFO: 
+Epoch [150/300], Step [100/390], Loss: 0.01535
+2023-03-19 12:30:19,199 - INFO: Time elasped: 15.807992696762085
+2023-03-19 12:30:34,105 - INFO: 
+Epoch [150/300], Step [200/390], Loss: 0.01354
+2023-03-19 12:30:34,105 - INFO: Time elasped: 30.713942766189575
+2023-03-19 12:30:48,904 - INFO: 
+Epoch [150/300], Step [300/390], Loss: 0.01382
+2023-03-19 12:30:48,904 - INFO: Time elasped: 45.5130181312561
+2023-03-19 12:31:07,960 - INFO: Epoch 150: train loss 0.01401, train acc 0.52248, test acc 0.60240 
+2023-03-19 12:31:24,077 - INFO: 
+Epoch [151/300], Step [100/390], Loss: 0.01396
+2023-03-19 12:31:24,078 - INFO: Time elasped: 16.11447310447693
+2023-03-19 12:31:38,955 - INFO: 
+Epoch [151/300], Step [200/390], Loss: 0.01127
+2023-03-19 12:31:38,956 - INFO: Time elasped: 30.992295503616333
+2023-03-19 12:31:53,709 - INFO: 
+Epoch [151/300], Step [300/390], Loss: 0.01274
+2023-03-19 12:31:53,710 - INFO: Time elasped: 45.74639844894409
+2023-03-19 12:32:12,628 - INFO: Epoch 151: train loss 0.01384, train acc 0.52824, test acc 0.60380 
+2023-03-19 12:32:28,787 - INFO: 
+Epoch [152/300], Step [100/390], Loss: 0.01105
+2023-03-19 12:32:28,788 - INFO: Time elasped: 16.156285762786865
+2023-03-19 12:32:43,672 - INFO: 
+Epoch [152/300], Step [200/390], Loss: 0.01370
+2023-03-19 12:32:43,673 - INFO: Time elasped: 31.04121470451355
+2023-03-19 12:32:56,624 - INFO: 
+Epoch [152/300], Step [300/390], Loss: 0.01557
+2023-03-19 12:32:56,624 - INFO: Time elasped: 43.99285316467285
+2023-03-19 12:33:12,203 - INFO: Epoch 152: train loss 0.01386, train acc 0.52606, test acc 0.60160 
+2023-03-19 12:33:25,597 - INFO: 
+Epoch [153/300], Step [100/390], Loss: 0.01441
+2023-03-19 12:33:25,604 - INFO: Time elasped: 13.397958278656006
+2023-03-19 12:33:37,768 - INFO: 
+Epoch [153/300], Step [200/390], Loss: 0.01209
+2023-03-19 12:33:37,769 - INFO: Time elasped: 25.562609672546387
+2023-03-19 12:33:49,916 - INFO: 
+Epoch [153/300], Step [300/390], Loss: 0.01541
+2023-03-19 12:33:49,916 - INFO: Time elasped: 37.71021795272827
+2023-03-19 12:34:06,647 - INFO: Epoch 153: train loss 0.01378, train acc 0.53168, test acc 0.58960 
+2023-03-19 12:34:20,807 - INFO: 
+Epoch [154/300], Step [100/390], Loss: 0.01411
+2023-03-19 12:34:20,808 - INFO: Time elasped: 14.154495239257812
+2023-03-19 12:34:33,663 - INFO: 
+Epoch [154/300], Step [200/390], Loss: 0.01418
+2023-03-19 12:34:33,664 - INFO: Time elasped: 27.01036548614502
+2023-03-19 12:34:46,605 - INFO: 
+Epoch [154/300], Step [300/390], Loss: 0.01447
+2023-03-19 12:34:46,606 - INFO: Time elasped: 39.952598094940186
+2023-03-19 12:35:03,626 - INFO: Epoch 154: train loss 0.01383, train acc 0.52766, test acc 0.59380 
+2023-03-19 12:35:17,683 - INFO: 
+Epoch [155/300], Step [100/390], Loss: 0.01160
+2023-03-19 12:35:17,683 - INFO: Time elasped: 14.054603338241577
+2023-03-19 12:35:30,278 - INFO: 
+Epoch [155/300], Step [200/390], Loss: 0.01479
+2023-03-19 12:35:30,279 - INFO: Time elasped: 26.650218725204468
+2023-03-19 12:35:42,944 - INFO: 
+Epoch [155/300], Step [300/390], Loss: 0.01374
+2023-03-19 12:35:42,944 - INFO: Time elasped: 39.315738677978516
+2023-03-19 12:36:00,143 - INFO: Epoch 155: train loss 0.01372, train acc 0.53156, test acc 0.60090 
+2023-03-19 12:36:14,198 - INFO: 
+Epoch [156/300], Step [100/390], Loss: 0.01527
+2023-03-19 12:36:14,199 - INFO: Time elasped: 14.052669286727905
+2023-03-19 12:36:26,749 - INFO: 
+Epoch [156/300], Step [200/390], Loss: 0.01309
+2023-03-19 12:36:26,749 - INFO: Time elasped: 26.60322666168213
+2023-03-19 12:36:39,481 - INFO: 
+Epoch [156/300], Step [300/390], Loss: 0.01377
+2023-03-19 12:36:39,481 - INFO: Time elasped: 39.33537220954895
+2023-03-19 12:36:56,772 - INFO: Epoch 156: train loss 0.01367, train acc 0.53228, test acc 0.60270 
+2023-03-19 12:37:10,814 - INFO: 
+Epoch [157/300], Step [100/390], Loss: 0.01277
+2023-03-19 12:37:10,815 - INFO: Time elasped: 14.040398597717285
+2023-03-19 12:37:23,736 - INFO: 
+Epoch [157/300], Step [200/390], Loss: 0.01153
+2023-03-19 12:37:23,736 - INFO: Time elasped: 26.96226406097412
+2023-03-19 12:37:36,320 - INFO: 
+Epoch [157/300], Step [300/390], Loss: 0.01435
+2023-03-19 12:37:36,320 - INFO: Time elasped: 39.54551362991333
+2023-03-19 12:37:53,471 - INFO: Epoch 157: train loss 0.01363, train acc 0.53408, test acc 0.60230 
+2023-03-19 12:38:07,499 - INFO: 
+Epoch [158/300], Step [100/390], Loss: 0.01308
+2023-03-19 12:38:07,500 - INFO: Time elasped: 14.02596378326416
+2023-03-19 12:38:20,112 - INFO: 
+Epoch [158/300], Step [200/390], Loss: 0.01101
+2023-03-19 12:38:20,112 - INFO: Time elasped: 26.63869047164917
+2023-03-19 12:38:32,781 - INFO: 
+Epoch [158/300], Step [300/390], Loss: 0.01430
+2023-03-19 12:38:32,781 - INFO: Time elasped: 39.30723762512207
+2023-03-19 12:38:49,914 - INFO: Epoch 158: train loss 0.01343, train acc 0.54090, test acc 0.58930 
+2023-03-19 12:39:03,795 - INFO: 
+Epoch [159/300], Step [100/390], Loss: 0.01265
+2023-03-19 12:39:03,796 - INFO: Time elasped: 13.878591299057007
+2023-03-19 12:39:16,601 - INFO: 
+Epoch [159/300], Step [200/390], Loss: 0.01541
+2023-03-19 12:39:16,601 - INFO: Time elasped: 26.684056758880615
+2023-03-19 12:39:29,380 - INFO: 
+Epoch [159/300], Step [300/390], Loss: 0.01444
+2023-03-19 12:39:29,380 - INFO: Time elasped: 39.46291923522949
+2023-03-19 12:39:46,553 - INFO: Epoch 159: train loss 0.01344, train acc 0.54068, test acc 0.62250 
+2023-03-19 12:39:46,553 - INFO: Saving custom_model..  with acc 0.6225000023841858 in the epoch 159
+2023-03-19 12:40:00,810 - INFO: 
+Epoch [160/300], Step [100/390], Loss: 0.01180
+2023-03-19 12:40:00,810 - INFO: Time elasped: 14.037397146224976
+2023-03-19 12:40:13,439 - INFO: 
+Epoch [160/300], Step [200/390], Loss: 0.01457
+2023-03-19 12:40:13,439 - INFO: Time elasped: 26.666236877441406
+2023-03-19 12:40:26,106 - INFO: 
+Epoch [160/300], Step [300/390], Loss: 0.01606
+2023-03-19 12:40:26,107 - INFO: Time elasped: 39.333755016326904
+2023-03-19 12:40:43,168 - INFO: Epoch 160: train loss 0.01354, train acc 0.53554, test acc 0.60590 
+2023-03-19 12:40:57,153 - INFO: 
+Epoch [161/300], Step [100/390], Loss: 0.01423
+2023-03-19 12:40:57,154 - INFO: Time elasped: 13.983122110366821
+2023-03-19 12:41:10,013 - INFO: 
+Epoch [161/300], Step [200/390], Loss: 0.01047
+2023-03-19 12:41:10,014 - INFO: Time elasped: 26.84338927268982
+2023-03-19 12:41:22,826 - INFO: 
+Epoch [161/300], Step [300/390], Loss: 0.01164
+2023-03-19 12:41:22,826 - INFO: Time elasped: 39.65554642677307
+2023-03-19 12:41:40,166 - INFO: Epoch 161: train loss 0.01334, train acc 0.54318, test acc 0.61890 
+2023-03-19 12:41:54,077 - INFO: 
+Epoch [162/300], Step [100/390], Loss: 0.01218
+2023-03-19 12:41:54,077 - INFO: Time elasped: 13.909140348434448
+2023-03-19 12:42:06,729 - INFO: 
+Epoch [162/300], Step [200/390], Loss: 0.01300
+2023-03-19 12:42:06,730 - INFO: Time elasped: 26.561364889144897
+2023-03-19 12:42:19,456 - INFO: 
+Epoch [162/300], Step [300/390], Loss: 0.01565
+2023-03-19 12:42:19,456 - INFO: Time elasped: 39.28796434402466
+2023-03-19 12:42:37,004 - INFO: Epoch 162: train loss 0.01333, train acc 0.54398, test acc 0.62650 
+2023-03-19 12:42:37,004 - INFO: Saving custom_model..  with acc 0.6265000104904175 in the epoch 162
+2023-03-19 12:42:51,037 - INFO: 
+Epoch [163/300], Step [100/390], Loss: 0.01120
+2023-03-19 12:42:51,037 - INFO: Time elasped: 13.788708925247192
+2023-03-19 12:43:03,827 - INFO: 
+Epoch [163/300], Step [200/390], Loss: 0.01499
+2023-03-19 12:43:03,827 - INFO: Time elasped: 26.57830810546875
+2023-03-19 12:43:16,423 - INFO: 
+Epoch [163/300], Step [300/390], Loss: 0.01151
+2023-03-19 12:43:16,423 - INFO: Time elasped: 39.17416787147522
+2023-03-19 12:43:33,827 - INFO: Epoch 163: train loss 0.01326, train acc 0.54528, test acc 0.59600 
+2023-03-19 12:43:47,920 - INFO: 
+Epoch [164/300], Step [100/390], Loss: 0.01589
+2023-03-19 12:43:47,920 - INFO: Time elasped: 14.090251922607422
+2023-03-19 12:44:00,710 - INFO: 
+Epoch [164/300], Step [200/390], Loss: 0.01468
+2023-03-19 12:44:00,710 - INFO: Time elasped: 26.880387783050537
+2023-03-19 12:44:13,402 - INFO: 
+Epoch [164/300], Step [300/390], Loss: 0.01298
+2023-03-19 12:44:13,402 - INFO: Time elasped: 39.57185959815979
+2023-03-19 12:44:30,433 - INFO: Epoch 164: train loss 0.01325, train acc 0.54670, test acc 0.61340 
+2023-03-19 12:44:43,516 - INFO: 
+Epoch [165/300], Step [100/390], Loss: 0.01325
+2023-03-19 12:44:43,517 - INFO: Time elasped: 13.080981492996216
+2023-03-19 12:44:55,348 - INFO: 
+Epoch [165/300], Step [200/390], Loss: 0.01299
+2023-03-19 12:44:55,348 - INFO: Time elasped: 24.912075519561768
+2023-03-19 12:45:07,180 - INFO: 
+Epoch [165/300], Step [300/390], Loss: 0.01274
+2023-03-19 12:45:07,181 - INFO: Time elasped: 36.74464559555054
+2023-03-19 12:45:22,847 - INFO: Epoch 165: train loss 0.01315, train acc 0.55106, test acc 0.61380 
+2023-03-19 12:45:35,916 - INFO: 
+Epoch [166/300], Step [100/390], Loss: 0.01313
+2023-03-19 12:45:35,916 - INFO: Time elasped: 13.065706491470337
+2023-03-19 12:45:47,675 - INFO: 
+Epoch [166/300], Step [200/390], Loss: 0.01353
+2023-03-19 12:45:47,675 - INFO: Time elasped: 24.82479238510132
+2023-03-19 12:45:59,502 - INFO: 
+Epoch [166/300], Step [300/390], Loss: 0.01466
+2023-03-19 12:45:59,502 - INFO: Time elasped: 36.65188479423523
+2023-03-19 12:46:15,288 - INFO: Epoch 166: train loss 0.01311, train acc 0.55198, test acc 0.60810 
+2023-03-19 12:46:28,265 - INFO: 
+Epoch [167/300], Step [100/390], Loss: 0.01461
+2023-03-19 12:46:28,265 - INFO: Time elasped: 12.973377704620361
+2023-03-19 12:46:40,052 - INFO: 
+Epoch [167/300], Step [200/390], Loss: 0.01273
+2023-03-19 12:46:40,052 - INFO: Time elasped: 24.760114908218384
+2023-03-19 12:46:51,849 - INFO: 
+Epoch [167/300], Step [300/390], Loss: 0.01373
+2023-03-19 12:46:51,850 - INFO: Time elasped: 36.557857513427734
+2023-03-19 12:47:07,596 - INFO: Epoch 167: train loss 0.01308, train acc 0.55086, test acc 0.61600 
+2023-03-19 12:47:20,678 - INFO: 
+Epoch [168/300], Step [100/390], Loss: 0.01067
+2023-03-19 12:47:20,679 - INFO: Time elasped: 13.073317050933838
+2023-03-19 12:47:31,963 - INFO: 
+Epoch [168/300], Step [200/390], Loss: 0.01276
+2023-03-19 12:47:31,963 - INFO: Time elasped: 24.357174158096313
+2023-03-19 12:47:43,090 - INFO: 
+Epoch [168/300], Step [300/390], Loss: 0.01304
+2023-03-19 12:47:43,091 - INFO: Time elasped: 35.48507642745972
+2023-03-19 12:48:00,000 - INFO: Epoch 168: train loss 0.01299, train acc 0.55412, test acc 0.62580 
+2023-03-19 12:48:16,106 - INFO: 
+Epoch [169/300], Step [100/390], Loss: 0.01356
+2023-03-19 12:48:16,106 - INFO: Time elasped: 16.09913945198059
+2023-03-19 12:48:31,000 - INFO: 
+Epoch [169/300], Step [200/390], Loss: 0.01243
+2023-03-19 12:48:31,001 - INFO: Time elasped: 30.99394726753235
+2023-03-19 12:48:45,870 - INFO: 
+Epoch [169/300], Step [300/390], Loss: 0.01234
+2023-03-19 12:48:45,870 - INFO: Time elasped: 45.86319279670715
+2023-03-19 12:49:05,028 - INFO: Epoch 169: train loss 0.01302, train acc 0.55332, test acc 0.62450 
+2023-03-19 12:49:21,364 - INFO: 
+Epoch [170/300], Step [100/390], Loss: 0.01329
+2023-03-19 12:49:21,364 - INFO: Time elasped: 16.33405041694641
+2023-03-19 12:49:36,217 - INFO: 
+Epoch [170/300], Step [200/390], Loss: 0.01211
+2023-03-19 12:49:36,217 - INFO: Time elasped: 31.18714165687561
+2023-03-19 12:49:51,035 - INFO: 
+Epoch [170/300], Step [300/390], Loss: 0.01452
+2023-03-19 12:49:51,035 - INFO: Time elasped: 46.00480270385742
+2023-03-19 12:50:10,314 - INFO: Epoch 170: train loss 0.01293, train acc 0.55446, test acc 0.60500 
+2023-03-19 12:50:26,508 - INFO: 
+Epoch [171/300], Step [100/390], Loss: 0.01264
+2023-03-19 12:50:26,509 - INFO: Time elasped: 16.19221329689026
+2023-03-19 12:50:41,353 - INFO: 
+Epoch [171/300], Step [200/390], Loss: 0.01096
+2023-03-19 12:50:41,353 - INFO: Time elasped: 31.03663158416748
+2023-03-19 12:50:56,094 - INFO: 
+Epoch [171/300], Step [300/390], Loss: 0.01230
+2023-03-19 12:50:56,094 - INFO: Time elasped: 45.777515172958374
+2023-03-19 12:51:15,231 - INFO: Epoch 171: train loss 0.01297, train acc 0.55656, test acc 0.62460 
+2023-03-19 12:51:31,383 - INFO: 
+Epoch [172/300], Step [100/390], Loss: 0.01031
+2023-03-19 12:51:31,383 - INFO: Time elasped: 16.14946961402893
+2023-03-19 12:51:46,249 - INFO: 
+Epoch [172/300], Step [200/390], Loss: 0.01142
+2023-03-19 12:51:46,250 - INFO: Time elasped: 31.01574945449829
+2023-03-19 12:52:00,923 - INFO: 
+Epoch [172/300], Step [300/390], Loss: 0.01178
+2023-03-19 12:52:00,923 - INFO: Time elasped: 45.688854455947876
+2023-03-19 12:52:20,047 - INFO: Epoch 172: train loss 0.01288, train acc 0.55790, test acc 0.61490 
+2023-03-19 12:52:36,082 - INFO: 
+Epoch [173/300], Step [100/390], Loss: 0.01279
+2023-03-19 12:52:36,083 - INFO: Time elasped: 16.026342630386353
+2023-03-19 12:52:50,970 - INFO: 
+Epoch [173/300], Step [200/390], Loss: 0.01601
+2023-03-19 12:52:50,970 - INFO: Time elasped: 30.91372060775757
+2023-03-19 12:53:05,621 - INFO: 
+Epoch [173/300], Step [300/390], Loss: 0.01171
+2023-03-19 12:53:05,621 - INFO: Time elasped: 45.564671754837036
+2023-03-19 12:53:24,733 - INFO: Epoch 173: train loss 0.01287, train acc 0.55918, test acc 0.63230 
+2023-03-19 12:53:24,734 - INFO: Saving custom_model..  with acc 0.6322999596595764 in the epoch 173
+2023-03-19 12:53:41,022 - INFO: 
+Epoch [174/300], Step [100/390], Loss: 0.01202
+2023-03-19 12:53:41,023 - INFO: Time elasped: 16.099858045578003
+2023-03-19 12:53:55,878 - INFO: 
+Epoch [174/300], Step [200/390], Loss: 0.01300
+2023-03-19 12:53:55,878 - INFO: Time elasped: 30.95517659187317
+2023-03-19 12:54:10,649 - INFO: 
+Epoch [174/300], Step [300/390], Loss: 0.01326
+2023-03-19 12:54:10,656 - INFO: Time elasped: 45.73323154449463
+2023-03-19 12:54:30,058 - INFO: Epoch 174: train loss 0.01268, train acc 0.56414, test acc 0.64490 
+2023-03-19 12:54:30,058 - INFO: Saving custom_model..  with acc 0.6448999643325806 in the epoch 174
+2023-03-19 12:54:46,823 - INFO: 
+Epoch [175/300], Step [100/390], Loss: 0.01357
+2023-03-19 12:54:46,824 - INFO: Time elasped: 16.54208779335022
+2023-03-19 12:55:01,848 - INFO: 
+Epoch [175/300], Step [200/390], Loss: 0.01238
+2023-03-19 12:55:01,849 - INFO: Time elasped: 31.566470861434937
+2023-03-19 12:55:16,429 - INFO: 
+Epoch [175/300], Step [300/390], Loss: 0.01235
+2023-03-19 12:55:16,429 - INFO: Time elasped: 46.1467707157135
+2023-03-19 12:55:35,484 - INFO: Epoch 175: train loss 0.01263, train acc 0.56658, test acc 0.63330 
+2023-03-19 12:55:51,644 - INFO: 
+Epoch [176/300], Step [100/390], Loss: 0.01323
+2023-03-19 12:55:51,644 - INFO: Time elasped: 16.15361475944519
+2023-03-19 12:56:06,491 - INFO: 
+Epoch [176/300], Step [200/390], Loss: 0.01101
+2023-03-19 12:56:06,498 - INFO: Time elasped: 31.008015394210815
+2023-03-19 12:56:21,214 - INFO: 
+Epoch [176/300], Step [300/390], Loss: 0.01479
+2023-03-19 12:56:21,215 - INFO: Time elasped: 45.72427773475647
+2023-03-19 12:56:40,271 - INFO: Epoch 176: train loss 0.01267, train acc 0.56218, test acc 0.63420 
+2023-03-19 12:56:56,341 - INFO: 
+Epoch [177/300], Step [100/390], Loss: 0.01299
+2023-03-19 12:56:56,341 - INFO: Time elasped: 16.067723989486694
+2023-03-19 12:57:11,164 - INFO: 
+Epoch [177/300], Step [200/390], Loss: 0.01373
+2023-03-19 12:57:11,164 - INFO: Time elasped: 30.89048457145691
+2023-03-19 12:57:25,953 - INFO: 
+Epoch [177/300], Step [300/390], Loss: 0.01156
+2023-03-19 12:57:25,953 - INFO: Time elasped: 45.679628133773804
+2023-03-19 12:57:45,054 - INFO: Epoch 177: train loss 0.01257, train acc 0.56480, test acc 0.62350 
+2023-03-19 12:58:01,150 - INFO: 
+Epoch [178/300], Step [100/390], Loss: 0.01256
+2023-03-19 12:58:01,150 - INFO: Time elasped: 16.0931077003479
+2023-03-19 12:58:16,074 - INFO: 
+Epoch [178/300], Step [200/390], Loss: 0.01390
+2023-03-19 12:58:16,074 - INFO: Time elasped: 31.016664028167725
+2023-03-19 12:58:30,915 - INFO: 
+Epoch [178/300], Step [300/390], Loss: 0.01264
+2023-03-19 12:58:30,915 - INFO: Time elasped: 45.85803556442261
+2023-03-19 12:58:49,903 - INFO: Epoch 178: train loss 0.01260, train acc 0.56822, test acc 0.64570 
+2023-03-19 12:58:49,905 - INFO: Saving custom_model..  with acc 0.6456999778747559 in the epoch 178
+2023-03-19 12:59:06,107 - INFO: 
+Epoch [179/300], Step [100/390], Loss: 0.01416
+2023-03-19 12:59:06,107 - INFO: Time elasped: 15.997277021408081
+2023-03-19 12:59:20,937 - INFO: 
+Epoch [179/300], Step [200/390], Loss: 0.01194
+2023-03-19 12:59:20,937 - INFO: Time elasped: 30.82711386680603
+2023-03-19 12:59:35,859 - INFO: 
+Epoch [179/300], Step [300/390], Loss: 0.01241
+2023-03-19 12:59:35,860 - INFO: Time elasped: 45.74975919723511
+2023-03-19 12:59:55,451 - INFO: Epoch 179: train loss 0.01250, train acc 0.56832, test acc 0.64020 
+2023-03-19 13:00:11,928 - INFO: 
+Epoch [180/300], Step [100/390], Loss: 0.01559
+2023-03-19 13:00:11,928 - INFO: Time elasped: 16.463852643966675
+2023-03-19 13:00:26,855 - INFO: 
+Epoch [180/300], Step [200/390], Loss: 0.01245
+2023-03-19 13:00:26,856 - INFO: Time elasped: 31.391459226608276
+2023-03-19 13:00:41,556 - INFO: 
+Epoch [180/300], Step [300/390], Loss: 0.01296
+2023-03-19 13:00:41,557 - INFO: Time elasped: 46.09249830245972
+2023-03-19 13:01:00,564 - INFO: Epoch 180: train loss 0.01247, train acc 0.57008, test acc 0.62760 
+2023-03-19 13:01:16,598 - INFO: 
+Epoch [181/300], Step [100/390], Loss: 0.01145
+2023-03-19 13:01:16,599 - INFO: Time elasped: 16.032214164733887
+2023-03-19 13:01:31,427 - INFO: 
+Epoch [181/300], Step [200/390], Loss: 0.01422
+2023-03-19 13:01:31,428 - INFO: Time elasped: 30.861006259918213
+2023-03-19 13:01:46,182 - INFO: 
+Epoch [181/300], Step [300/390], Loss: 0.01251
+2023-03-19 13:01:46,182 - INFO: Time elasped: 45.61594033241272
+2023-03-19 13:02:05,384 - INFO: Epoch 181: train loss 0.01239, train acc 0.57228, test acc 0.63300 
+2023-03-19 13:02:18,511 - INFO: 
+Epoch [182/300], Step [100/390], Loss: 0.01380
+2023-03-19 13:02:18,511 - INFO: Time elasped: 13.120872974395752
+2023-03-19 13:02:30,420 - INFO: 
+Epoch [182/300], Step [200/390], Loss: 0.01132
+2023-03-19 13:02:30,421 - INFO: Time elasped: 25.030291080474854
+2023-03-19 13:02:42,427 - INFO: 
+Epoch [182/300], Step [300/390], Loss: 0.01230
+2023-03-19 13:02:42,427 - INFO: Time elasped: 37.036890745162964
+2023-03-19 13:02:58,043 - INFO: Epoch 182: train loss 0.01241, train acc 0.57138, test acc 0.64390 
+2023-03-19 13:03:11,275 - INFO: 
+Epoch [183/300], Step [100/390], Loss: 0.01147
+2023-03-19 13:03:11,275 - INFO: Time elasped: 13.2296884059906
+2023-03-19 13:03:23,278 - INFO: 
+Epoch [183/300], Step [200/390], Loss: 0.01125
+2023-03-19 13:03:23,285 - INFO: Time elasped: 25.239450216293335
+2023-03-19 13:03:35,235 - INFO: 
+Epoch [183/300], Step [300/390], Loss: 0.01480
+2023-03-19 13:03:35,235 - INFO: Time elasped: 37.190048933029175
+2023-03-19 13:03:50,700 - INFO: Epoch 183: train loss 0.01221, train acc 0.57598, test acc 0.64690 
+2023-03-19 13:03:50,700 - INFO: Saving custom_model..  with acc 0.6468999981880188 in the epoch 183
+2023-03-19 13:04:04,234 - INFO: 
+Epoch [184/300], Step [100/390], Loss: 0.01337
+2023-03-19 13:04:04,234 - INFO: Time elasped: 13.313598394393921
+2023-03-19 13:04:16,102 - INFO: 
+Epoch [184/300], Step [200/390], Loss: 0.01444
+2023-03-19 13:04:16,102 - INFO: Time elasped: 25.181501388549805
+2023-03-19 13:04:28,214 - INFO: 
+Epoch [184/300], Step [300/390], Loss: 0.01135
+2023-03-19 13:04:28,215 - INFO: Time elasped: 37.29397439956665
+2023-03-19 13:04:43,892 - INFO: Epoch 184: train loss 0.01217, train acc 0.57916, test acc 0.64760 
+2023-03-19 13:04:43,892 - INFO: Saving custom_model..  with acc 0.647599995136261 in the epoch 184
+2023-03-19 13:04:57,643 - INFO: 
+Epoch [185/300], Step [100/390], Loss: 0.01079
+2023-03-19 13:04:57,644 - INFO: Time elasped: 13.508500337600708
+2023-03-19 13:05:11,942 - INFO: 
+Epoch [185/300], Step [200/390], Loss: 0.01009
+2023-03-19 13:05:11,943 - INFO: Time elasped: 27.807406425476074
+2023-03-19 13:05:26,709 - INFO: 
+Epoch [185/300], Step [300/390], Loss: 0.01210
+2023-03-19 13:05:26,709 - INFO: Time elasped: 42.574097633361816
+2023-03-19 13:05:45,845 - INFO: Epoch 185: train loss 0.01218, train acc 0.57764, test acc 0.64450 
+2023-03-19 13:06:01,907 - INFO: 
+Epoch [186/300], Step [100/390], Loss: 0.00970
+2023-03-19 13:06:01,907 - INFO: Time elasped: 16.056474208831787
+2023-03-19 13:06:16,654 - INFO: 
+Epoch [186/300], Step [200/390], Loss: 0.01203
+2023-03-19 13:06:16,654 - INFO: Time elasped: 30.803608179092407
+2023-03-19 13:06:31,339 - INFO: 
+Epoch [186/300], Step [300/390], Loss: 0.01357
+2023-03-19 13:06:31,339 - INFO: Time elasped: 45.488585472106934
+2023-03-19 13:06:50,431 - INFO: Epoch 186: train loss 0.01205, train acc 0.58548, test acc 0.64720 
+2023-03-19 13:07:06,507 - INFO: 
+Epoch [187/300], Step [100/390], Loss: 0.01230
+2023-03-19 13:07:06,507 - INFO: Time elasped: 16.072367906570435
+2023-03-19 13:07:21,340 - INFO: 
+Epoch [187/300], Step [200/390], Loss: 0.01195
+2023-03-19 13:07:21,340 - INFO: Time elasped: 30.90543222427368
+2023-03-19 13:07:36,128 - INFO: 
+Epoch [187/300], Step [300/390], Loss: 0.01005
+2023-03-19 13:07:36,128 - INFO: Time elasped: 45.69335126876831
+2023-03-19 13:07:55,292 - INFO: Epoch 187: train loss 0.01204, train acc 0.58488, test acc 0.63580 
+2023-03-19 13:08:11,451 - INFO: 
+Epoch [188/300], Step [100/390], Loss: 0.01166
+2023-03-19 13:08:11,451 - INFO: Time elasped: 16.14581322669983
+2023-03-19 13:08:26,209 - INFO: 
+Epoch [188/300], Step [200/390], Loss: 0.01074
+2023-03-19 13:08:26,209 - INFO: Time elasped: 30.903218269348145
+2023-03-19 13:08:41,038 - INFO: 
+Epoch [188/300], Step [300/390], Loss: 0.01233
+2023-03-19 13:08:41,038 - INFO: Time elasped: 45.732487201690674
+2023-03-19 13:09:00,091 - INFO: Epoch 188: train loss 0.01209, train acc 0.58240, test acc 0.64800 
+2023-03-19 13:09:00,091 - INFO: Saving custom_model..  with acc 0.6480000019073486 in the epoch 188
+2023-03-19 13:09:16,318 - INFO: 
+Epoch [189/300], Step [100/390], Loss: 0.01252
+2023-03-19 13:09:16,319 - INFO: Time elasped: 16.04648232460022
+2023-03-19 13:09:31,126 - INFO: 
+Epoch [189/300], Step [200/390], Loss: 0.01231
+2023-03-19 13:09:31,126 - INFO: Time elasped: 30.853739023208618
+2023-03-19 13:09:46,130 - INFO: 
+Epoch [189/300], Step [300/390], Loss: 0.01079
+2023-03-19 13:09:46,130 - INFO: Time elasped: 45.85812735557556
+2023-03-19 13:10:05,515 - INFO: Epoch 189: train loss 0.01188, train acc 0.58992, test acc 0.65010 
+2023-03-19 13:10:05,516 - INFO: Saving custom_model..  with acc 0.6500999927520752 in the epoch 189
+2023-03-19 13:10:23,154 - INFO: 
+Epoch [190/300], Step [100/390], Loss: 0.01023
+2023-03-19 13:10:23,154 - INFO: Time elasped: 17.433935165405273
+2023-03-19 13:10:39,473 - INFO: 
+Epoch [190/300], Step [200/390], Loss: 0.01363
+2023-03-19 13:10:39,473 - INFO: Time elasped: 33.75281739234924
+2023-03-19 13:10:55,706 - INFO: 
+Epoch [190/300], Step [300/390], Loss: 0.01129
+2023-03-19 13:10:55,713 - INFO: Time elasped: 49.99318289756775
+2023-03-19 13:11:16,768 - INFO: Epoch 190: train loss 0.01185, train acc 0.58824, test acc 0.64680 
+2023-03-19 13:11:34,068 - INFO: 
+Epoch [191/300], Step [100/390], Loss: 0.01333
+2023-03-19 13:11:34,068 - INFO: Time elasped: 17.29412531852722
+2023-03-19 13:11:50,350 - INFO: 
+Epoch [191/300], Step [200/390], Loss: 0.01128
+2023-03-19 13:11:50,350 - INFO: Time elasped: 33.57588195800781
+2023-03-19 13:12:06,613 - INFO: 
+Epoch [191/300], Step [300/390], Loss: 0.01238
+2023-03-19 13:12:06,613 - INFO: Time elasped: 49.838600635528564
+2023-03-19 13:12:27,811 - INFO: Epoch 191: train loss 0.01173, train acc 0.59160, test acc 0.64970 
+2023-03-19 13:12:45,015 - INFO: 
+Epoch [192/300], Step [100/390], Loss: 0.01135
+2023-03-19 13:12:45,015 - INFO: Time elasped: 17.202005624771118
+2023-03-19 13:13:01,273 - INFO: 
+Epoch [192/300], Step [200/390], Loss: 0.01152
+2023-03-19 13:13:01,274 - INFO: Time elasped: 33.46032452583313
+2023-03-19 13:13:17,437 - INFO: 
+Epoch [192/300], Step [300/390], Loss: 0.01116
+2023-03-19 13:13:17,438 - INFO: Time elasped: 49.62441301345825
+2023-03-19 13:13:38,447 - INFO: Epoch 192: train loss 0.01179, train acc 0.59350, test acc 0.65660 
+2023-03-19 13:13:38,447 - INFO: Saving custom_model..  with acc 0.6565999984741211 in the epoch 192
+2023-03-19 13:13:55,950 - INFO: 
+Epoch [193/300], Step [100/390], Loss: 0.01121
+2023-03-19 13:13:55,951 - INFO: Time elasped: 17.274048805236816
+2023-03-19 13:14:12,139 - INFO: 
+Epoch [193/300], Step [200/390], Loss: 0.01236
+2023-03-19 13:14:12,140 - INFO: Time elasped: 33.462955951690674
+2023-03-19 13:14:28,254 - INFO: 
+Epoch [193/300], Step [300/390], Loss: 0.01299
+2023-03-19 13:14:28,255 - INFO: Time elasped: 49.577871561050415
+2023-03-19 13:14:48,609 - INFO: Epoch 193: train loss 0.01164, train acc 0.59390, test acc 0.65570 
+2023-03-19 13:15:05,872 - INFO: 
+Epoch [194/300], Step [100/390], Loss: 0.00903
+2023-03-19 13:15:05,872 - INFO: Time elasped: 17.256756067276
+2023-03-19 13:15:21,617 - INFO: 
+Epoch [194/300], Step [200/390], Loss: 0.01194
+2023-03-19 13:15:21,617 - INFO: Time elasped: 33.00131106376648
+2023-03-19 13:15:37,525 - INFO: 
+Epoch [194/300], Step [300/390], Loss: 0.01151
+2023-03-19 13:15:37,525 - INFO: Time elasped: 48.90965676307678
+2023-03-19 13:15:58,854 - INFO: Epoch 194: train loss 0.01161, train acc 0.59736, test acc 0.66380 
+2023-03-19 13:15:58,854 - INFO: Saving custom_model..  with acc 0.6638000011444092 in the epoch 194
+2023-03-19 13:16:16,616 - INFO: 
+Epoch [195/300], Step [100/390], Loss: 0.01304
+2023-03-19 13:16:16,616 - INFO: Time elasped: 17.507391929626465
+2023-03-19 13:16:32,022 - INFO: 
+Epoch [195/300], Step [200/390], Loss: 0.01399
+2023-03-19 13:16:32,022 - INFO: Time elasped: 32.913679122924805
+2023-03-19 13:16:48,257 - INFO: 
+Epoch [195/300], Step [300/390], Loss: 0.01181
+2023-03-19 13:16:48,257 - INFO: Time elasped: 49.14843702316284
+2023-03-19 13:17:09,352 - INFO: Epoch 195: train loss 0.01158, train acc 0.59788, test acc 0.65530 
+2023-03-19 13:17:26,624 - INFO: 
+Epoch [196/300], Step [100/390], Loss: 0.01068
+2023-03-19 13:17:26,624 - INFO: Time elasped: 17.268892288208008
+2023-03-19 13:17:42,988 - INFO: 
+Epoch [196/300], Step [200/390], Loss: 0.01238
+2023-03-19 13:17:42,996 - INFO: Time elasped: 33.64059638977051
+2023-03-19 13:17:58,664 - INFO: 
+Epoch [196/300], Step [300/390], Loss: 0.01073
+2023-03-19 13:17:58,664 - INFO: Time elasped: 49.30878257751465
+2023-03-19 13:18:15,795 - INFO: Epoch 196: train loss 0.01160, train acc 0.59552, test acc 0.65820 
+2023-03-19 13:18:29,926 - INFO: 
+Epoch [197/300], Step [100/390], Loss: 0.01205
+2023-03-19 13:18:29,927 - INFO: Time elasped: 14.129087686538696
+2023-03-19 13:18:42,812 - INFO: 
+Epoch [197/300], Step [200/390], Loss: 0.01171
+2023-03-19 13:18:42,812 - INFO: Time elasped: 27.014980792999268
+2023-03-19 13:18:55,673 - INFO: 
+Epoch [197/300], Step [300/390], Loss: 0.01149
+2023-03-19 13:18:55,673 - INFO: Time elasped: 39.87582302093506
+2023-03-19 13:19:12,614 - INFO: Epoch 197: train loss 0.01149, train acc 0.60040, test acc 0.65260 
+2023-03-19 13:19:26,632 - INFO: 
+Epoch [198/300], Step [100/390], Loss: 0.01090
+2023-03-19 13:19:26,633 - INFO: Time elasped: 14.015709638595581
+2023-03-19 13:19:39,471 - INFO: 
+Epoch [198/300], Step [200/390], Loss: 0.01017
+2023-03-19 13:19:39,471 - INFO: Time elasped: 26.85380458831787
+2023-03-19 13:19:52,468 - INFO: 
+Epoch [198/300], Step [300/390], Loss: 0.01038
+2023-03-19 13:19:52,468 - INFO: Time elasped: 39.85135841369629
+2023-03-19 13:20:09,417 - INFO: Epoch 198: train loss 0.01138, train acc 0.60354, test acc 0.66420 
+2023-03-19 13:20:09,417 - INFO: Saving custom_model..  with acc 0.6642000079154968 in the epoch 198
+2023-03-19 13:20:26,556 - INFO: 
+Epoch [199/300], Step [100/390], Loss: 0.01112
+2023-03-19 13:20:26,556 - INFO: Time elasped: 16.9015371799469
+2023-03-19 13:20:42,702 - INFO: 
+Epoch [199/300], Step [200/390], Loss: 0.01067
+2023-03-19 13:20:42,709 - INFO: Time elasped: 33.054089069366455
+2023-03-19 13:20:59,013 - INFO: 
+Epoch [199/300], Step [300/390], Loss: 0.01079
+2023-03-19 13:20:59,014 - INFO: Time elasped: 49.3590133190155
+2023-03-19 13:21:20,121 - INFO: Epoch 199: train loss 0.01136, train acc 0.60376, test acc 0.65870 
+2023-03-19 13:21:36,982 - INFO: 
+Epoch [200/300], Step [100/390], Loss: 0.01071
+2023-03-19 13:21:36,983 - INFO: Time elasped: 16.85852026939392
+2023-03-19 13:21:52,168 - INFO: 
+Epoch [200/300], Step [200/390], Loss: 0.01126
+2023-03-19 13:21:52,169 - INFO: Time elasped: 32.04454493522644
+2023-03-19 13:22:06,884 - INFO: 
+Epoch [200/300], Step [300/390], Loss: 0.00921
+2023-03-19 13:22:06,885 - INFO: Time elasped: 46.76059103012085
+2023-03-19 13:22:25,981 - INFO: Epoch 200: train loss 0.01128, train acc 0.60530, test acc 0.66910 
+2023-03-19 13:22:25,981 - INFO: Saving custom_model..  with acc 0.6690999865531921 in the epoch 200
+2023-03-19 13:22:42,247 - INFO: 
+Epoch [201/300], Step [100/390], Loss: 0.01269
+2023-03-19 13:22:42,254 - INFO: Time elasped: 16.07401990890503
+2023-03-19 13:22:57,121 - INFO: 
+Epoch [201/300], Step [200/390], Loss: 0.00979
+2023-03-19 13:22:57,121 - INFO: Time elasped: 30.940953254699707
+2023-03-19 13:23:11,886 - INFO: 
+Epoch [201/300], Step [300/390], Loss: 0.01162
+2023-03-19 13:23:11,886 - INFO: Time elasped: 45.70587110519409
+2023-03-19 13:23:30,932 - INFO: Epoch 201: train loss 0.01116, train acc 0.61060, test acc 0.66490 
+2023-03-19 13:23:47,082 - INFO: 
+Epoch [202/300], Step [100/390], Loss: 0.01217
+2023-03-19 13:23:47,082 - INFO: Time elasped: 16.14377188682556
+2023-03-19 13:24:01,885 - INFO: 
+Epoch [202/300], Step [200/390], Loss: 0.01101
+2023-03-19 13:24:01,885 - INFO: Time elasped: 30.9468195438385
+2023-03-19 13:24:16,759 - INFO: 
+Epoch [202/300], Step [300/390], Loss: 0.01216
+2023-03-19 13:24:16,759 - INFO: Time elasped: 45.82035493850708
+2023-03-19 13:24:35,773 - INFO: Epoch 202: train loss 0.01117, train acc 0.61168, test acc 0.66030 
+2023-03-19 13:24:51,854 - INFO: 
+Epoch [203/300], Step [100/390], Loss: 0.01135
+2023-03-19 13:24:51,854 - INFO: Time elasped: 16.075263023376465
+2023-03-19 13:25:06,730 - INFO: 
+Epoch [203/300], Step [200/390], Loss: 0.01035
+2023-03-19 13:25:06,730 - INFO: Time elasped: 30.95142650604248
+2023-03-19 13:25:21,480 - INFO: 
+Epoch [203/300], Step [300/390], Loss: 0.01194
+2023-03-19 13:25:21,481 - INFO: Time elasped: 45.70183873176575
+2023-03-19 13:25:40,515 - INFO: Epoch 203: train loss 0.01102, train acc 0.61510, test acc 0.67180 
+2023-03-19 13:25:40,515 - INFO: Saving custom_model..  with acc 0.6717999577522278 in the epoch 203
+2023-03-19 13:25:56,856 - INFO: 
+Epoch [204/300], Step [100/390], Loss: 0.01111
+2023-03-19 13:25:56,863 - INFO: Time elasped: 16.15876603126526
+2023-03-19 13:26:11,741 - INFO: 
+Epoch [204/300], Step [200/390], Loss: 0.01062
+2023-03-19 13:26:11,741 - INFO: Time elasped: 31.03726577758789
+2023-03-19 13:26:26,689 - INFO: 
+Epoch [204/300], Step [300/390], Loss: 0.01027
+2023-03-19 13:26:26,689 - INFO: Time elasped: 45.98468852043152
+2023-03-19 13:26:46,241 - INFO: Epoch 204: train loss 0.01101, train acc 0.61728, test acc 0.67370 
+2023-03-19 13:26:46,242 - INFO: Saving custom_model..  with acc 0.6736999750137329 in the epoch 204
+2023-03-19 13:27:02,903 - INFO: 
+Epoch [205/300], Step [100/390], Loss: 0.00891
+2023-03-19 13:27:02,910 - INFO: Time elasped: 16.439087867736816
+2023-03-19 13:27:17,830 - INFO: 
+Epoch [205/300], Step [200/390], Loss: 0.01056
+2023-03-19 13:27:17,830 - INFO: Time elasped: 31.359060764312744
+2023-03-19 13:27:32,579 - INFO: 
+Epoch [205/300], Step [300/390], Loss: 0.00937
+2023-03-19 13:27:32,579 - INFO: Time elasped: 46.108129024505615
+2023-03-19 13:27:51,732 - INFO: Epoch 205: train loss 0.01093, train acc 0.61850, test acc 0.66260 
+2023-03-19 13:28:07,826 - INFO: 
+Epoch [206/300], Step [100/390], Loss: 0.01234
+2023-03-19 13:28:07,827 - INFO: Time elasped: 16.088030099868774
+2023-03-19 13:28:22,658 - INFO: 
+Epoch [206/300], Step [200/390], Loss: 0.01384
+2023-03-19 13:28:22,658 - INFO: Time elasped: 30.919360160827637
+2023-03-19 13:28:37,369 - INFO: 
+Epoch [206/300], Step [300/390], Loss: 0.01074
+2023-03-19 13:28:37,369 - INFO: Time elasped: 45.6307532787323
+2023-03-19 13:28:56,358 - INFO: Epoch 206: train loss 0.01085, train acc 0.62164, test acc 0.66870 
+2023-03-19 13:29:12,416 - INFO: 
+Epoch [207/300], Step [100/390], Loss: 0.01135
+2023-03-19 13:29:12,416 - INFO: Time elasped: 16.05501079559326
+2023-03-19 13:29:27,256 - INFO: 
+Epoch [207/300], Step [200/390], Loss: 0.01223
+2023-03-19 13:29:27,257 - INFO: Time elasped: 30.895202159881592
+2023-03-19 13:29:41,708 - INFO: 
+Epoch [207/300], Step [300/390], Loss: 0.01099
+2023-03-19 13:29:41,708 - INFO: Time elasped: 45.34697675704956
+2023-03-19 13:30:00,881 - INFO: Epoch 207: train loss 0.01081, train acc 0.62240, test acc 0.67570 
+2023-03-19 13:30:00,884 - INFO: Saving custom_model..  with acc 0.6757000088691711 in the epoch 207
+2023-03-19 13:30:17,248 - INFO: 
+Epoch [208/300], Step [100/390], Loss: 0.01022
+2023-03-19 13:30:17,248 - INFO: Time elasped: 16.136277437210083
+2023-03-19 13:30:32,000 - INFO: 
+Epoch [208/300], Step [200/390], Loss: 0.01221
+2023-03-19 13:30:32,007 - INFO: Time elasped: 30.895222187042236
+2023-03-19 13:30:46,782 - INFO: 
+Epoch [208/300], Step [300/390], Loss: 0.01099
+2023-03-19 13:30:46,782 - INFO: Time elasped: 45.670146465301514
+2023-03-19 13:31:05,871 - INFO: Epoch 208: train loss 0.01081, train acc 0.62192, test acc 0.67340 
+2023-03-19 13:31:22,009 - INFO: 
+Epoch [209/300], Step [100/390], Loss: 0.00952
+2023-03-19 13:31:22,009 - INFO: Time elasped: 16.135937929153442
+2023-03-19 13:31:36,885 - INFO: 
+Epoch [209/300], Step [200/390], Loss: 0.00985
+2023-03-19 13:31:36,885 - INFO: Time elasped: 31.011416912078857
+2023-03-19 13:31:51,831 - INFO: 
+Epoch [209/300], Step [300/390], Loss: 0.01024
+2023-03-19 13:31:51,831 - INFO: Time elasped: 45.9576370716095
+2023-03-19 13:32:11,419 - INFO: Epoch 209: train loss 0.01079, train acc 0.62238, test acc 0.67480 
+2023-03-19 13:32:27,809 - INFO: 
+Epoch [210/300], Step [100/390], Loss: 0.00889
+2023-03-19 13:32:27,810 - INFO: Time elasped: 16.383892059326172
+2023-03-19 13:32:42,720 - INFO: 
+Epoch [210/300], Step [200/390], Loss: 0.01084
+2023-03-19 13:32:42,720 - INFO: Time elasped: 31.29427695274353
+2023-03-19 13:32:57,454 - INFO: 
+Epoch [210/300], Step [300/390], Loss: 0.01001
+2023-03-19 13:32:57,455 - INFO: Time elasped: 46.02966046333313
+2023-03-19 13:33:16,590 - INFO: Epoch 210: train loss 0.01059, train acc 0.62936, test acc 0.67820 
+2023-03-19 13:33:16,593 - INFO: Saving custom_model..  with acc 0.6782000064849854 in the epoch 210
+2023-03-19 13:33:32,926 - INFO: 
+Epoch [211/300], Step [100/390], Loss: 0.00894
+2023-03-19 13:33:32,926 - INFO: Time elasped: 16.100194931030273
+2023-03-19 13:33:47,819 - INFO: 
+Epoch [211/300], Step [200/390], Loss: 0.01125
+2023-03-19 13:33:47,819 - INFO: Time elasped: 30.99364399909973
+2023-03-19 13:34:02,551 - INFO: 
+Epoch [211/300], Step [300/390], Loss: 0.01097
+2023-03-19 13:34:02,552 - INFO: Time elasped: 45.7259304523468
+2023-03-19 13:34:20,029 - INFO: Epoch 211: train loss 0.01058, train acc 0.63000, test acc 0.67580 
+2023-03-19 13:34:33,304 - INFO: 
+Epoch [212/300], Step [100/390], Loss: 0.00865
+2023-03-19 13:34:33,304 - INFO: Time elasped: 13.272497653961182
+2023-03-19 13:34:45,362 - INFO: 
+Epoch [212/300], Step [200/390], Loss: 0.00990
+2023-03-19 13:34:45,363 - INFO: Time elasped: 25.331360340118408
+2023-03-19 13:34:57,347 - INFO: 
+Epoch [212/300], Step [300/390], Loss: 0.00905
+2023-03-19 13:34:57,347 - INFO: Time elasped: 37.31604218482971
+2023-03-19 13:35:13,017 - INFO: Epoch 212: train loss 0.01044, train acc 0.63278, test acc 0.67760 
+2023-03-19 13:35:26,304 - INFO: 
+Epoch [213/300], Step [100/390], Loss: 0.00906
+2023-03-19 13:35:26,305 - INFO: Time elasped: 13.285625457763672
+2023-03-19 13:35:38,305 - INFO: 
+Epoch [213/300], Step [200/390], Loss: 0.01101
+2023-03-19 13:35:38,305 - INFO: Time elasped: 25.285831451416016
+2023-03-19 13:35:50,318 - INFO: 
+Epoch [213/300], Step [300/390], Loss: 0.01002
+2023-03-19 13:35:50,319 - INFO: Time elasped: 37.299638748168945
+2023-03-19 13:36:05,851 - INFO: Epoch 213: train loss 0.01042, train acc 0.63368, test acc 0.69540 
+2023-03-19 13:36:05,851 - INFO: Saving custom_model..  with acc 0.6953999996185303 in the epoch 213
+2023-03-19 13:36:19,305 - INFO: 
+Epoch [214/300], Step [100/390], Loss: 0.00900
+2023-03-19 13:36:19,305 - INFO: Time elasped: 13.216474533081055
+2023-03-19 13:36:31,256 - INFO: 
+Epoch [214/300], Step [200/390], Loss: 0.00991
+2023-03-19 13:36:31,257 - INFO: Time elasped: 25.167865753173828
+2023-03-19 13:36:43,462 - INFO: 
+Epoch [214/300], Step [300/390], Loss: 0.01093
+2023-03-19 13:36:43,463 - INFO: Time elasped: 37.37375617027283
+2023-03-19 13:36:59,332 - INFO: Epoch 214: train loss 0.01029, train acc 0.63966, test acc 0.68350 
+2023-03-19 13:37:13,722 - INFO: 
+Epoch [215/300], Step [100/390], Loss: 0.00891
+2023-03-19 13:37:13,722 - INFO: Time elasped: 14.38637375831604
+2023-03-19 13:37:28,522 - INFO: 
+Epoch [215/300], Step [200/390], Loss: 0.00906
+2023-03-19 13:37:28,523 - INFO: Time elasped: 29.1870379447937
+2023-03-19 13:37:43,295 - INFO: 
+Epoch [215/300], Step [300/390], Loss: 0.00812
+2023-03-19 13:37:43,296 - INFO: Time elasped: 43.95996427536011
+2023-03-19 13:38:02,477 - INFO: Epoch 215: train loss 0.01026, train acc 0.64004, test acc 0.67810 
+2023-03-19 13:38:18,543 - INFO: 
+Epoch [216/300], Step [100/390], Loss: 0.01086
+2023-03-19 13:38:18,544 - INFO: Time elasped: 16.063313484191895
+2023-03-19 13:38:33,365 - INFO: 
+Epoch [216/300], Step [200/390], Loss: 0.00940
+2023-03-19 13:38:33,365 - INFO: Time elasped: 30.884493827819824
+2023-03-19 13:38:48,046 - INFO: 
+Epoch [216/300], Step [300/390], Loss: 0.00952
+2023-03-19 13:38:48,046 - INFO: Time elasped: 45.56581401824951
+2023-03-19 13:39:07,191 - INFO: Epoch 216: train loss 0.01017, train acc 0.64346, test acc 0.70010 
+2023-03-19 13:39:07,198 - INFO: Saving custom_model..  with acc 0.7001000046730042 in the epoch 216
+2023-03-19 13:39:23,545 - INFO: 
+Epoch [217/300], Step [100/390], Loss: 0.00939
+2023-03-19 13:39:23,545 - INFO: Time elasped: 16.14914345741272
+2023-03-19 13:39:38,438 - INFO: 
+Epoch [217/300], Step [200/390], Loss: 0.01146
+2023-03-19 13:39:38,439 - INFO: Time elasped: 31.042333126068115
+2023-03-19 13:39:53,130 - INFO: 
+Epoch [217/300], Step [300/390], Loss: 0.00958
+2023-03-19 13:39:53,130 - INFO: Time elasped: 45.734140396118164
+2023-03-19 13:40:12,264 - INFO: Epoch 217: train loss 0.01015, train acc 0.64152, test acc 0.68040 
+2023-03-19 13:40:28,370 - INFO: 
+Epoch [218/300], Step [100/390], Loss: 0.01039
+2023-03-19 13:40:28,377 - INFO: Time elasped: 16.10697293281555
+2023-03-19 13:40:43,226 - INFO: 
+Epoch [218/300], Step [200/390], Loss: 0.00889
+2023-03-19 13:40:43,227 - INFO: Time elasped: 30.956116437911987
+2023-03-19 13:40:58,039 - INFO: 
+Epoch [218/300], Step [300/390], Loss: 0.01030
+2023-03-19 13:40:58,039 - INFO: Time elasped: 45.769042015075684
+2023-03-19 13:41:17,054 - INFO: Epoch 218: train loss 0.01004, train acc 0.64902, test acc 0.68250 
+2023-03-19 13:41:33,126 - INFO: 
+Epoch [219/300], Step [100/390], Loss: 0.00850
+2023-03-19 13:41:33,126 - INFO: Time elasped: 16.069742441177368
+2023-03-19 13:41:48,031 - INFO: 
+Epoch [219/300], Step [200/390], Loss: 0.00921
+2023-03-19 13:41:48,032 - INFO: Time elasped: 30.975341320037842
+2023-03-19 13:42:03,061 - INFO: 
+Epoch [219/300], Step [300/390], Loss: 0.01066
+2023-03-19 13:42:03,061 - INFO: Time elasped: 46.00472402572632
+2023-03-19 13:42:22,370 - INFO: Epoch 219: train loss 0.00994, train acc 0.65212, test acc 0.69160 
+2023-03-19 13:42:38,599 - INFO: 
+Epoch [220/300], Step [100/390], Loss: 0.00861
+2023-03-19 13:42:38,600 - INFO: Time elasped: 16.220694065093994
+2023-03-19 13:42:53,410 - INFO: 
+Epoch [220/300], Step [200/390], Loss: 0.00730
+2023-03-19 13:42:53,410 - INFO: Time elasped: 31.031546354293823
+2023-03-19 13:43:08,211 - INFO: 
+Epoch [220/300], Step [300/390], Loss: 0.01135
+2023-03-19 13:43:08,212 - INFO: Time elasped: 45.833547592163086
+2023-03-19 13:43:27,283 - INFO: Epoch 220: train loss 0.00991, train acc 0.65142, test acc 0.68560 
+2023-03-19 13:43:43,331 - INFO: 
+Epoch [221/300], Step [100/390], Loss: 0.00936
+2023-03-19 13:43:43,331 - INFO: Time elasped: 16.042246103286743
+2023-03-19 13:43:58,209 - INFO: 
+Epoch [221/300], Step [200/390], Loss: 0.00999
+2023-03-19 13:43:58,209 - INFO: Time elasped: 30.920164346694946
+2023-03-19 13:44:12,906 - INFO: 
+Epoch [221/300], Step [300/390], Loss: 0.01011
+2023-03-19 13:44:12,906 - INFO: Time elasped: 45.616750955581665
+2023-03-19 13:44:32,051 - INFO: Epoch 221: train loss 0.00985, train acc 0.65500, test acc 0.69560 
+2023-03-19 13:44:48,220 - INFO: 
+Epoch [222/300], Step [100/390], Loss: 0.01149
+2023-03-19 13:44:48,220 - INFO: Time elasped: 16.1630117893219
+2023-03-19 13:45:03,055 - INFO: 
+Epoch [222/300], Step [200/390], Loss: 0.00886
+2023-03-19 13:45:03,055 - INFO: Time elasped: 30.99772572517395
+2023-03-19 13:45:17,838 - INFO: 
+Epoch [222/300], Step [300/390], Loss: 0.00922
+2023-03-19 13:45:17,838 - INFO: Time elasped: 45.781182527542114
+2023-03-19 13:45:36,806 - INFO: Epoch 222: train loss 0.00982, train acc 0.65512, test acc 0.68910 
+2023-03-19 13:45:52,875 - INFO: 
+Epoch [223/300], Step [100/390], Loss: 0.00994
+2023-03-19 13:45:52,875 - INFO: Time elasped: 16.066054344177246
+2023-03-19 13:46:07,662 - INFO: 
+Epoch [223/300], Step [200/390], Loss: 0.01001
+2023-03-19 13:46:07,663 - INFO: Time elasped: 30.853604316711426
+2023-03-19 13:46:22,402 - INFO: 
+Epoch [223/300], Step [300/390], Loss: 0.00758
+2023-03-19 13:46:22,403 - INFO: Time elasped: 45.593756914138794
+2023-03-19 13:46:41,424 - INFO: Epoch 223: train loss 0.00972, train acc 0.65774, test acc 0.68970 
+2023-03-19 13:46:57,527 - INFO: 
+Epoch [224/300], Step [100/390], Loss: 0.00865
+2023-03-19 13:46:57,528 - INFO: Time elasped: 16.096904277801514
+2023-03-19 13:47:12,560 - INFO: 
+Epoch [224/300], Step [200/390], Loss: 0.01001
+2023-03-19 13:47:12,560 - INFO: Time elasped: 31.12928056716919
+2023-03-19 13:47:27,537 - INFO: 
+Epoch [224/300], Step [300/390], Loss: 0.00880
+2023-03-19 13:47:27,538 - INFO: Time elasped: 46.107110023498535
+2023-03-19 13:47:47,846 - INFO: Epoch 224: train loss 0.00964, train acc 0.65940, test acc 0.69350 
+2023-03-19 13:48:05,356 - INFO: 
+Epoch [225/300], Step [100/390], Loss: 0.00855
+2023-03-19 13:48:05,356 - INFO: Time elasped: 17.50598382949829
+2023-03-19 13:48:21,603 - INFO: 
+Epoch [225/300], Step [200/390], Loss: 0.01057
+2023-03-19 13:48:21,604 - INFO: Time elasped: 33.75390386581421
+2023-03-19 13:48:37,690 - INFO: 
+Epoch [225/300], Step [300/390], Loss: 0.00787
+2023-03-19 13:48:37,690 - INFO: Time elasped: 49.84005403518677
+2023-03-19 13:48:58,958 - INFO: Epoch 225: train loss 0.00955, train acc 0.66214, test acc 0.69000 
+2023-03-19 13:49:16,490 - INFO: 
+Epoch [226/300], Step [100/390], Loss: 0.00972
+2023-03-19 13:49:16,490 - INFO: Time elasped: 17.529200792312622
+2023-03-19 13:49:31,785 - INFO: 
+Epoch [226/300], Step [200/390], Loss: 0.00865
+2023-03-19 13:49:31,785 - INFO: Time elasped: 32.82455515861511
+2023-03-19 13:49:48,014 - INFO: 
+Epoch [226/300], Step [300/390], Loss: 0.01035
+2023-03-19 13:49:48,014 - INFO: Time elasped: 49.05346465110779
+2023-03-19 13:50:09,455 - INFO: Epoch 226: train loss 0.00947, train acc 0.66530, test acc 0.70400 
+2023-03-19 13:50:09,455 - INFO: Saving custom_model..  with acc 0.7039999961853027 in the epoch 226
+2023-03-19 13:50:27,062 - INFO: 
+Epoch [227/300], Step [100/390], Loss: 0.01038
+2023-03-19 13:50:27,062 - INFO: Time elasped: 17.380688190460205
+2023-03-19 13:50:43,309 - INFO: 
+Epoch [227/300], Step [200/390], Loss: 0.00778
+2023-03-19 13:50:43,309 - INFO: Time elasped: 33.62741541862488
+2023-03-19 13:50:57,551 - INFO: 
+Epoch [227/300], Step [300/390], Loss: 0.00961
+2023-03-19 13:50:57,551 - INFO: Time elasped: 47.86966133117676
+2023-03-19 13:51:14,640 - INFO: Epoch 227: train loss 0.00949, train acc 0.66762, test acc 0.69150 
+2023-03-19 13:51:28,708 - INFO: 
+Epoch [228/300], Step [100/390], Loss: 0.00816
+2023-03-19 13:51:28,715 - INFO: Time elasped: 14.072317123413086
+2023-03-19 13:51:41,436 - INFO: 
+Epoch [228/300], Step [200/390], Loss: 0.00879
+2023-03-19 13:51:41,436 - INFO: Time elasped: 26.793201684951782
+2023-03-19 13:51:54,373 - INFO: 
+Epoch [228/300], Step [300/390], Loss: 0.01074
+2023-03-19 13:51:54,374 - INFO: Time elasped: 39.730637311935425
+2023-03-19 13:52:11,445 - INFO: Epoch 228: train loss 0.00933, train acc 0.67216, test acc 0.70090 
+2023-03-19 13:52:25,417 - INFO: 
+Epoch [229/300], Step [100/390], Loss: 0.00943
+2023-03-19 13:52:25,417 - INFO: Time elasped: 13.969494104385376
+2023-03-19 13:52:38,262 - INFO: 
+Epoch [229/300], Step [200/390], Loss: 0.00828
+2023-03-19 13:52:38,263 - INFO: Time elasped: 26.814879417419434
+2023-03-19 13:52:50,949 - INFO: 
+Epoch [229/300], Step [300/390], Loss: 0.00913
+2023-03-19 13:52:50,949 - INFO: Time elasped: 39.50168013572693
+2023-03-19 13:53:07,949 - INFO: Epoch 229: train loss 0.00925, train acc 0.67452, test acc 0.70720 
+2023-03-19 13:53:07,949 - INFO: Saving custom_model..  with acc 0.7071999907493591 in the epoch 229
+2023-03-19 13:53:24,911 - INFO: 
+Epoch [230/300], Step [100/390], Loss: 0.00944
+2023-03-19 13:53:24,912 - INFO: Time elasped: 16.706629037857056
+2023-03-19 13:53:41,116 - INFO: 
+Epoch [230/300], Step [200/390], Loss: 0.00860
+2023-03-19 13:53:41,123 - INFO: Time elasped: 32.91855072975159
+2023-03-19 13:53:57,282 - INFO: 
+Epoch [230/300], Step [300/390], Loss: 0.00912
+2023-03-19 13:53:57,282 - INFO: Time elasped: 49.07726573944092
+2023-03-19 13:54:18,525 - INFO: Epoch 230: train loss 0.00926, train acc 0.67474, test acc 0.70560 
+2023-03-19 13:54:36,152 - INFO: 
+Epoch [231/300], Step [100/390], Loss: 0.01014
+2023-03-19 13:54:36,152 - INFO: Time elasped: 17.62472653388977
+2023-03-19 13:54:52,452 - INFO: 
+Epoch [231/300], Step [200/390], Loss: 0.00798
+2023-03-19 13:54:52,453 - INFO: Time elasped: 33.924885988235474
+2023-03-19 13:55:08,441 - INFO: 
+Epoch [231/300], Step [300/390], Loss: 0.00844
+2023-03-19 13:55:08,442 - INFO: Time elasped: 49.91414737701416
+2023-03-19 13:55:29,647 - INFO: Epoch 231: train loss 0.00925, train acc 0.67288, test acc 0.70960 
+2023-03-19 13:55:29,649 - INFO: Saving custom_model..  with acc 0.7095999717712402 in the epoch 231
+2023-03-19 13:55:47,332 - INFO: 
+Epoch [232/300], Step [100/390], Loss: 0.00998
+2023-03-19 13:55:47,340 - INFO: Time elasped: 17.440134525299072
+2023-03-19 13:56:03,567 - INFO: 
+Epoch [232/300], Step [200/390], Loss: 0.01061
+2023-03-19 13:56:03,568 - INFO: Time elasped: 33.66808772087097
+2023-03-19 13:56:19,702 - INFO: 
+Epoch [232/300], Step [300/390], Loss: 0.00827
+2023-03-19 13:56:19,702 - INFO: Time elasped: 49.802796840667725
+2023-03-19 13:56:40,817 - INFO: Epoch 232: train loss 0.00904, train acc 0.67962, test acc 0.70890 
+2023-03-19 13:56:58,457 - INFO: 
+Epoch [233/300], Step [100/390], Loss: 0.00975
+2023-03-19 13:56:58,457 - INFO: Time elasped: 17.637176275253296
+2023-03-19 13:57:14,047 - INFO: 
+Epoch [233/300], Step [200/390], Loss: 0.00974
+2023-03-19 13:57:14,047 - INFO: Time elasped: 33.22754406929016
+2023-03-19 13:57:30,102 - INFO: 
+Epoch [233/300], Step [300/390], Loss: 0.00922
+2023-03-19 13:57:30,103 - INFO: Time elasped: 49.2828733921051
+2023-03-19 13:57:51,465 - INFO: Epoch 233: train loss 0.00898, train acc 0.68342, test acc 0.71560 
+2023-03-19 13:57:51,465 - INFO: Saving custom_model..  with acc 0.7155999541282654 in the epoch 233
+2023-03-19 13:58:08,867 - INFO: 
+Epoch [234/300], Step [100/390], Loss: 0.00955
+2023-03-19 13:58:08,867 - INFO: Time elasped: 17.181653022766113
+2023-03-19 13:58:25,129 - INFO: 
+Epoch [234/300], Step [200/390], Loss: 0.00751
+2023-03-19 13:58:25,136 - INFO: Time elasped: 33.45034646987915
+2023-03-19 13:58:41,258 - INFO: 
+Epoch [234/300], Step [300/390], Loss: 0.00769
+2023-03-19 13:58:41,258 - INFO: Time elasped: 49.5724618434906
+2023-03-19 13:59:01,212 - INFO: Epoch 234: train loss 0.00881, train acc 0.68934, test acc 0.71240 
+2023-03-19 13:59:17,462 - INFO: 
+Epoch [235/300], Step [100/390], Loss: 0.00953
+2023-03-19 13:59:17,462 - INFO: Time elasped: 16.247304916381836
+2023-03-19 13:59:32,280 - INFO: 
+Epoch [235/300], Step [200/390], Loss: 0.00835
+2023-03-19 13:59:32,280 - INFO: Time elasped: 31.065439701080322
+2023-03-19 13:59:47,100 - INFO: 
+Epoch [235/300], Step [300/390], Loss: 0.00877
+2023-03-19 13:59:47,101 - INFO: Time elasped: 45.88574719429016
+2023-03-19 14:00:06,171 - INFO: Epoch 235: train loss 0.00875, train acc 0.69102, test acc 0.70550 
+2023-03-19 14:00:22,295 - INFO: 
+Epoch [236/300], Step [100/390], Loss: 0.00978
+2023-03-19 14:00:22,296 - INFO: Time elasped: 16.12086772918701
+2023-03-19 14:00:37,118 - INFO: 
+Epoch [236/300], Step [200/390], Loss: 0.00764
+2023-03-19 14:00:37,118 - INFO: Time elasped: 30.943385124206543
+2023-03-19 14:00:51,922 - INFO: 
+Epoch [236/300], Step [300/390], Loss: 0.00847
+2023-03-19 14:00:51,922 - INFO: Time elasped: 45.74719166755676
+2023-03-19 14:01:10,844 - INFO: Epoch 236: train loss 0.00868, train acc 0.69134, test acc 0.71710 
+2023-03-19 14:01:10,845 - INFO: Saving custom_model..  with acc 0.7170999646186829 in the epoch 236
+2023-03-19 14:01:27,160 - INFO: 
+Epoch [237/300], Step [100/390], Loss: 0.00906
+2023-03-19 14:01:27,161 - INFO: Time elasped: 16.084094047546387
+2023-03-19 14:01:41,935 - INFO: 
+Epoch [237/300], Step [200/390], Loss: 0.00797
+2023-03-19 14:01:41,935 - INFO: Time elasped: 30.8587007522583
+2023-03-19 14:01:56,627 - INFO: 
+Epoch [237/300], Step [300/390], Loss: 0.00881
+2023-03-19 14:01:56,634 - INFO: Time elasped: 45.55798697471619
+2023-03-19 14:02:15,898 - INFO: Epoch 237: train loss 0.00867, train acc 0.69412, test acc 0.71900 
+2023-03-19 14:02:15,898 - INFO: Saving custom_model..  with acc 0.718999981880188 in the epoch 237
+2023-03-19 14:02:32,318 - INFO: 
+Epoch [238/300], Step [100/390], Loss: 0.00945
+2023-03-19 14:02:32,318 - INFO: Time elasped: 16.17422890663147
+2023-03-19 14:02:47,162 - INFO: 
+Epoch [238/300], Step [200/390], Loss: 0.00975
+2023-03-19 14:02:47,163 - INFO: Time elasped: 31.018703937530518
+2023-03-19 14:03:01,881 - INFO: 
+Epoch [238/300], Step [300/390], Loss: 0.00959
+2023-03-19 14:03:01,882 - INFO: Time elasped: 45.737831592559814
+2023-03-19 14:03:20,951 - INFO: Epoch 238: train loss 0.00863, train acc 0.69430, test acc 0.70560 
+2023-03-19 14:03:36,994 - INFO: 
+Epoch [239/300], Step [100/390], Loss: 0.00881
+2023-03-19 14:03:36,994 - INFO: Time elasped: 16.03558659553528
+2023-03-19 14:03:52,120 - INFO: 
+Epoch [239/300], Step [200/390], Loss: 0.00795
+2023-03-19 14:03:52,120 - INFO: Time elasped: 31.161636352539062
+2023-03-19 14:04:07,208 - INFO: 
+Epoch [239/300], Step [300/390], Loss: 0.00816
+2023-03-19 14:04:07,209 - INFO: Time elasped: 46.25058197975159
+2023-03-19 14:04:26,705 - INFO: Epoch 239: train loss 0.00851, train acc 0.69940, test acc 0.72350 
+2023-03-19 14:04:26,707 - INFO: Saving custom_model..  with acc 0.7234999537467957 in the epoch 239
+2023-03-19 14:04:43,099 - INFO: 
+Epoch [240/300], Step [100/390], Loss: 0.00964
+2023-03-19 14:04:43,099 - INFO: Time elasped: 16.060479402542114
+2023-03-19 14:04:57,802 - INFO: 
+Epoch [240/300], Step [200/390], Loss: 0.00671
+2023-03-19 14:04:57,809 - INFO: Time elasped: 30.769901752471924
+2023-03-19 14:05:12,524 - INFO: 
+Epoch [240/300], Step [300/390], Loss: 0.00981
+2023-03-19 14:05:12,524 - INFO: Time elasped: 45.48515439033508
+2023-03-19 14:05:31,546 - INFO: Epoch 240: train loss 0.00842, train acc 0.70100, test acc 0.71900 
+2023-03-19 14:05:47,621 - INFO: 
+Epoch [241/300], Step [100/390], Loss: 0.00761
+2023-03-19 14:05:47,622 - INFO: Time elasped: 16.073172569274902
+2023-03-19 14:06:02,541 - INFO: 
+Epoch [241/300], Step [200/390], Loss: 0.00847
+2023-03-19 14:06:02,541 - INFO: Time elasped: 30.9927875995636
+2023-03-19 14:06:17,300 - INFO: 
+Epoch [241/300], Step [300/390], Loss: 0.00929
+2023-03-19 14:06:17,300 - INFO: Time elasped: 45.75134754180908
+2023-03-19 14:06:33,941 - INFO: Epoch 241: train loss 0.00827, train acc 0.70610, test acc 0.72240 
+2023-03-19 14:06:47,191 - INFO: 
+Epoch [242/300], Step [100/390], Loss: 0.00754
+2023-03-19 14:06:47,191 - INFO: Time elasped: 13.246341705322266
+2023-03-19 14:06:59,201 - INFO: 
+Epoch [242/300], Step [200/390], Loss: 0.00733
+2023-03-19 14:06:59,202 - INFO: Time elasped: 25.2569420337677
+2023-03-19 14:07:11,291 - INFO: 
+Epoch [242/300], Step [300/390], Loss: 0.00741
+2023-03-19 14:07:11,292 - INFO: Time elasped: 37.3470356464386
+2023-03-19 14:07:26,888 - INFO: Epoch 242: train loss 0.00827, train acc 0.70606, test acc 0.72030 
+2023-03-19 14:07:40,195 - INFO: 
+Epoch [243/300], Step [100/390], Loss: 0.00839
+2023-03-19 14:07:40,196 - INFO: Time elasped: 13.301172733306885
+2023-03-19 14:07:52,193 - INFO: 
+Epoch [243/300], Step [200/390], Loss: 0.00774
+2023-03-19 14:07:52,193 - INFO: Time elasped: 25.29851746559143
+2023-03-19 14:08:04,247 - INFO: 
+Epoch [243/300], Step [300/390], Loss: 0.00927
+2023-03-19 14:08:04,247 - INFO: Time elasped: 37.35313892364502
+2023-03-19 14:08:19,773 - INFO: Epoch 243: train loss 0.00814, train acc 0.71178, test acc 0.72850 
+2023-03-19 14:08:19,774 - INFO: Saving custom_model..  with acc 0.7285000085830688 in the epoch 243
+2023-03-19 14:08:33,307 - INFO: 
+Epoch [244/300], Step [100/390], Loss: 0.00829
+2023-03-19 14:08:33,307 - INFO: Time elasped: 13.331367492675781
+2023-03-19 14:08:45,437 - INFO: 
+Epoch [244/300], Step [200/390], Loss: 0.00895
+2023-03-19 14:08:45,437 - INFO: Time elasped: 25.461514472961426
+2023-03-19 14:08:57,603 - INFO: 
+Epoch [244/300], Step [300/390], Loss: 0.00746
+2023-03-19 14:08:57,604 - INFO: Time elasped: 37.627872943878174
+2023-03-19 14:09:13,257 - INFO: Epoch 244: train loss 0.00817, train acc 0.71168, test acc 0.72370 
+2023-03-19 14:09:26,314 - INFO: 
+Epoch [245/300], Step [100/390], Loss: 0.00706
+2023-03-19 14:09:26,314 - INFO: Time elasped: 13.051544427871704
+2023-03-19 14:09:38,126 - INFO: 
+Epoch [245/300], Step [200/390], Loss: 0.00882
+2023-03-19 14:09:38,127 - INFO: Time elasped: 24.863914489746094
+2023-03-19 14:09:49,927 - INFO: 
+Epoch [245/300], Step [300/390], Loss: 0.00825
+2023-03-19 14:09:49,927 - INFO: Time elasped: 36.66458487510681
+2023-03-19 14:10:05,616 - INFO: Epoch 245: train loss 0.00806, train acc 0.71328, test acc 0.72400 
+2023-03-19 14:10:18,663 - INFO: 
+Epoch [246/300], Step [100/390], Loss: 0.00865
+2023-03-19 14:10:18,664 - INFO: Time elasped: 13.038397550582886
+2023-03-19 14:10:30,420 - INFO: 
+Epoch [246/300], Step [200/390], Loss: 0.00670
+2023-03-19 14:10:30,421 - INFO: Time elasped: 24.795439958572388
+2023-03-19 14:10:42,292 - INFO: 
+Epoch [246/300], Step [300/390], Loss: 0.00695
+2023-03-19 14:10:42,292 - INFO: Time elasped: 36.666887283325195
+2023-03-19 14:10:58,088 - INFO: Epoch 246: train loss 0.00800, train acc 0.71630, test acc 0.73080 
+2023-03-19 14:10:58,088 - INFO: Saving custom_model..  with acc 0.7307999730110168 in the epoch 246
+2023-03-19 14:11:11,320 - INFO: 
+Epoch [247/300], Step [100/390], Loss: 0.00929
+2023-03-19 14:11:11,327 - INFO: Time elasped: 13.035433053970337
+2023-03-19 14:11:23,068 - INFO: 
+Epoch [247/300], Step [200/390], Loss: 0.00786
+2023-03-19 14:11:23,068 - INFO: Time elasped: 24.776411294937134
+2023-03-19 14:11:34,906 - INFO: 
+Epoch [247/300], Step [300/390], Loss: 0.00804
+2023-03-19 14:11:34,906 - INFO: Time elasped: 36.614633083343506
+2023-03-19 14:11:50,626 - INFO: Epoch 247: train loss 0.00782, train acc 0.72368, test acc 0.72770 
+2023-03-19 14:12:03,708 - INFO: 
+Epoch [248/300], Step [100/390], Loss: 0.00828
+2023-03-19 14:12:03,708 - INFO: Time elasped: 13.078213214874268
+2023-03-19 14:12:15,540 - INFO: 
+Epoch [248/300], Step [200/390], Loss: 0.00775
+2023-03-19 14:12:15,540 - INFO: Time elasped: 24.910770893096924
+2023-03-19 14:12:27,315 - INFO: 
+Epoch [248/300], Step [300/390], Loss: 0.00816
+2023-03-19 14:12:27,316 - INFO: Time elasped: 36.686166286468506
+2023-03-19 14:12:43,059 - INFO: Epoch 248: train loss 0.00779, train acc 0.72446, test acc 0.72330 
+2023-03-19 14:12:56,139 - INFO: 
+Epoch [249/300], Step [100/390], Loss: 0.00672
+2023-03-19 14:12:56,139 - INFO: Time elasped: 13.077330589294434
+2023-03-19 14:13:07,908 - INFO: 
+Epoch [249/300], Step [200/390], Loss: 0.00705
+2023-03-19 14:13:07,908 - INFO: Time elasped: 24.84642481803894
+2023-03-19 14:13:19,751 - INFO: 
+Epoch [249/300], Step [300/390], Loss: 0.00802
+2023-03-19 14:13:19,751 - INFO: Time elasped: 36.68959450721741
+2023-03-19 14:13:35,692 - INFO: Epoch 249: train loss 0.00769, train acc 0.72880, test acc 0.72940 
+2023-03-19 14:13:48,790 - INFO: 
+Epoch [250/300], Step [100/390], Loss: 0.00848
+2023-03-19 14:13:48,790 - INFO: Time elasped: 13.095513105392456
+2023-03-19 14:14:00,562 - INFO: 
+Epoch [250/300], Step [200/390], Loss: 0.00716
+2023-03-19 14:14:00,562 - INFO: Time elasped: 24.86750888824463
+2023-03-19 14:14:12,320 - INFO: 
+Epoch [250/300], Step [300/390], Loss: 0.00765
+2023-03-19 14:14:12,320 - INFO: Time elasped: 36.62564826011658
+2023-03-19 14:14:28,089 - INFO: Epoch 250: train loss 0.00757, train acc 0.73168, test acc 0.72710 
+2023-03-19 14:14:41,165 - INFO: 
+Epoch [251/300], Step [100/390], Loss: 0.00776
+2023-03-19 14:14:41,165 - INFO: Time elasped: 13.070627450942993
+2023-03-19 14:14:52,866 - INFO: 
+Epoch [251/300], Step [200/390], Loss: 0.00692
+2023-03-19 14:14:52,866 - INFO: Time elasped: 24.77137041091919
+2023-03-19 14:15:04,659 - INFO: 
+Epoch [251/300], Step [300/390], Loss: 0.00780
+2023-03-19 14:15:04,660 - INFO: Time elasped: 36.56475901603699
+2023-03-19 14:15:20,371 - INFO: Epoch 251: train loss 0.00757, train acc 0.73078, test acc 0.72520 
+2023-03-19 14:15:33,427 - INFO: 
+Epoch [252/300], Step [100/390], Loss: 0.00612
+2023-03-19 14:15:33,427 - INFO: Time elasped: 13.053285121917725
+2023-03-19 14:15:45,232 - INFO: 
+Epoch [252/300], Step [200/390], Loss: 0.00717
+2023-03-19 14:15:45,232 - INFO: Time elasped: 24.858445405960083
+2023-03-19 14:15:57,101 - INFO: 
+Epoch [252/300], Step [300/390], Loss: 0.00674
+2023-03-19 14:15:57,101 - INFO: Time elasped: 36.72693061828613
+2023-03-19 14:16:12,816 - INFO: Epoch 252: train loss 0.00746, train acc 0.73408, test acc 0.73780 
+2023-03-19 14:16:12,817 - INFO: Saving custom_model..  with acc 0.7378000020980835 in the epoch 252
+2023-03-19 14:16:26,054 - INFO: 
+Epoch [253/300], Step [100/390], Loss: 0.00668
+2023-03-19 14:16:26,054 - INFO: Time elasped: 12.989413261413574
+2023-03-19 14:16:37,797 - INFO: 
+Epoch [253/300], Step [200/390], Loss: 0.00734
+2023-03-19 14:16:37,804 - INFO: Time elasped: 24.739179134368896
+2023-03-19 14:16:49,671 - INFO: 
+Epoch [253/300], Step [300/390], Loss: 0.00766
+2023-03-19 14:16:49,671 - INFO: Time elasped: 36.60628318786621
+2023-03-19 14:17:05,502 - INFO: Epoch 253: train loss 0.00731, train acc 0.74010, test acc 0.73360 
+2023-03-19 14:17:18,620 - INFO: 
+Epoch [254/300], Step [100/390], Loss: 0.00712
+2023-03-19 14:17:18,621 - INFO: Time elasped: 13.115738153457642
+2023-03-19 14:17:30,346 - INFO: 
+Epoch [254/300], Step [200/390], Loss: 0.00614
+2023-03-19 14:17:30,347 - INFO: Time elasped: 24.841736316680908
+2023-03-19 14:17:42,239 - INFO: 
+Epoch [254/300], Step [300/390], Loss: 0.00846
+2023-03-19 14:17:42,239 - INFO: Time elasped: 36.73379302024841
+2023-03-19 14:17:57,975 - INFO: Epoch 254: train loss 0.00731, train acc 0.73970, test acc 0.73340 
+2023-03-19 14:18:11,018 - INFO: 
+Epoch [255/300], Step [100/390], Loss: 0.00751
+2023-03-19 14:18:11,019 - INFO: Time elasped: 13.04094934463501
+2023-03-19 14:18:22,797 - INFO: 
+Epoch [255/300], Step [200/390], Loss: 0.00778
+2023-03-19 14:18:22,797 - INFO: Time elasped: 24.819410800933838
+2023-03-19 14:18:34,749 - INFO: 
+Epoch [255/300], Step [300/390], Loss: 0.00759
+2023-03-19 14:18:34,749 - INFO: Time elasped: 36.771503925323486
+2023-03-19 14:18:50,641 - INFO: Epoch 255: train loss 0.00723, train acc 0.74096, test acc 0.73710 
+2023-03-19 14:19:04,015 - INFO: 
+Epoch [256/300], Step [100/390], Loss: 0.00682
+2023-03-19 14:19:04,016 - INFO: Time elasped: 13.371098756790161
+2023-03-19 14:19:15,777 - INFO: 
+Epoch [256/300], Step [200/390], Loss: 0.00666
+2023-03-19 14:19:15,777 - INFO: Time elasped: 25.132302045822144
+2023-03-19 14:19:27,663 - INFO: 
+Epoch [256/300], Step [300/390], Loss: 0.00904
+2023-03-19 14:19:27,663 - INFO: Time elasped: 37.01838946342468
+2023-03-19 14:19:43,283 - INFO: Epoch 256: train loss 0.00721, train acc 0.74454, test acc 0.74040 
+2023-03-19 14:19:43,284 - INFO: Saving custom_model..  with acc 0.740399956703186 in the epoch 256
+2023-03-19 14:19:56,574 - INFO: 
+Epoch [257/300], Step [100/390], Loss: 0.00717
+2023-03-19 14:19:56,574 - INFO: Time elasped: 13.035197257995605
+2023-03-19 14:20:08,348 - INFO: 
+Epoch [257/300], Step [200/390], Loss: 0.00743
+2023-03-19 14:20:08,356 - INFO: Time elasped: 24.816330194473267
+2023-03-19 14:20:20,191 - INFO: 
+Epoch [257/300], Step [300/390], Loss: 0.00597
+2023-03-19 14:20:20,191 - INFO: Time elasped: 36.65164852142334
+2023-03-19 14:20:36,069 - INFO: Epoch 257: train loss 0.00699, train acc 0.75302, test acc 0.74220 
+2023-03-19 14:20:36,069 - INFO: Saving custom_model..  with acc 0.7421999573707581 in the epoch 257
+2023-03-19 14:20:49,286 - INFO: 
+Epoch [258/300], Step [100/390], Loss: 0.00635
+2023-03-19 14:20:49,286 - INFO: Time elasped: 12.967349290847778
+2023-03-19 14:21:01,031 - INFO: 
+Epoch [258/300], Step [200/390], Loss: 0.00828
+2023-03-19 14:21:01,038 - INFO: Time elasped: 24.719285488128662
+2023-03-19 14:21:12,792 - INFO: 
+Epoch [258/300], Step [300/390], Loss: 0.00744
+2023-03-19 14:21:12,792 - INFO: Time elasped: 36.47349572181702
+2023-03-19 14:21:28,726 - INFO: Epoch 258: train loss 0.00694, train acc 0.75378, test acc 0.74360 
+2023-03-19 14:21:28,727 - INFO: Saving custom_model..  with acc 0.7436000108718872 in the epoch 258
+2023-03-19 14:21:42,041 - INFO: 
+Epoch [259/300], Step [100/390], Loss: 0.00608
+2023-03-19 14:21:42,041 - INFO: Time elasped: 13.071339130401611
+2023-03-19 14:21:53,812 - INFO: 
+Epoch [259/300], Step [200/390], Loss: 0.00647
+2023-03-19 14:21:53,813 - INFO: Time elasped: 24.843162298202515
+2023-03-19 14:22:05,631 - INFO: 
+Epoch [259/300], Step [300/390], Loss: 0.00713
+2023-03-19 14:22:05,631 - INFO: Time elasped: 36.66138768196106
+2023-03-19 14:22:21,436 - INFO: Epoch 259: train loss 0.00696, train acc 0.75216, test acc 0.74050 
+2023-03-19 14:22:34,538 - INFO: 
+Epoch [260/300], Step [100/390], Loss: 0.00603
+2023-03-19 14:22:34,539 - INFO: Time elasped: 13.099748373031616
+2023-03-19 14:22:46,276 - INFO: 
+Epoch [260/300], Step [200/390], Loss: 0.00560
+2023-03-19 14:22:46,276 - INFO: Time elasped: 24.8366379737854
+2023-03-19 14:22:58,139 - INFO: 
+Epoch [260/300], Step [300/390], Loss: 0.00969
+2023-03-19 14:22:58,139 - INFO: Time elasped: 36.69999361038208
+2023-03-19 14:23:13,942 - INFO: Epoch 260: train loss 0.00676, train acc 0.76096, test acc 0.74060 
+2023-03-19 14:23:27,204 - INFO: 
+Epoch [261/300], Step [100/390], Loss: 0.00734
+2023-03-19 14:23:27,205 - INFO: Time elasped: 13.259647130966187
+2023-03-19 14:23:39,015 - INFO: 
+Epoch [261/300], Step [200/390], Loss: 0.00739
+2023-03-19 14:23:39,015 - INFO: Time elasped: 25.070209980010986
+2023-03-19 14:23:50,941 - INFO: 
+Epoch [261/300], Step [300/390], Loss: 0.00505
+2023-03-19 14:23:50,941 - INFO: Time elasped: 36.99583148956299
+2023-03-19 14:24:07,898 - INFO: Epoch 261: train loss 0.00674, train acc 0.76140, test acc 0.74490 
+2023-03-19 14:24:07,898 - INFO: Saving custom_model..  with acc 0.7448999881744385 in the epoch 261
+2023-03-19 14:24:22,084 - INFO: 
+Epoch [262/300], Step [100/390], Loss: 0.00775
+2023-03-19 14:24:22,085 - INFO: Time elasped: 13.95012640953064
+2023-03-19 14:24:34,827 - INFO: 
+Epoch [262/300], Step [200/390], Loss: 0.00579
+2023-03-19 14:24:34,827 - INFO: Time elasped: 26.69269061088562
+2023-03-19 14:24:47,470 - INFO: 
+Epoch [262/300], Step [300/390], Loss: 0.00631
+2023-03-19 14:24:47,471 - INFO: Time elasped: 39.33615732192993
+2023-03-19 14:25:04,572 - INFO: Epoch 262: train loss 0.00661, train acc 0.76488, test acc 0.74910 
+2023-03-19 14:25:04,572 - INFO: Saving custom_model..  with acc 0.7490999698638916 in the epoch 262
+2023-03-19 14:25:18,687 - INFO: 
+Epoch [263/300], Step [100/390], Loss: 0.00575
+2023-03-19 14:25:18,688 - INFO: Time elasped: 13.87896203994751
+2023-03-19 14:25:31,544 - INFO: 
+Epoch [263/300], Step [200/390], Loss: 0.00616
+2023-03-19 14:25:31,545 - INFO: Time elasped: 26.73634123802185
+2023-03-19 14:25:44,244 - INFO: 
+Epoch [263/300], Step [300/390], Loss: 0.00682
+2023-03-19 14:25:44,244 - INFO: Time elasped: 39.43550682067871
+2023-03-19 14:26:01,430 - INFO: Epoch 263: train loss 0.00660, train acc 0.76622, test acc 0.74920 
+2023-03-19 14:26:01,430 - INFO: Saving custom_model..  with acc 0.7491999864578247 in the epoch 263
+2023-03-19 14:26:15,717 - INFO: 
+Epoch [264/300], Step [100/390], Loss: 0.00701
+2023-03-19 14:26:15,718 - INFO: Time elasped: 14.01833438873291
+2023-03-19 14:26:27,972 - INFO: 
+Epoch [264/300], Step [200/390], Loss: 0.00741
+2023-03-19 14:26:27,972 - INFO: Time elasped: 26.27238368988037
+2023-03-19 14:26:39,689 - INFO: 
+Epoch [264/300], Step [300/390], Loss: 0.00816
+2023-03-19 14:26:39,689 - INFO: Time elasped: 37.98964977264404
+2023-03-19 14:26:58,321 - INFO: Epoch 264: train loss 0.00642, train acc 0.76946, test acc 0.74940 
+2023-03-19 14:26:58,322 - INFO: Saving custom_model..  with acc 0.7493999600410461 in the epoch 264
+2023-03-19 14:27:16,092 - INFO: 
+Epoch [265/300], Step [100/390], Loss: 0.00590
+2023-03-19 14:27:16,093 - INFO: Time elasped: 17.515807628631592
+2023-03-19 14:27:32,420 - INFO: 
+Epoch [265/300], Step [200/390], Loss: 0.00573
+2023-03-19 14:27:32,420 - INFO: Time elasped: 33.843443632125854
+2023-03-19 14:27:48,539 - INFO: 
+Epoch [265/300], Step [300/390], Loss: 0.00922
+2023-03-19 14:27:48,540 - INFO: Time elasped: 49.962804317474365
+2023-03-19 14:28:10,037 - INFO: Epoch 265: train loss 0.00644, train acc 0.77288, test acc 0.74620 
+2023-03-19 14:28:27,648 - INFO: 
+Epoch [266/300], Step [100/390], Loss: 0.00556
+2023-03-19 14:28:27,648 - INFO: Time elasped: 17.605194091796875
+2023-03-19 14:28:43,762 - INFO: 
+Epoch [266/300], Step [200/390], Loss: 0.00670
+2023-03-19 14:28:43,762 - INFO: Time elasped: 33.7188355922699
+2023-03-19 14:28:59,594 - INFO: 
+Epoch [266/300], Step [300/390], Loss: 0.00493
+2023-03-19 14:28:59,594 - INFO: Time elasped: 49.55116105079651
+2023-03-19 14:29:20,808 - INFO: Epoch 266: train loss 0.00637, train acc 0.77250, test acc 0.75000 
+2023-03-19 14:29:20,808 - INFO: Saving custom_model..  with acc 0.75 in the epoch 266
+2023-03-19 14:29:38,568 - INFO: 
+Epoch [267/300], Step [100/390], Loss: 0.00772
+2023-03-19 14:29:38,568 - INFO: Time elasped: 17.51389217376709
+2023-03-19 14:29:54,307 - INFO: 
+Epoch [267/300], Step [200/390], Loss: 0.00611
+2023-03-19 14:29:54,307 - INFO: Time elasped: 33.252646684646606
+2023-03-19 14:30:10,450 - INFO: 
+Epoch [267/300], Step [300/390], Loss: 0.00529
+2023-03-19 14:30:10,450 - INFO: Time elasped: 49.395272731781006
+2023-03-19 14:30:31,486 - INFO: Epoch 267: train loss 0.00628, train acc 0.77698, test acc 0.75510 
+2023-03-19 14:30:31,486 - INFO: Saving custom_model..  with acc 0.7550999522209167 in the epoch 267
+2023-03-19 14:30:49,321 - INFO: 
+Epoch [268/300], Step [100/390], Loss: 0.00534
+2023-03-19 14:30:49,321 - INFO: Time elasped: 17.614038467407227
+2023-03-19 14:31:05,528 - INFO: 
+Epoch [268/300], Step [200/390], Loss: 0.00779
+2023-03-19 14:31:05,529 - INFO: Time elasped: 33.82147264480591
+2023-03-19 14:31:21,415 - INFO: 
+Epoch [268/300], Step [300/390], Loss: 0.00530
+2023-03-19 14:31:21,415 - INFO: Time elasped: 49.708123445510864
+2023-03-19 14:31:42,614 - INFO: Epoch 268: train loss 0.00631, train acc 0.77608, test acc 0.75190 
+2023-03-19 14:31:59,927 - INFO: 
+Epoch [269/300], Step [100/390], Loss: 0.00569
+2023-03-19 14:31:59,927 - INFO: Time elasped: 17.310364961624146
+2023-03-19 14:32:16,081 - INFO: 
+Epoch [269/300], Step [200/390], Loss: 0.00653
+2023-03-19 14:32:16,081 - INFO: Time elasped: 33.464237451553345
+2023-03-19 14:32:32,341 - INFO: 
+Epoch [269/300], Step [300/390], Loss: 0.00648
+2023-03-19 14:32:32,341 - INFO: Time elasped: 49.7246618270874
+2023-03-19 14:32:53,459 - INFO: Epoch 269: train loss 0.00604, train acc 0.78524, test acc 0.75380 
+2023-03-19 14:33:11,009 - INFO: 
+Epoch [270/300], Step [100/390], Loss: 0.00608
+2023-03-19 14:33:11,010 - INFO: Time elasped: 17.547239303588867
+2023-03-19 14:33:26,989 - INFO: 
+Epoch [270/300], Step [200/390], Loss: 0.00533
+2023-03-19 14:33:26,989 - INFO: Time elasped: 33.52672505378723
+2023-03-19 14:33:42,837 - INFO: 
+Epoch [270/300], Step [300/390], Loss: 0.00700
+2023-03-19 14:33:42,837 - INFO: Time elasped: 49.37485861778259
+2023-03-19 14:34:03,810 - INFO: Epoch 270: train loss 0.00608, train acc 0.78496, test acc 0.75070 
+2023-03-19 14:34:21,285 - INFO: 
+Epoch [271/300], Step [100/390], Loss: 0.00685
+2023-03-19 14:34:21,286 - INFO: Time elasped: 17.474172592163086
+2023-03-19 14:34:37,679 - INFO: 
+Epoch [271/300], Step [200/390], Loss: 0.00511
+2023-03-19 14:34:37,680 - INFO: Time elasped: 33.867634773254395
+2023-03-19 14:34:53,886 - INFO: 
+Epoch [271/300], Step [300/390], Loss: 0.00532
+2023-03-19 14:34:53,886 - INFO: Time elasped: 50.07371473312378
+2023-03-19 14:35:15,177 - INFO: Epoch 271: train loss 0.00597, train acc 0.78882, test acc 0.75330 
+2023-03-19 14:35:32,779 - INFO: 
+Epoch [272/300], Step [100/390], Loss: 0.00604
+2023-03-19 14:35:32,779 - INFO: Time elasped: 17.59552836418152
+2023-03-19 14:35:48,369 - INFO: 
+Epoch [272/300], Step [200/390], Loss: 0.00691
+2023-03-19 14:35:48,369 - INFO: Time elasped: 33.18588137626648
+2023-03-19 14:36:03,298 - INFO: 
+Epoch [272/300], Step [300/390], Loss: 0.00609
+2023-03-19 14:36:03,298 - INFO: Time elasped: 48.11463737487793
+2023-03-19 14:36:22,573 - INFO: Epoch 272: train loss 0.00588, train acc 0.79142, test acc 0.75140 
+2023-03-19 14:36:38,690 - INFO: 
+Epoch [273/300], Step [100/390], Loss: 0.00618
+2023-03-19 14:36:38,697 - INFO: Time elasped: 16.11771059036255
+2023-03-19 14:36:53,707 - INFO: 
+Epoch [273/300], Step [200/390], Loss: 0.00580
+2023-03-19 14:36:53,707 - INFO: Time elasped: 31.12763261795044
+2023-03-19 14:37:08,470 - INFO: 
+Epoch [273/300], Step [300/390], Loss: 0.00606
+2023-03-19 14:37:08,470 - INFO: Time elasped: 45.890671491622925
+2023-03-19 14:37:27,705 - INFO: Epoch 273: train loss 0.00586, train acc 0.79266, test acc 0.75630 
+2023-03-19 14:37:27,708 - INFO: Saving custom_model..  with acc 0.7562999725341797 in the epoch 273
+2023-03-19 14:37:44,070 - INFO: 
+Epoch [274/300], Step [100/390], Loss: 0.00564
+2023-03-19 14:37:44,071 - INFO: Time elasped: 16.11467671394348
+2023-03-19 14:37:58,858 - INFO: 
+Epoch [274/300], Step [200/390], Loss: 0.00554
+2023-03-19 14:37:58,865 - INFO: Time elasped: 30.9090416431427
+2023-03-19 14:38:13,583 - INFO: 
+Epoch [274/300], Step [300/390], Loss: 0.00473
+2023-03-19 14:38:13,584 - INFO: Time elasped: 45.627440214157104
+2023-03-19 14:38:32,527 - INFO: Epoch 274: train loss 0.00578, train acc 0.79424, test acc 0.75460 
+2023-03-19 14:38:48,655 - INFO: 
+Epoch [275/300], Step [100/390], Loss: 0.00524
+2023-03-19 14:38:48,655 - INFO: Time elasped: 16.121808528900146
+2023-03-19 14:39:03,514 - INFO: 
+Epoch [275/300], Step [200/390], Loss: 0.00520
+2023-03-19 14:39:03,514 - INFO: Time elasped: 30.98064351081848
+2023-03-19 14:39:18,197 - INFO: 
+Epoch [275/300], Step [300/390], Loss: 0.00521
+2023-03-19 14:39:18,198 - INFO: Time elasped: 45.66421175003052
+2023-03-19 14:39:35,345 - INFO: Epoch 275: train loss 0.00579, train acc 0.79562, test acc 0.75650 
+2023-03-19 14:39:35,345 - INFO: Saving custom_model..  with acc 0.7565000057220459 in the epoch 275
+2023-03-19 14:39:48,883 - INFO: 
+Epoch [276/300], Step [100/390], Loss: 0.00704
+2023-03-19 14:39:48,883 - INFO: Time elasped: 13.285387992858887
+2023-03-19 14:40:00,765 - INFO: 
+Epoch [276/300], Step [200/390], Loss: 0.00587
+2023-03-19 14:40:00,772 - INFO: Time elasped: 25.174309968948364
+2023-03-19 14:40:12,805 - INFO: 
+Epoch [276/300], Step [300/390], Loss: 0.00475
+2023-03-19 14:40:12,805 - INFO: Time elasped: 37.20728635787964
+2023-03-19 14:40:28,693 - INFO: Epoch 276: train loss 0.00570, train acc 0.79878, test acc 0.76210 
+2023-03-19 14:40:28,693 - INFO: Saving custom_model..  with acc 0.7620999813079834 in the epoch 276
+2023-03-19 14:40:42,581 - INFO: 
+Epoch [277/300], Step [100/390], Loss: 0.00599
+2023-03-19 14:40:42,582 - INFO: Time elasped: 13.648589372634888
+2023-03-19 14:40:54,724 - INFO: 
+Epoch [277/300], Step [200/390], Loss: 0.00495
+2023-03-19 14:40:54,731 - INFO: Time elasped: 25.798154592514038
+2023-03-19 14:41:06,711 - INFO: 
+Epoch [277/300], Step [300/390], Loss: 0.00457
+2023-03-19 14:41:06,711 - INFO: Time elasped: 37.77774119377136
+2023-03-19 14:41:22,279 - INFO: Epoch 277: train loss 0.00560, train acc 0.80238, test acc 0.76100 
+2023-03-19 14:41:35,518 - INFO: 
+Epoch [278/300], Step [100/390], Loss: 0.00447
+2023-03-19 14:41:35,518 - INFO: Time elasped: 13.23631477355957
+2023-03-19 14:41:47,590 - INFO: 
+Epoch [278/300], Step [200/390], Loss: 0.00553
+2023-03-19 14:41:47,590 - INFO: Time elasped: 25.308269262313843
+2023-03-19 14:41:59,582 - INFO: 
+Epoch [278/300], Step [300/390], Loss: 0.00530
+2023-03-19 14:41:59,582 - INFO: Time elasped: 37.30034565925598
+2023-03-19 14:42:15,151 - INFO: Epoch 278: train loss 0.00562, train acc 0.80218, test acc 0.76140 
+2023-03-19 14:42:30,641 - INFO: 
+Epoch [279/300], Step [100/390], Loss: 0.00466
+2023-03-19 14:42:30,641 - INFO: Time elasped: 15.48795199394226
+2023-03-19 14:42:45,648 - INFO: 
+Epoch [279/300], Step [200/390], Loss: 0.00761
+2023-03-19 14:42:45,648 - INFO: Time elasped: 30.49510908126831
+2023-03-19 14:43:00,497 - INFO: 
+Epoch [279/300], Step [300/390], Loss: 0.00580
+2023-03-19 14:43:00,498 - INFO: Time elasped: 45.344823122024536
+2023-03-19 14:43:19,743 - INFO: Epoch 279: train loss 0.00558, train acc 0.80450, test acc 0.76060 
+2023-03-19 14:43:35,941 - INFO: 
+Epoch [280/300], Step [100/390], Loss: 0.00550
+2023-03-19 14:43:35,942 - INFO: Time elasped: 16.195567846298218
+2023-03-19 14:43:50,797 - INFO: 
+Epoch [280/300], Step [200/390], Loss: 0.00513
+2023-03-19 14:43:50,797 - INFO: Time elasped: 31.05078935623169
+2023-03-19 14:44:05,709 - INFO: 
+Epoch [280/300], Step [300/390], Loss: 0.00543
+2023-03-19 14:44:05,709 - INFO: Time elasped: 45.96305012702942
+2023-03-19 14:44:24,757 - INFO: Epoch 280: train loss 0.00550, train acc 0.80626, test acc 0.75830 
+2023-03-19 14:44:40,975 - INFO: 
+Epoch [281/300], Step [100/390], Loss: 0.00500
+2023-03-19 14:44:40,975 - INFO: Time elasped: 16.21520161628723
+2023-03-19 14:44:55,799 - INFO: 
+Epoch [281/300], Step [200/390], Loss: 0.00626
+2023-03-19 14:44:55,800 - INFO: Time elasped: 31.03981041908264
+2023-03-19 14:45:10,758 - INFO: 
+Epoch [281/300], Step [300/390], Loss: 0.00586
+2023-03-19 14:45:10,758 - INFO: Time elasped: 45.99796795845032
+2023-03-19 14:45:30,228 - INFO: Epoch 281: train loss 0.00546, train acc 0.80778, test acc 0.76400 
+2023-03-19 14:45:30,229 - INFO: Saving custom_model..  with acc 0.7639999985694885 in the epoch 281
+2023-03-19 14:45:46,713 - INFO: 
+Epoch [282/300], Step [100/390], Loss: 0.00568
+2023-03-19 14:45:46,714 - INFO: Time elasped: 16.266249656677246
+2023-03-19 14:46:01,708 - INFO: 
+Epoch [282/300], Step [200/390], Loss: 0.00446
+2023-03-19 14:46:01,708 - INFO: Time elasped: 31.260728359222412
+2023-03-19 14:46:16,491 - INFO: 
+Epoch [282/300], Step [300/390], Loss: 0.00464
+2023-03-19 14:46:16,491 - INFO: Time elasped: 46.0432915687561
+2023-03-19 14:46:35,538 - INFO: Epoch 282: train loss 0.00539, train acc 0.81042, test acc 0.76100 
+2023-03-19 14:46:51,722 - INFO: 
+Epoch [283/300], Step [100/390], Loss: 0.00495
+2023-03-19 14:46:51,722 - INFO: Time elasped: 16.174756050109863
+2023-03-19 14:47:06,581 - INFO: 
+Epoch [283/300], Step [200/390], Loss: 0.00574
+2023-03-19 14:47:06,582 - INFO: Time elasped: 31.034454345703125
+2023-03-19 14:47:21,313 - INFO: 
+Epoch [283/300], Step [300/390], Loss: 0.00530
+2023-03-19 14:47:21,313 - INFO: Time elasped: 45.76627039909363
+2023-03-19 14:47:40,322 - INFO: Epoch 283: train loss 0.00532, train acc 0.81432, test acc 0.76340 
+2023-03-19 14:47:56,303 - INFO: 
+Epoch [284/300], Step [100/390], Loss: 0.00516
+2023-03-19 14:47:56,303 - INFO: Time elasped: 15.975196599960327
+2023-03-19 14:48:11,090 - INFO: 
+Epoch [284/300], Step [200/390], Loss: 0.00507
+2023-03-19 14:48:11,090 - INFO: Time elasped: 30.76189947128296
+2023-03-19 14:48:25,856 - INFO: 
+Epoch [284/300], Step [300/390], Loss: 0.00477
+2023-03-19 14:48:25,856 - INFO: Time elasped: 45.528156042099
+2023-03-19 14:48:44,888 - INFO: Epoch 284: train loss 0.00533, train acc 0.81150, test acc 0.76280 
+2023-03-19 14:49:00,897 - INFO: 
+Epoch [285/300], Step [100/390], Loss: 0.00585
+2023-03-19 14:49:00,897 - INFO: Time elasped: 16.002869606018066
+2023-03-19 14:49:15,686 - INFO: 
+Epoch [285/300], Step [200/390], Loss: 0.00639
+2023-03-19 14:49:15,686 - INFO: Time elasped: 30.791271686553955
+2023-03-19 14:49:30,495 - INFO: 
+Epoch [285/300], Step [300/390], Loss: 0.00649
+2023-03-19 14:49:30,495 - INFO: Time elasped: 45.600924015045166
+2023-03-19 14:49:49,634 - INFO: Epoch 285: train loss 0.00534, train acc 0.81116, test acc 0.76000 
+2023-03-19 14:50:05,668 - INFO: 
+Epoch [286/300], Step [100/390], Loss: 0.00519
+2023-03-19 14:50:05,669 - INFO: Time elasped: 16.024603843688965
+2023-03-19 14:50:20,600 - INFO: 
+Epoch [286/300], Step [200/390], Loss: 0.00497
+2023-03-19 14:50:20,601 - INFO: Time elasped: 30.956554651260376
+2023-03-19 14:50:35,561 - INFO: 
+Epoch [286/300], Step [300/390], Loss: 0.00477
+2023-03-19 14:50:35,562 - INFO: Time elasped: 45.917343854904175
+2023-03-19 14:50:55,208 - INFO: Epoch 286: train loss 0.00526, train acc 0.81390, test acc 0.76360 
+2023-03-19 14:51:11,573 - INFO: 
+Epoch [287/300], Step [100/390], Loss: 0.00541
+2023-03-19 14:51:11,573 - INFO: Time elasped: 16.362185955047607
+2023-03-19 14:51:26,400 - INFO: 
+Epoch [287/300], Step [200/390], Loss: 0.00420
+2023-03-19 14:51:26,400 - INFO: Time elasped: 31.189556121826172
+2023-03-19 14:51:41,240 - INFO: 
+Epoch [287/300], Step [300/390], Loss: 0.00524
+2023-03-19 14:51:41,240 - INFO: Time elasped: 46.02946758270264
+2023-03-19 14:52:00,223 - INFO: Epoch 287: train loss 0.00526, train acc 0.81462, test acc 0.76490 
+2023-03-19 14:52:00,223 - INFO: Saving custom_model..  with acc 0.7648999691009521 in the epoch 287
+2023-03-19 14:52:16,497 - INFO: 
+Epoch [288/300], Step [100/390], Loss: 0.00448
+2023-03-19 14:52:16,497 - INFO: Time elasped: 16.035839557647705
+2023-03-19 14:52:31,452 - INFO: 
+Epoch [288/300], Step [200/390], Loss: 0.00604
+2023-03-19 14:52:31,452 - INFO: Time elasped: 30.991281747817993
+2023-03-19 14:52:46,215 - INFO: 
+Epoch [288/300], Step [300/390], Loss: 0.00460
+2023-03-19 14:52:46,222 - INFO: Time elasped: 45.76068115234375
+2023-03-19 14:53:05,433 - INFO: Epoch 288: train loss 0.00522, train acc 0.81612, test acc 0.76650 
+2023-03-19 14:53:05,436 - INFO: Saving custom_model..  with acc 0.7664999961853027 in the epoch 288
+2023-03-19 14:53:21,807 - INFO: 
+Epoch [289/300], Step [100/390], Loss: 0.00429
+2023-03-19 14:53:21,807 - INFO: Time elasped: 16.118915557861328
+2023-03-19 14:53:36,652 - INFO: 
+Epoch [289/300], Step [200/390], Loss: 0.00577
+2023-03-19 14:53:36,652 - INFO: Time elasped: 30.96442222595215
+2023-03-19 14:53:51,481 - INFO: 
+Epoch [289/300], Step [300/390], Loss: 0.00511
+2023-03-19 14:53:51,488 - INFO: Time elasped: 45.799641370773315
+2023-03-19 14:54:10,534 - INFO: Epoch 289: train loss 0.00523, train acc 0.81510, test acc 0.76240 
+2023-03-19 14:54:26,618 - INFO: 
+Epoch [290/300], Step [100/390], Loss: 0.00643
+2023-03-19 14:54:26,618 - INFO: Time elasped: 16.078287839889526
+2023-03-19 14:54:41,533 - INFO: 
+Epoch [290/300], Step [200/390], Loss: 0.00494
+2023-03-19 14:54:41,533 - INFO: Time elasped: 30.99351477622986
+2023-03-19 14:54:56,219 - INFO: 
+Epoch [290/300], Step [300/390], Loss: 0.00643
+2023-03-19 14:54:56,219 - INFO: Time elasped: 45.679253578186035
+2023-03-19 14:55:15,341 - INFO: Epoch 290: train loss 0.00520, train acc 0.81738, test acc 0.76150 
+2023-03-19 14:55:31,499 - INFO: 
+Epoch [291/300], Step [100/390], Loss: 0.00489
+2023-03-19 14:55:31,500 - INFO: Time elasped: 16.15208864212036
+2023-03-19 14:55:46,495 - INFO: 
+Epoch [291/300], Step [200/390], Loss: 0.00586
+2023-03-19 14:55:46,495 - INFO: Time elasped: 31.147292613983154
+2023-03-19 14:56:01,530 - INFO: 
+Epoch [291/300], Step [300/390], Loss: 0.00635
+2023-03-19 14:56:01,537 - INFO: Time elasped: 46.18914532661438
+2023-03-19 14:56:20,985 - INFO: Epoch 291: train loss 0.00519, train acc 0.81668, test acc 0.76620 
+2023-03-19 14:56:37,025 - INFO: 
+Epoch [292/300], Step [100/390], Loss: 0.00497
+2023-03-19 14:56:37,025 - INFO: Time elasped: 16.034369945526123
+2023-03-19 14:56:49,031 - INFO: 
+Epoch [292/300], Step [200/390], Loss: 0.00370
+2023-03-19 14:56:49,031 - INFO: Time elasped: 28.040323495864868
+2023-03-19 14:57:01,076 - INFO: 
+Epoch [292/300], Step [300/390], Loss: 0.00594
+2023-03-19 14:57:01,083 - INFO: Time elasped: 40.09244418144226
+2023-03-19 14:57:16,609 - INFO: Epoch 292: train loss 0.00515, train acc 0.81786, test acc 0.76540 
+2023-03-19 14:57:29,936 - INFO: 
+Epoch [293/300], Step [100/390], Loss: 0.00565
+2023-03-19 14:57:29,936 - INFO: Time elasped: 13.323483943939209
+2023-03-19 14:57:41,898 - INFO: 
+Epoch [293/300], Step [200/390], Loss: 0.00524
+2023-03-19 14:57:41,898 - INFO: Time elasped: 25.285334825515747
+2023-03-19 14:57:53,948 - INFO: 
+Epoch [293/300], Step [300/390], Loss: 0.00555
+2023-03-19 14:57:53,948 - INFO: Time elasped: 37.335039377212524
+2023-03-19 14:58:09,522 - INFO: Epoch 293: train loss 0.00518, train acc 0.81786, test acc 0.76500 
+2023-03-19 14:58:22,838 - INFO: 
+Epoch [294/300], Step [100/390], Loss: 0.00429
+2023-03-19 14:58:22,838 - INFO: Time elasped: 13.31347942352295
+2023-03-19 14:58:34,839 - INFO: 
+Epoch [294/300], Step [200/390], Loss: 0.00445
+2023-03-19 14:58:34,839 - INFO: Time elasped: 25.314289331436157
+2023-03-19 14:58:46,815 - INFO: 
+Epoch [294/300], Step [300/390], Loss: 0.00596
+2023-03-19 14:58:46,816 - INFO: Time elasped: 37.29106616973877
+2023-03-19 14:59:02,364 - INFO: Epoch 294: train loss 0.00514, train acc 0.81864, test acc 0.76420 
+2023-03-19 14:59:15,619 - INFO: 
+Epoch [295/300], Step [100/390], Loss: 0.00450
+2023-03-19 14:59:15,619 - INFO: Time elasped: 13.253658056259155
+2023-03-19 14:59:27,658 - INFO: 
+Epoch [295/300], Step [200/390], Loss: 0.00541
+2023-03-19 14:59:27,658 - INFO: Time elasped: 25.29265308380127
+2023-03-19 14:59:41,583 - INFO: 
+Epoch [295/300], Step [300/390], Loss: 0.00513
+2023-03-19 14:59:41,590 - INFO: Time elasped: 39.224311113357544
+2023-03-19 15:00:00,679 - INFO: Epoch 295: train loss 0.00515, train acc 0.82092, test acc 0.76620 
+2023-03-19 15:00:16,865 - INFO: 
+Epoch [296/300], Step [100/390], Loss: 0.00594
+2023-03-19 15:00:16,865 - INFO: Time elasped: 16.183728218078613
+2023-03-19 15:00:31,689 - INFO: 
+Epoch [296/300], Step [200/390], Loss: 0.00461
+2023-03-19 15:00:31,689 - INFO: Time elasped: 31.007500171661377
+2023-03-19 15:00:46,710 - INFO: 
+Epoch [296/300], Step [300/390], Loss: 0.00779
+2023-03-19 15:00:46,710 - INFO: Time elasped: 46.028796434402466
+2023-03-19 15:01:05,859 - INFO: Epoch 296: train loss 0.00510, train acc 0.82246, test acc 0.76420 
+2023-03-19 15:01:23,252 - INFO: 
+Epoch [297/300], Step [100/390], Loss: 0.00454
+2023-03-19 15:01:23,253 - INFO: Time elasped: 17.383944511413574
+2023-03-19 15:01:39,552 - INFO: 
+Epoch [297/300], Step [200/390], Loss: 0.00425
+2023-03-19 15:01:39,552 - INFO: Time elasped: 33.683587074279785
+2023-03-19 15:01:55,780 - INFO: 
+Epoch [297/300], Step [300/390], Loss: 0.00422
+2023-03-19 15:01:55,781 - INFO: Time elasped: 49.912100076675415
+2023-03-19 15:02:16,793 - INFO: Epoch 297: train loss 0.00513, train acc 0.82018, test acc 0.76470 
+2023-03-19 15:02:34,377 - INFO: 
+Epoch [298/300], Step [100/390], Loss: 0.00513
+2023-03-19 15:02:34,377 - INFO: Time elasped: 17.58224582672119
+2023-03-19 15:02:50,454 - INFO: 
+Epoch [298/300], Step [200/390], Loss: 0.00651
+2023-03-19 15:02:50,454 - INFO: Time elasped: 33.65924096107483
+2023-03-19 15:03:06,398 - INFO: 
+Epoch [298/300], Step [300/390], Loss: 0.00338
+2023-03-19 15:03:06,398 - INFO: Time elasped: 49.60273814201355
+2023-03-19 15:03:27,862 - INFO: Epoch 298: train loss 0.00513, train acc 0.81950, test acc 0.76670 
+2023-03-19 15:03:27,864 - INFO: Saving custom_model..  with acc 0.7666999697685242 in the epoch 298
+2023-03-19 15:03:45,642 - INFO: 
+Epoch [299/300], Step [100/390], Loss: 0.00428
+2023-03-19 15:03:45,642 - INFO: Time elasped: 17.537540912628174
+2023-03-19 15:04:01,617 - INFO: 
+Epoch [299/300], Step [200/390], Loss: 0.00585
+2023-03-19 15:04:01,617 - INFO: Time elasped: 33.51268553733826
+2023-03-19 15:04:17,802 - INFO: 
+Epoch [299/300], Step [300/390], Loss: 0.00606
+2023-03-19 15:04:17,802 - INFO: Time elasped: 49.69789528846741
+2023-03-19 15:04:38,993 - INFO: Epoch 299: train loss 0.00514, train acc 0.81938, test acc 0.76770 
+2023-03-19 15:04:38,995 - INFO: Saving custom_model..  with acc 0.7676999568939209 in the epoch 299
+2023-03-19 15:04:39,215 - INFO: Finish training: the best validation accuracy of SNN is 0.7676999568939209 in epoch 299. 
+ The relate checkpoint path: ./checkpoint/cifar100_cut_aug-snn_t2_resnet18_act_mns_sig_width_5.0-opt_sgdm_tdbn_wd_0.0005_p_0.2__gamma_1.0__cas_4.pth
