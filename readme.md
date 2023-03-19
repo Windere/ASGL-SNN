@@ -16,11 +16,6 @@ python main.py --seed 60 --arch resnet18  --auto_aug --cutout --wd 5e-4 --datase
 ASGL using the above hyperparameters achieve a performance of 76.76% on the CIFAR-100 dataset under 2 time steps (higher than the reported performance in the manuscript) even for an aggressive width setting $\alpha=5$. The corresponding checkpoint and log file could be found in ./checkpoint and ./log, respectively.
 
 4. Some explanation for hyper-parameters
-
       * --p: the noise probability which denotes the ratio of analog mode
-   
-   
       * --gamma: the decay rate of $p$ during training
-   
-   
       * --ns_milestone: the milestones to adjust $p$
