@@ -1,6 +1,8 @@
-# Reproduce Tips for ASGL 
+# Adaptive Smoothing Gradient Learning for Spiking Neural Networks
 
 ---
+
+This repository contains an Pytorch Implementation of Adaptive Smoothing Gradient Learning for Spiking Neural Networks, ICML 2023.
 
 ## Tips:
 
@@ -24,3 +26,23 @@ ASGL using the above hyperparameters achieve a performance of 76.76% on the CIFA
    
    
       * --ns_milestone: the milestones to adjust $p$
+
+## Citation info: 
+
+Please cite this paper using the following BibTeX entry if you find this work useful for your research.
+
+```tex
+@inproceedings{wang2023adaptive,
+  title={Adaptive Smoothing Gradient Learning for Spiking Neural Networks},
+  author={Wang, Ziming and Jiang, Runhao and Lian, Shuang and Yan, Rui and Tang, Huajin},
+  booktitle={International Conference on Machine Learning},
+  organization={PMLR}
+}
+```
+
+## Updating ...
+
+
+
+
+
