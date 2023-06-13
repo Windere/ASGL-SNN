@@ -2,7 +2,7 @@
 
 ---
 
-This repository contains an Pytorch Implementation of Adaptive Smoothing Gradient Learning for Spiking Neural Networks, ICML 2023.
+This repository contains an Pytorch Implementation of **Adaptive Smoothing Gradient Learning for Spiking Neural Networks, ICML 2023**.
 
 ## Tips:
 
