@@ -8,7 +8,7 @@ This repository contains an Pytorch Implementation of Adaptive Smoothing Gradien
 
 1. The surrogate forwarding functions $H_\alpha(x)$ could be found in model/activation
 
-2. The implementation of hybrid forwarding with spike noise $\hat{H}_\alpha(\boldsymbol{x})=(1-\boldsymbol{m}) \odot H_\alpha(\boldsymbol{x})+\boldsymbol{m} \odot \Phi(\Theta(\boldsymbol{x}))$ could be found in the python class  model/activation/EfficientNoisySpikeII
+2. The implementation of hybrid forwarding with spike noise $\hat{H}_\alpha(\mathbf{x})=(1-\mathbf{m}) \odot H_\alpha(\mathbf{x})+\mathbf{m} \odot \Phi(\Theta(\mathbf{x}))$ could be found in the python class  model/activation/EfficientNoisySpikeII
 
 3. Try to reproduce the results on the CIFAR-100 dataset with the following command:
 
@@ -18,13 +18,8 @@ python main.py --seed 60 --arch resnet18  --auto_aug --cutout --wd 5e-4 --datase
 ASGL using the above hyperparameters achieve a performance of 76.76% on the CIFAR-100 dataset under 2 time steps (higher than the reported performance in the manuscript) even for an aggressive width setting $\alpha=5$. The corresponding checkpoint and log file could be found in ./checkpoint and ./log, respectively.
 
 4. Some explanation for hyper-parameters
-
-   * --p: the noise probability which denotes the ratio of analog mode
-   
-   
+      * --p: the noise probability which denotes the ratio of analog mode
       * --gamma: the decay rate of $p$ during training
-   
-   
       * --ns_milestone: the milestones to adjust $p$
 
 ## Citation info: 
@@ -41,8 +36,4 @@ Please cite this paper using the following BibTeX entry if you find this work us
 ```
 
 ## Updating ...
-
-
-
-
 
